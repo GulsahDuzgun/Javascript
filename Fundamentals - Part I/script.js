@@ -1,3 +1,27 @@
+//Equality Operators == vs ===
+
+const num = 24;
+console.log(num);
+if (num !== 24) {
+  console.log("Strict operator || Number");
+} else if (num === "24") {
+  console.log("Strict operator || String");
+} else if (num == "24") {
+  console.log("Loose operator || String");
+}
+
+const val = prompt("What's your favorite number?");
+console.log(typeof val, val);
+
+if (val === 27) {
+  console.log("It is 27");
+} else if (val == 7) {
+  console.log("It is 7");
+} else if (val != 7) {
+  console.log("It is not 7");
+}
+
+/*
 //Truthy and Falsy Values
 //--> 5 falsy values: 0 ,'', undefined, null, NaN;
 console.log(Boolean(0));
@@ -13,6 +37,7 @@ if (money) {
 } else {
   console.log("Get a job 🤡");
 }
+*/
 
 /*
 //type conversion
