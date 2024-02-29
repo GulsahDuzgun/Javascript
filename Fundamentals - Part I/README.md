@@ -13,5 +13,7 @@
 > - _plus sign is convert to string however minus, divide and multiplication sign is convert to number,_
 > - _truthy and falsy values,_
 > - _equality operators == vs === ,_
+> - _boolean logic and logical operators,_
+> - _The switch Statement ,_
 >
 > #

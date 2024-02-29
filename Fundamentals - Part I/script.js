@@ -1,3 +1,40 @@
+//The switch Statement
+
+const day = "thursday";
+
+switch (day) {
+  case "monday":
+    console.log(`Today is ${day}`);
+  case "tuesday":
+    console.log(`Today is ${day}`);
+    break;
+  case "wednesday":
+    console.log(`Today is ${day}`);
+    break;
+  case "thursday":
+    console.log(`Today is my favorite`);
+  case "friday":
+    console.log(`Today is friday`);
+    break;
+  default:
+    console.log("Today can be saturday or sunday 😁");
+    break;
+}
+
+if (day === "monday") {
+  console.log(`Today is ${day}`);
+} else if (day === "tuesday") {
+  console.log(`Today is ${day}`);
+} else if (day === "wednesday") {
+  console.log(`Today is ${day}`);
+} else if (day === "friday" || day === "thursday") {
+  console.log(`Today is my favorite`);
+  console.log(`Today is friday`);
+} else {
+  console.log("Today can be saturday or sunday 😁");
+}
+
+/*
 //Equality Operators == vs ===
 
 const num = 24;
@@ -20,6 +57,7 @@ if (val === 27) {
 } else if (val != 7) {
   console.log("It is not 7");
 }
+*/
 
 /*
 //Truthy and Falsy Values
