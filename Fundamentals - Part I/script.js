@@ -21,6 +21,8 @@ console.log(n + "4"); //194
 console.log(n + 5); //24
 console.log(n - "5"); //14
 console.log("9" + n - "5"); //914
+console.log(2 + 3 + 4 + "5"); //95
+console.log("10" - "4" - "3" - 2 + "5"); //15
 
 /*
 // If-else Statements
