@@ -1,3 +1,19 @@
+//The Conditional(Ternary) Operator
+const favPet = "dog";
+
+const declaration = favPet ? "dog 🐕‍🦺" : "cat 😼";
+console.log(declaration);
+console.log(`Conditional Operator | My favorite animal is ${declaration}`);
+
+let temp;
+if (favPet === "dog") {
+  temp = "dog 🐕‍🦺";
+} else {
+  temp = "cat 😼";
+}
+console.log(`if-else | My favorite animal is ${temp}`);
+
+/*
 //The switch Statement
 
 const day = "thursday";
@@ -33,7 +49,7 @@ if (day === "monday") {
 } else {
   console.log("Today can be saturday or sunday 😁");
 }
-
+*/
 /*
 //Equality Operators == vs ===
 

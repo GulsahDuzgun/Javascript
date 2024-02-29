@@ -15,5 +15,7 @@
 > - _equality operators == vs === ,_
 > - _boolean logic and logical operators,_
 > - _The switch Statement ,_
+> - _Statements don't produce any value as expressions do produce some value and it can be called in template literals with {$x},_
+> - _The Conditional(Ternary) Operator,_
 >
 > #
