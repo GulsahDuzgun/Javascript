@@ -9,5 +9,7 @@
 > - _operator precedence in Javascript_
 > - _difference between String and Template Literals,_
 > - _if-else statements,_
+> - _type conversion (explicit convert) and type coercion(implicit conver) ,_
+> - _plus sign is convert to string however minus, divide and multiplication sign is convert to number,_
 >
 > #

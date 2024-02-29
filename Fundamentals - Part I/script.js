@@ -1,3 +1,28 @@
+//type conversion
+let inputYear = "2000";
+console.log(typeof inputYear);
+console.log(typeof Number(inputYear));
+
+inputYear = Number(inputYear);
+console.log(inputYear + 24);
+console.log(inputYear + "24");
+console.log(inputYear - "24");
+console.log(inputYear / "24");
+console.log(inputYear * "24");
+
+let firstName = "Gülşah";
+const num = Number(firstName);
+console.log(num);
+console.log(typeof num);
+
+//type coercion
+let n = 19;
+console.log(n + "4"); //194
+console.log(n + 5); //24
+console.log(n - "5"); //14
+console.log("9" + n - "5"); //914
+
+/*
 // If-else Statements
 
 const age = 14;
@@ -19,7 +44,7 @@ if (year >= 2000) {
   ceuntry = 20;
 }
 console.log(ceuntry);
-
+*/
 /*
 //String and Template Literals
 const city = "İstanbul";
