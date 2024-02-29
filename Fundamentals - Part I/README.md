@@ -11,5 +11,6 @@
 > - _if-else statements,_
 > - _type conversion (explicit convert) and type coercion(implicit conver) ,_
 > - _plus sign is convert to string however minus, divide and multiplication sign is convert to number,_
+> - _truthy and falsy values,_
 >
 > #
