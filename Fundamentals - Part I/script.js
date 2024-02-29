@@ -1,5 +1,27 @@
-//String and Template Literals
+// If-else Statements
 
+const age = 14;
+const isAgeEnough = age >= 18;
+
+if (isAgeEnough) {
+  console.log(`Sarah can take driver test`);
+} else {
+  let difAge = 18 - age;
+  console.log(`Sarah is too young. Wait another ${difAge} years`);
+}
+
+const year = 2024;
+let ceuntry;
+
+if (year >= 2000) {
+  ceuntry = 21;
+} else {
+  ceuntry = 20;
+}
+console.log(ceuntry);
+
+/*
+//String and Template Literals
 const city = "İstanbul";
 const age = 24;
 const firstName = "Gülşah";
@@ -24,7 +46,7 @@ const spreadString2 = `Hello,
 
 console.log(spreadString);
 console.log(spreadString2);
-
+*/
 /*
 //-----LET, CONST AND VAR-----
 
