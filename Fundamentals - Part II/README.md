@@ -3,5 +3,6 @@
 > #
 >
 > - _strict mode how to use and what is it used for,_
+> - _usage of function in Javascript,_
 >
 > #
