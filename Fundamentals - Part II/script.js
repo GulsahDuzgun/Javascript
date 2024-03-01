@@ -1,14 +1,31 @@
-//----- Function declaration and expression -----
+//----- Arrow Functions -----
 
+const haveMoney = function (bill) {
+  return 500 - bill > 0 ? true : false;
+};
+
+const haveMoneyArr = (bill) => (500 - bill > 0 ? true : false);
+console.log(haveMoneyArr(700));
+
+const haveMoneyArr2 = (bill, fees) => {
+  return 500 - (bill + fees) > 0 ? "I have money" : "I need a job";
+};
+console.log(haveMoneyArr2(900, 200));
+
+/*
+//----- Function declaration and expression -----
 console.log(calcAge1(2000));
 function calcAge1(birthYear) {
+  //declaration
   return 2025 - birthYear;
 }
 
 console.log(calcAge2(2000));
 const calcAge2 = function (birthYear) {
+  //expression
   return 2025 - birthYear;
 };
+*/
 
 /*
 //----- Functions -----
