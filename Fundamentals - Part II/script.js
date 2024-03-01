@@ -30,6 +30,22 @@ console.log(cities);
 // cities = ["Istanbul"];
 // console.log(cities);
 
+const firstname = "Gülşah";
+const me = [firstname, 24, "Düzgün", cities];
+console.log(me);
+
+const birthYears = [1997, 2008, 2018, 2000];
+const calcAge = (birthYear) => 2025 - birthYear;
+console.log(birthYears);
+
+const newArr = [
+  calcAge(birthYears[0]),
+  calcAge(birthYears[1]),
+  calcAge(birthYears[2]),
+  calcAge(birthYears[3]),
+];
+console.log(newArr);
+
 /*
 //----- Reviewing Functions -----
 
