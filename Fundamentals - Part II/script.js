@@ -1,3 +1,36 @@
+//----- Introductions to Array -- Part I -----
+
+const friend = "Micheal";
+const friend2 = "Steven";
+
+const friends = ["Micheal", "Steven", "Peter"];
+const cities = new Array(
+  "Roma",
+  "Münih",
+  "Amsterdam",
+  "Helsinki",
+  "Oslo",
+  "Londra",
+  "Liverpool",
+  "Edinburg",
+  "Manchester"
+);
+
+const list = ["apple", 2, "grapes", 3];
+console.log(list);
+
+console.log(friends);
+console.log(friends[0]);
+console.log(cities.length);
+console.log(cities[cities.length - 1]); //last element
+
+console.log(cities);
+cities[1] = "Melbourne";
+console.log(cities);
+// cities = ["Istanbul"];
+// console.log(cities);
+
+/*
 //----- Reviewing Functions -----
 
 const calcAge = (bYear) => 2025 - bYear;
@@ -14,7 +47,9 @@ function yearsUntilRetirement(birthYear) {
 console.log(yearsUntilRetirement(2018));
 console.log(yearsUntilRetirement(1930));
 
+*/
 /*
+
 //----- Functions Calling Other Functions -----
 
 // function calcTotal(m1, m2, m3) {
