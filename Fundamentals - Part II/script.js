@@ -1,3 +1,20 @@
+//----- Reviewing Functions -----
+
+const calcAge = (bYear) => 2025 - bYear;
+
+function yearsUntilRetirement(birthYear) {
+  const age = calcAge(birthYear);
+
+  console.log("Hello,");
+  return age >= 65
+    ? "You are already retired"
+    : `You should work ${65 - age} years more`;
+}
+
+console.log(yearsUntilRetirement(2018));
+console.log(yearsUntilRetirement(1930));
+
+/*
 //----- Functions Calling Other Functions -----
 
 // function calcTotal(m1, m2, m3) {
@@ -12,6 +29,7 @@ function totalCostPer1(meal1, meal2, meal3, count) {
 const calcTotal = (m1, m2, m3) => m1 + m2 + m3;
 
 console.log(totalCostPer1(200, 300, 320, 5));
+*/
 
 /*
 //----- Arrow Functions -----
