@@ -6,5 +6,6 @@
 > - _usage of function in Javascript,_
 > - _difference between function expression and function decleration ,_
 > - _arrow functions,_
+> - _functions calling other functions ,_
 >
 > #
