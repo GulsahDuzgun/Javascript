@@ -1,4 +1,17 @@
-//Functions
+//----- Function declaration and expression -----
+
+console.log(calcAge1(2000));
+function calcAge1(birthYear) {
+  return 2025 - birthYear;
+}
+
+console.log(calcAge2(2000));
+const calcAge2 = function (birthYear) {
+  return 2025 - birthYear;
+};
+
+/*
+//----- Functions -----
 
 function logName() {
   console.log("My name is Gülşah");
@@ -16,7 +29,7 @@ function fruitProcessor(grapes, apple) {
 
 const ingredients = fruitProcessor("3kg", 4); //arguments
 console.log(ingredients);
-
+*/
 /*
 //-----Strict Mode-----
 "use strict";
