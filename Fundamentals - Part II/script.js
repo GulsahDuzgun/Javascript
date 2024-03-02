@@ -1,3 +1,21 @@
+//----- Introduction to Objects  -----
+
+const myInfo = [
+  "Gülşah",
+  "Düzgün",
+  2024 - 2000,
+  ["Micheal", "Steven", "Peter"],
+];
+
+const myInfoObject = {
+  firstname: "Gülşah",
+  lastname: "Düzgün",
+  age: 2024 - 2000,
+  job: "software engineer",
+  friends: ["Micheal", "Steven", "Peter"],
+};
+
+/*
 //----- Array Operations -----
 const friends = ["Micheal", "Steven", "Peter"];
 
@@ -25,6 +43,8 @@ console.log(friends.includes("Robin")); //false
 console.log(friends.indexOf("Robin")); //-1
 console.log(friends.indexOf("Steven"));
 
+
+*/
 /*
 //----- Introductions to Array -- Part I -----
 
