@@ -7,5 +7,7 @@
 > - _difference between function expression and function decleration ,_
 > - _arrow functions,_
 > - _functions calling other functions ,_
+> - _push() and unshift() methods in Array,_
+> - _pop() and shift() methods in Array,_
 >
 > #

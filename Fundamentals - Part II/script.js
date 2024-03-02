@@ -1,3 +1,26 @@
+//----- Array Operations -----
+const friends = ["Micheal", "Steven", "Peter"];
+
+friends.push("Lily");
+console.log(friends.push("Barney")); //push returns the lenght of the array
+console.log(friends);
+
+friends.unshift("Robin");
+console.log(friends);
+console.log(friends.unshift("Marshall")); //unshift returns the lenght of the array
+console.log(friends);
+
+friends.pop();
+console.log(friends.pop()); //pop returns the element which it removed at the end of the array
+console.log(friends);
+
+friends.shift();
+console.log(friends);
+
+console.log(friends.shift()); //shift returns the element which it removed at the start of the array
+console.log(friends);
+
+/*
 //----- Introductions to Array -- Part I -----
 
 const friend = "Micheal";
@@ -45,6 +68,7 @@ const newArr = [
   calcAge(birthYears[3]),
 ];
 console.log(newArr);
+*/
 
 /*
 //----- Reviewing Functions -----
