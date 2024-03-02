@@ -1,3 +1,32 @@
+//----- Dot vs Bracket Notation in Objects -----
+
+const myInfoObject = {
+  firstName: "Gülşah",
+  lastName: "Düzgün",
+  age: 2024 - 2000,
+  job: "software engineer",
+  friends: ["Micheal", "Steven", "Peter"],
+};
+
+const temp = "Name";
+console.log(myInfoObject.age);
+console.log(myInfoObject.firstName);
+console.log(myInfoObject["friends"]);
+console.log(myInfoObject["last" + temp]);
+
+const interestedIn = prompt(
+  "What do you want to know about ME? Choose between firstName, lastName, age, job and friends"
+);
+
+if (myInfoObject[interestedIn]) {
+  console.log(myInfoObject[interestedIn]);
+} else {
+  console.log(
+    "Please, choose between options and make sure to write it properly"
+  );
+}
+
+/*
 //----- Introduction to Objects  -----
 
 const myInfo = [
@@ -14,6 +43,9 @@ const myInfoObject = {
   job: "software engineer",
   friends: ["Micheal", "Steven", "Peter"],
 };
+
+
+*/
 
 /*
 //----- Array Operations -----

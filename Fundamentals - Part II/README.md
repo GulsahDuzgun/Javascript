@@ -10,6 +10,6 @@
 > - _push() and unshift() methods in Array,_
 > - _pop() and shift() methods in Array,_
 > - _indexOf() and includes() methods in Array,_
-> - _objects,_
+> - _dot and bracket notation in objects,_
 >
 > #
