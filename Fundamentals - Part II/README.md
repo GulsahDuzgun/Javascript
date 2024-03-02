@@ -9,5 +9,6 @@
 > - _functions calling other functions ,_
 > - _push() and unshift() methods in Array,_
 > - _pop() and shift() methods in Array,_
+> - _indexOf() and includes() methods in Array,_
 >
 > #

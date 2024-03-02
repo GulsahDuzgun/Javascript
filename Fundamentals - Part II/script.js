@@ -20,6 +20,11 @@ console.log(friends);
 console.log(friends.shift()); //shift returns the element which it removed at the start of the array
 console.log(friends);
 
+console.log(friends.includes("Steven"));
+console.log(friends.includes("Robin")); //false
+console.log(friends.indexOf("Robin")); //-1
+console.log(friends.indexOf("Steven"));
+
 /*
 //----- Introductions to Array -- Part I -----
 
