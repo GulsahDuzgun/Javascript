@@ -13,7 +13,7 @@ console.log(myInfoObject.age);
 console.log(myInfoObject.firstName);
 console.log(myInfoObject["friends"]);
 console.log(myInfoObject["last" + temp]);
-
+/*
 const interestedIn = prompt(
   "What do you want to know about ME? Choose between firstName, lastName, age, job and friends"
 );
@@ -25,6 +25,16 @@ if (myInfoObject[interestedIn]) {
     "Please, choose between options and make sure to write it properly"
   );
 }
+*/
+//ADD property:value to an object
+
+myInfoObject.country = "Turkey";
+myInfoObject["sister"] = 3;
+console.log(myInfoObject);
+
+console.log(
+  `${myInfoObject.firstName} has ${myInfoObject.friends.length} friends (${myInfoObject.friends})  and her best friend is called ${myInfoObject.friends[0]}`
+);
 
 /*
 //----- Introduction to Objects  -----
