@@ -15,12 +15,22 @@ const myInfoObject = {
   // calcAge: function (birthYear) {
   //   return 2025 - birthYear;
   // },
+
+  printInfo: function () {
+    return `${this.firstName} is a ${
+      this.job
+    } and she is  ${this.calcAge()}. She has ${
+      this.hasDriversLicense ? "a" : "no"
+    } driver's license.`;
+  },
 };
 
 console.log(myInfoObject.calcAge);
 console.log(myInfoObject.calcAge());
 console.log(myInfoObject.age);
 console.log(myInfoObject["calcAge"]());
+console.log(myInfoObject.printInfo);
+console.log(myInfoObject.printInfo());
 
 /*
 //----- Dot vs Bracket Notation in Objects -----
