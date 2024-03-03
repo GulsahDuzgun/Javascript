@@ -2,11 +2,14 @@
 const myInfoObject = {
   firstName: "Gülşah",
   lastName: "Düzgün",
+  birthYear: 2000,
+  hasDriversLicense: false,
   job: "software engineer",
   friends: ["Micheal", "Steven", "Peter"],
 
-  calcAge: (birthYear) => {
-    return 2025 - birthYear;
+  calcAge: function () {
+    this.age = 2025 - this.birthYear;
+    return this.age;
   },
 
   // calcAge: function (birthYear) {
@@ -15,8 +18,9 @@ const myInfoObject = {
 };
 
 console.log(myInfoObject.calcAge);
-console.log(myInfoObject.calcAge(2000));
-console.log(myInfoObject["calcAge"](2000));
+console.log(myInfoObject.calcAge());
+console.log(myInfoObject.age);
+console.log(myInfoObject["calcAge"]());
 
 /*
 //----- Dot vs Bracket Notation in Objects -----
