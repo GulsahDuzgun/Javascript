@@ -1,3 +1,24 @@
+//----- Object Methods-----
+const myInfoObject = {
+  firstName: "Gülşah",
+  lastName: "Düzgün",
+  job: "software engineer",
+  friends: ["Micheal", "Steven", "Peter"],
+
+  calcAge: (birthYear) => {
+    return 2025 - birthYear;
+  },
+
+  // calcAge: function (birthYear) {
+  //   return 2025 - birthYear;
+  // },
+};
+
+console.log(myInfoObject.calcAge);
+console.log(myInfoObject.calcAge(2000));
+console.log(myInfoObject["calcAge"](2000));
+
+/*
 //----- Dot vs Bracket Notation in Objects -----
 
 const myInfoObject = {
@@ -13,7 +34,7 @@ console.log(myInfoObject.age);
 console.log(myInfoObject.firstName);
 console.log(myInfoObject["friends"]);
 console.log(myInfoObject["last" + temp]);
-/*
+
 const interestedIn = prompt(
   "What do you want to know about ME? Choose between firstName, lastName, age, job and friends"
 );
@@ -25,7 +46,7 @@ if (myInfoObject[interestedIn]) {
     "Please, choose between options and make sure to write it properly"
   );
 }
-*/
+
 //ADD property:value to an object
 
 myInfoObject.country = "Turkey";
@@ -35,6 +56,8 @@ console.log(myInfoObject);
 console.log(
   `${myInfoObject.firstName} has ${myInfoObject.friends.length} friends (${myInfoObject.friends})  and her best friend is called ${myInfoObject.friends[0]}`
 );
+
+*/
 
 /*
 //----- Introduction to Objects  -----
