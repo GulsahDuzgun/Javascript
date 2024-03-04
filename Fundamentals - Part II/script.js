@@ -1,4 +1,33 @@
+//----- continue And break -----
+
+const myInfo = [
+  "Gülşah",
+  "Düzgün",
+  2024 - 2000,
+  ["Micheal", "Steven", "Peter"],
+  false,
+  "software engineer",
+];
+
+for (let i = 0; i < myInfo.length; i++) {
+  // if (typeof myInfo[i] !== "string") {
+  //   continue;
+  // }
+  if (typeof myInfo[i] !== "string") continue;
+  console.log(typeof myInfo[i]);
+}
+
+/*
 //----- Looping Arrays, Breaking and Continuing -----
+
+const years = [2018, 2007, 2000, 1997];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2025 - years[i]);
+}
+console.log(ages);
+
 const myInfo = [
   "Gülşah",
   "Düzgün",
@@ -22,6 +51,8 @@ for (let i = 0; i < myInfo.length; i++) {
 console.log(arr2);
 console.log(arr);
 console.log(types);
+
+*/
 
 /*
 //----- The for Loop -----
