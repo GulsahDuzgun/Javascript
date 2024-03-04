@@ -1,4 +1,4 @@
-//----- Looping Arrays , Breaking and Continuing -----
+//----- Looping Arrays, Breaking and Continuing -----
 const myInfo = [
   "Gülşah",
   "Düzgün",
@@ -8,9 +8,20 @@ const myInfo = [
   "software engineer",
 ];
 
+const arr = new Array();
+const arr2 = [];
+const types = [];
+
 for (let i = 0; i < myInfo.length; i++) {
+  arr.push(typeof myInfo[i]);
+  arr2.unshift(typeof myInfo[i]);
+  types[i] = typeof myInfo[i];
   console.log(myInfo[i], typeof myInfo[i]);
 }
+
+console.log(arr2);
+console.log(arr);
+console.log(types);
 
 /*
 //----- The for Loop -----
