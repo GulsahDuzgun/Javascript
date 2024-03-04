@@ -11,5 +11,6 @@
 > - _pop() and shift() methods in Array,_
 > - _indexOf() and includes() methods in Array,_
 > - _dot and bracket notation in objects,_
+> - _this keyword in objects ,_
 >
 > #

@@ -1,3 +1,10 @@
+//----- The for Loop -----
+
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🏋️‍♂️`);
+}
+
+/*
 //----- Object Methods-----
 const myInfoObject = {
   firstName: "Gülşah",
@@ -31,7 +38,7 @@ console.log(myInfoObject.age);
 console.log(myInfoObject["calcAge"]());
 console.log(myInfoObject.printInfo);
 console.log(myInfoObject.printInfo());
-
+*/
 /*
 //----- Dot vs Bracket Notation in Objects -----
 
