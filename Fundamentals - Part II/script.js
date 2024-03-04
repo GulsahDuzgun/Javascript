@@ -3,17 +3,28 @@
 const myInfo = [
   "Gülşah",
   "Düzgün",
+  false,
   2024 - 2000,
   ["Micheal", "Steven", "Peter"],
-  false,
   "software engineer",
 ];
+
+console.log("----- continue -----");
 
 for (let i = 0; i < myInfo.length; i++) {
   // if (typeof myInfo[i] !== "string") {
   //   continue;
   // }
   if (typeof myInfo[i] !== "string") continue;
+  console.log(typeof myInfo[i]);
+}
+
+console.log("----- break -----");
+
+for (let i = 0; i < myInfo.length; i++) {
+  if (typeof myInfo[i] === "number") {
+    break;
+  }
   console.log(typeof myInfo[i]);
 }
 

@@ -12,5 +12,6 @@
 > - _indexOf() and includes() methods in Array,_
 > - _dot and bracket notation in objects,_
 > - _this keyword in objects ,_
+> - _break and continue in loops ,_
 >
 > #
