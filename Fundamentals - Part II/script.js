@@ -1,3 +1,26 @@
+//----- Looping Backwards and Loops in Loops -----
+const myInfo = [
+  "Gülşah",
+  "Düzgün",
+  false,
+  2024 - 2000,
+  ["Micheal", "Steven", "Peter"],
+  "software engineer",
+];
+
+for (let i = myInfo.length - 1; i >= 0; i--) {
+  console.log(`${i} ---> ${myInfo[i]}`);
+}
+
+for (let exc = 1; exc < 4; exc++) {
+  console.log(`----- Exercise ${exc} -----`);
+
+  for (let i = 1; i <= 6; i++) {
+    console.log(`${exc}. exercise is lifting ${i}kg weights`);
+  }
+}
+
+/*
 //----- continue And break -----
 
 const myInfo = [
@@ -27,6 +50,7 @@ for (let i = 0; i < myInfo.length; i++) {
   }
   console.log(typeof myInfo[i]);
 }
+*/
 
 /*
 //----- Looping Arrays, Breaking and Continuing -----
