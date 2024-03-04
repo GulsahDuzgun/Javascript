@@ -1,3 +1,19 @@
+//----- The while Loop -----
+let counter = 0;
+while (counter <= 5) {
+  console.log(counter);
+  counter++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+while (dice !== 6) {
+  console.log(`You rolled ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+
+  if (dice === 6) console.log("Game over");
+}
+
+/*
 //----- Looping Backwards and Loops in Loops -----
 const myInfo = [
   "Gülşah",
@@ -19,6 +35,7 @@ for (let exc = 1; exc < 4; exc++) {
     console.log(`${exc}. exercise is lifting ${i}kg weights`);
   }
 }
+*/
 
 /*
 //----- continue And break -----
