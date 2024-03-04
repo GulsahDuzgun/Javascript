@@ -1,8 +1,24 @@
+//----- Looping Arrays , Breaking and Continuing -----
+const myInfo = [
+  "Gülşah",
+  "Düzgün",
+  2024 - 2000,
+  ["Micheal", "Steven", "Peter"],
+  false,
+  "software engineer",
+];
+
+for (let i = 0; i < myInfo.length; i++) {
+  console.log(myInfo[i], typeof myInfo[i]);
+}
+
+/*
 //----- The for Loop -----
 
 for (let rep = 1; rep <= 10; rep++) {
   console.log(`Lifting weights repetition ${rep} 🏋️‍♂️`);
 }
+*/
 
 /*
 //----- Object Methods-----
