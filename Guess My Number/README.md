@@ -9,7 +9,7 @@
 > - _addEventListener('event', functionExpression(){}) ,_
 > - _querySelector() returns an object, textContent and value return string ,_
 > - _Math.random(), Math.trunc() functions ,_
-> - _ ,_
+> - _how to manipulate element's style with javascript ,_
 > - _ ,_
 >
 > #
