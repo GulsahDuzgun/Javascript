@@ -8,5 +8,8 @@
 > - _difference between value() and textContent() function ,_
 > - _addEventListener('event', functionExpression(){}) ,_
 > - _querySelector() returns an object, textContent and value return string ,_
+> - _Math.random(), Math.trunc() functions ,_
+> - _ ,_
+> - _ ,_
 >
 > #
