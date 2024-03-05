@@ -6,11 +6,12 @@ const checkBox = document.querySelector('.guess');
 const secretNumBox = document.querySelector('.number');
 const scoreBox = document.querySelector('.score');
 const body = document.querySelector('body');
+const againBtn = document.querySelector('.again');
 
 //0-19 arasında random satı üretirken 1 ekleyerek 1-20 arasında olmasını sağladık
-const secretNum = Math.trunc(Math.random() * 20) + 1;
+let secretNum = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
-secretNumBox.textContent = secretNum;
+console.log(secretNum);
 
 btnCheck.addEventListener('click', function () {
   const checkVal = Number(checkBox.value);
@@ -20,6 +21,8 @@ btnCheck.addEventListener('click', function () {
   } else if (checkVal === secretNum) {
     messageBox.textContent = 'Congratulations 🎉';
     body.style.backgroundColor = '#60b347';
+    secretNumBox.textContent = secretNum;
+
     secretNumBox.style.width = '30rem';
   } else if (checkVal > secretNum) {
     messageBox.textContent = 'Too high 📈';
@@ -43,6 +46,18 @@ btnCheck.addEventListener('click', function () {
 
   scoreBox.textContent = score;
   // console.log(checkVal, typeof checkVal);
+});
+
+againBtn.addEventListener('click', function () {
+  score = 20;
+  secretNum = Math.trunc(Math.random() * 20 + 1);
+  console.log(secretNum);
+  scoreBox.textContent = score;
+  secretNumBox.textContent = '?';
+  messageBox.textContent = ' Start guessing...';
+  checkBox.value = '';
+  body.style.backgroundColor = '#222';
+  secretNumBox.style.width = '15rem';
 });
 
 //console.log(btnCheck, typeof btnCheck);
