@@ -15,13 +15,17 @@ let score = 20;
 let highScore = 0;
 console.log(secretNum);
 
+const displayMessage = function (message) {
+  messageBox.textContent = message;
+};
+
 btnCheck.addEventListener('click', function () {
   const checkVal = Number(checkBox.value);
 
   if (!checkVal) {
-    messageBox.textContent = 'No number 🤡';
+    displayMessage('No number 🤡');
   } else if (checkVal === secretNum) {
-    messageBox.textContent = 'Congratulations 🎉';
+    displayMessage('Congratulations 🎉');
     body.style.backgroundColor = '#60b347';
     secretNumBox.textContent = secretNum;
 
@@ -31,25 +35,35 @@ btnCheck.addEventListener('click', function () {
     }
 
     secretNumBox.style.width = '30rem';
-  } else if (checkVal > secretNum) {
-    messageBox.textContent = 'Too high 📈';
+  } else if (checkVal !== secretNum) {
+    displayMessage(checkVal > secretNum ? 'Too high 📈' : 'Too low 📉');
 
     if (score > 1) {
       score--;
     } else {
       score = 0;
-      messageBox.textContent = 'You lost the game';
-    }
-  } else if (checkVal < secretNum) {
-    messageBox.textContent = 'Too low 📉';
-
-    if (score > 1) {
-      score--;
-    } else {
-      score = 0;
-      messageBox.textContent = 'You lost the game';
+      displayMessage('You lost the game');
     }
   }
+  //  else if (checkVal > secretNum) {
+  //   messageBox.textContent = 'Too high 📈';
+
+  //   if (score > 1) {
+  //     score--;
+  //   } else {
+  //     score = 0;
+  //     messageBox.textContent = 'You lost the game';
+  //   }
+  // } else if (checkVal < secretNum) {
+  //   messageBox.textContent = 'Too low 📉';
+
+  //   if (score > 1) {
+  //     score--;
+  //   } else {
+  //     score = 0;
+  //     messageBox.textContent = 'You lost the game';
+  //   }
+  // }
 
   scoreBox.textContent = score;
   // console.log(checkVal, typeof checkVal);
