@@ -7,10 +7,12 @@ const secretNumBox = document.querySelector('.number');
 const scoreBox = document.querySelector('.score');
 const body = document.querySelector('body');
 const againBtn = document.querySelector('.again');
+const highScoreBox = document.querySelector('.highscore');
 
 //0-19 arasında random satı üretirken 1 ekleyerek 1-20 arasında olmasını sağladık
 let secretNum = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highScore = 0;
 console.log(secretNum);
 
 btnCheck.addEventListener('click', function () {
@@ -22,6 +24,11 @@ btnCheck.addEventListener('click', function () {
     messageBox.textContent = 'Congratulations 🎉';
     body.style.backgroundColor = '#60b347';
     secretNumBox.textContent = secretNum;
+
+    if (score > highScore) {
+      highScore = score;
+      highScoreBox.textContent = highScore;
+    }
 
     secretNumBox.style.width = '30rem';
   } else if (checkVal > secretNum) {
