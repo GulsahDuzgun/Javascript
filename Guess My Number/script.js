@@ -1,4 +1,20 @@
 'use strict';
+
+const btnCheck = document.querySelector('.check');
+const messageBox = document.querySelector('.message');
+const checkBox = document.querySelector('.guess');
+
+btnCheck.addEventListener('click', function () {
+  const checkVal = Number(checkBox.value);
+
+  if (!checkVal) messageBox.textContent = 'Not correct number 🤡';
+
+  console.log(checkVal, typeof checkVal);
+});
+
+//console.log(btnCheck, typeof btnCheck);
+
+/*
 //----- Selecting and Manipulating Elements -----
 
 const number = document.querySelector('.number');
@@ -12,6 +28,7 @@ const inputNum2 = (document.querySelector('.left .guess').textContent = 30);
 
 console.log(inputNum);
 console.log(inputNum2);
+*/
 
 /*
 //----- DOM -----
