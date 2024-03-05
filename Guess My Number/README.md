@@ -10,6 +10,6 @@
 > - _querySelector() returns an object, textContent and value return string ,_
 > - _Math.random(), Math.trunc() functions ,_
 > - _how to manipulate element's style with javascript ,_
-> - _ ,_
+> - _how to refactor code ,_
 >
 > #
