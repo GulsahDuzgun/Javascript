@@ -15,24 +15,55 @@ const player1 = document.querySelector('.player--1');
 
 let tempScore = 0;
 let activePlayer = 0;
+let playFlag = true;
 
 score0.textContent = 0;
 score1.textContent = 0;
 dice.classList.add('hidden');
 
-btnRoll.addEventListener('click', function () {
-  const randNum = Math.trunc(Math.random() * 6) + 1;
-  dice.src = `./dice-${randNum}.png`;
-  dice.classList.remove('hidden');
+const scores = [0, 0];
 
-  if (randNum !== 1) {
-    tempScore += randNum;
-    document.getElementById(`current--${activePlayer}`).textContent = tempScore;
-  } else {
-    tempScore = 0;
-    document.getElementById(`current--${activePlayer}`).textContent = tempScore;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    player0.classList.toggle('player--active');
-    player1.classList.toggle('player--active');
+const changeActivePlayer = function () {
+  tempScore = 0;
+  document.getElementById(`current--${activePlayer}`).textContent = tempScore;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0.classList.toggle('player--active');
+  player1.classList.toggle('player--active');
+};
+
+btnRoll.addEventListener('click', function () {
+  if (playFlag) {
+    const randNum = Math.trunc(Math.random() * 6) + 1;
+    dice.src = `./dice-${randNum}.png`;
+    dice.classList.remove('hidden');
+
+    if (randNum !== 1) {
+      tempScore += randNum;
+      document.getElementById(`current--${activePlayer}`).textContent =
+        tempScore;
+    } else {
+      changeActivePlayer();
+    }
+  }
+});
+
+btnHold.addEventListener('click', function () {
+  if (playFlag) {
+    scores[`${activePlayer}`] += tempScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[`${activePlayer}`];
+    // console.log(scores);
+    if (scores[`${activePlayer}`] >= 20) {
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+      playFlag = false;
+      dice.classList.add('hidden');
+    } else {
+      changeActivePlayer();
+    }
   }
 });
