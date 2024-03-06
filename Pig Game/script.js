@@ -67,3 +67,22 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+btnNew.addEventListener('click', function () {
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--winner');
+  scores[0] = 0;
+  scores[1] = 0;
+  tempScore = 0;
+  activePlayer = 0;
+  playFlag = true;
+  score0.textContent = 0;
+  score1.textContent = 0;
+  current0.textContent = 0;
+  current1.textContent = 0;
+  player0.classList.add('player--active');
+  // player0.classList.contains('player--winner')
+  //   ? player0.classList.remove('player--winner')
+  //   : player1.classList.remove('player-winner');
+});
