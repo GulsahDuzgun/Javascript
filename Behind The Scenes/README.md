@@ -10,7 +10,21 @@
 > - _How does Javascript Engine work? At first code is parsed into a data structure called the abstract syntax tree or AST(Parsing Step). And then the generated AST compiles into machine code(Compilation Step).And this machine code get executed right away. Modern javascript engine use just-in-time compilation(Execution). Execution happens in the javascript engines call stack. Also javascript engine have some optimization strategies. It want to be able to execute code immediately, So while it was executing machine code meanwhile the machine code being optimized and recompiled during the program execution. After each optimization the unoptimized code is swept with optimized code,_
 > - _What is Javascript Runtime? It is a container box which is including all the things that we need to use Javascript. Javascript Runtime consist of Javascript Engine(Heap + Call Stack), WEB APIs, Callback Queue ,_
 > - _What is WEB APIs? WEB APIs(DOM, Fetch API, Timers, vs.) are functionalities provided to the engine but they aren't part of the Javascript language itself , they are part of Javascript Runtime. Javascript gets access to these APIs through the global window object. ,_
-> - _What is Callback Queue? It is a data structure that contains all the callback functions that are ready to be executed. When call stack is empty, the callback function is passed to the stack so that it can be executed. This is called the event loop.The Event Loop takes callback functions from the callback queue and puts them in the call stack so they can be executed,_
->   _What the difference between Javascript Runtime in Browser, Javascript Runtime in Node.js? Node.js Runtime also has JS Engine(Heap + Call Stack), Callback Queue but doesn't have WEB APIs. Because WEB APIs are provided by Browser. Instead of WEB APIs Node.js has C++ bindings and thread pool ,_
+> - _What is Callback Queue? It is a data structure that contains all the callback functions that are ready to be executed. When call stack is empty, the callback function is passed to the stack so that it can be executed. This is called the event loop.The Event Loop takes callback functions from the callback queue and puts them in the call stack so they can be executed,_ > _What the difference between Javascript Runtime in Browser, Javascript Runtime in Node.js? Node.js Runtime also has JS Engine(Heap + Call Stack), Callback Queue but doesn't have WEB APIs. Because WEB APIs are provided by Browser. Instead of WEB APIs Node.js has C++ bindings and thread pool ,_
+> - _What is Global Execution Context? It is created for top-level code. Top-level code is code which is not inside of any functions. Functions are executed when they are called. for calling function In global execution context holds functions' name but doesn't hold function body.,_
+> - _What is Execution Context? Environment in which a piece pf Javascript is executed. Stores all the necessary information for some code to be executed. Such as local variables and arguments passed into a function. Javascript code always runs inside an execution context. ,_
+> - _In any Javascript project there is only one global execution context. It is always there as default context and where top-level code will execute. When the top-level code are executed, functions start to be executed.Each every functions and methods call create its own execution context. ,_
+>
+> -What's inside execution context
+>
+> - 1- Variable Environment:
+>   - let, const and var declarations,
+>   - Functions,
+>   - Arguments object -all the arguments that were passed into the function. -
+> - 2 -Scope Chain - consist of references to variables that are located outside of the current function.-
+> - 3- this keyword:
+>   Execution context is generated right before execution. Arrow functions' execution context doesn't contain this keyword and arguments object.Instead they can use the arguments object ans the this keyword from their closest regular function parent.
+> - _What is the Call Stack? Where execution contexts get stacked on top of each other to keep track of where we are in the program's execution. The execution context is on top of the stack which is currently running.And it has finished running, it will be removed from the stack and execution will go back to the previous execution context.While running the execution at the top of the Call Stach , other executions have been stopped because Javascript is a single-thread language.So that it can only do one thing at a time.,_
+> - _While executing code come across with return keyword, execution has beem stopped and gets popped off the stack. When browser or browser tab is closed, global execution gets popped off the stack. ,_
 >
 > #
