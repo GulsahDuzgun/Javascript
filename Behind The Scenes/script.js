@@ -14,8 +14,14 @@ function calcAge(birthYear) {
       var zFlag = true;
       const zGen = `Hi ${firstName} , You are Zoomers`;
       console.log(zGen);
+
+      function add(a, b) {
+        return a + b;
+      }
+      console.log(add(4, 5));
     }
     console.log(zFlag);
+    console.log(add(4, 5));
     // console.log(zGen); ReferenceError
   };
   // console.log(zFlag); ReferenceError
