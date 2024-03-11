@@ -9,6 +9,13 @@ function calcAge(birthYear) {
   const printAge = function () {
     const firstName = 'Esra';
     let output = `${firstName}, you are ${age}.`;
+    // console.log(` Your job is ${jobL}`); ReferenceError: Cannot access 'jobL' before initialization
+    // console.log(` Your job is ${jobC}`); ReferenceError: Cannot access 'jobC' before initialization
+    console.log(` Your job is ${jobV}`); // Your job is undefined
+
+    let jobL = 'Accountant(let)';
+    const jobC = 'Accountant(const)';
+    var jobV = 'Accountant(var)';
 
     if (birthYear <= 2012 && birthYear >= 1996) {
       var zFlag = true;
