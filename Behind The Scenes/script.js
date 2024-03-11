@@ -1,6 +1,15 @@
 'use strict';
 /*----- Example ----- */
 
+let x = 'let';
+const y = 'const';
+var z = 'var';
+
+console.log(window);
+console.log(z === window.z); //true -> var makes a property in window object
+console.log(y === window.y); //false
+console.log(x === window.x); //false
+
 if (!productNum) giveProduct();
 var productNum = 18;
 
