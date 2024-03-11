@@ -1,5 +1,14 @@
 'use strict';
 
+console.log(job); //undefined
+console.log(me); //ReferenceError: Cannot access 'me' before initialization
+console.log(year); //uninitialized ReferenceError: Cannot access 'year' before initialization
+
+let me = 'Gülşah';
+const year = 2000;
+var job = 'Software Developer';
+
+/*
 const firstName = 'Gülşah';
 calcAge(2000);
 
@@ -41,3 +50,4 @@ function calcAge(birthYear) {
   printAge();
   console.log(firstName);
 }
+*/
