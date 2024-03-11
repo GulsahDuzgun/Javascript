@@ -1,5 +1,20 @@
 'use strict';
 
+console.log(addDeclaration(4, 2));
+console.log(addExpression(32, 4)); // ReferenceError: Cannot access 'addExpression' before initialization -- uninitialized
+console.log(addArrow(23, 4)); //ReferenceError: Cannot access 'addArrow' before initialization
+
+function addDeclaration(a, b) {
+  return a + b;
+}
+
+let addExpression = function (a, b) {
+  return a + b;
+};
+
+const addArrow = (a, b) => a + b;
+
+/* ----- Hoisting for variables ----- 
 console.log(job); //undefined
 console.log(me); //ReferenceError: Cannot access 'me' before initialization
 console.log(year); //uninitialized ReferenceError: Cannot access 'year' before initialization
@@ -7,6 +22,7 @@ console.log(year); //uninitialized ReferenceError: Cannot access 'year' before i
 let me = 'Gülşah';
 const year = 2000;
 var job = 'Software Developer';
+*/
 
 /*
 const firstName = 'Gülşah';
