@@ -1,4 +1,24 @@
 'use strict';
+var firstName = 'Esra';
+
+const gulsah = {
+  firstName: 'Gülşah',
+  year: 2000,
+  calcAge: function () {
+    console.log(this);
+  },
+  greet: () => console.log(`Hi ${this.firstName}`),
+  greet2: function () {
+    console.log(`Again hi ${this.firstName}`);
+  },
+};
+
+gulsah.calcAge();
+gulsah.greet();
+gulsah.greet2();
+
+/*----- this keyword in objects ----- 
+
 const gulsah = {
   year: 2000,
   calcAge: function () {
@@ -22,6 +42,8 @@ calcAge(); //undefined
 calcAge1(); //undefined
 calcAge2(); //window --> global scope
 gulsah.calcAge(); //gulsah
+
+*/
 
 /*----- this keyword in objects ----- 
 const gulsah = {
