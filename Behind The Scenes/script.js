@@ -8,7 +8,15 @@ const gulsah = {
   },
 };
 
+const esra = {
+  year: 1997,
+};
+esra.calcAge = gulsah.calcAge;
+
 gulsah.calcAge();
+
+console.log(esra);
+esra.calcAge();
 
 /*----- this keyword in functions ----- 
 
