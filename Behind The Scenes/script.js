@@ -1,5 +1,17 @@
 'use strict';
 
+const gulsah = {
+  year: 2000,
+  calcAge: function () {
+    console.log(this);
+    console.log(2025 - this.year);
+  },
+};
+
+gulsah.calcAge();
+
+/*----- this keyword in functions ----- 
+
 console.log(this); //window
 
 function calcAge(bYear) {
@@ -22,6 +34,8 @@ const calcAgeArr = bYear => {
 };
 
 calcAgeArr(2000);
+
+*/
 
 /*----- Example ----- 
 
