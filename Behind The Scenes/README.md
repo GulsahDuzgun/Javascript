@@ -75,4 +75,13 @@
 
 - _**What is TDZ (Temporal Dead Zone)?** Every let and const variables get their own temporal dead zone that starts at the beginning of the scope until the line where it is defined. And the variable is only safe to use after the TDZ,_
 - _**What is TDZ(Temporal Dead Zone) created for ?** Because makes it easier to avoid and catch errors. Using a variable that is set to undefined before it's actually declared can cause serious bugs which might be hard to find. Accessing variables before declaration is bad practice and should be avoided. Also it makes const variables work the way they are suppose to. We can't reassign const variables. It doesn't let them set it to undefined first and then assign their real value later. Const is only assigned when execution actually reaches the declaration.,_
-  > #
+- _**What is this keyword ?** Special variable that is created for every execution context(for every function). Takes the value of (points to) the "owner" of the function in which the this keyword is used. It is not static, it depends on how the function is called and its value is assigned when the function ia actually called.,_
+
+  >
+
+  > - Method: this || Object that is calling the method
+  > - Simple Function Call: this || this = undefined (In strict mode! Otherwise:window (in the browser))
+  > - Arrow Functions: this || Don't get own this, this of surrounding function(lexical this)
+  > - Event Listener: this || DOM element that the handler is attached to
+
+- _this does not point to the function itself and also not the its variable environment! ,_
