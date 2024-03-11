@@ -13,10 +13,13 @@ const esra = {
 };
 esra.calcAge = gulsah.calcAge;
 
-gulsah.calcAge();
+// gulsah.calcAge();
 
-console.log(esra);
-esra.calcAge();
+// console.log(esra);
+// esra.calcAge();
+
+const funExp = gulsah.calcAge;
+funExp(); //this inside function expression equals to undefined
 
 /*----- this keyword in functions ----- 
 
