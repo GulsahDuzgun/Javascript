@@ -1,5 +1,29 @@
 'use strict';
+const gulsah = {
+  year: 2000,
+  calcAge: function () {
+    console.log(this);
+  },
+};
 
+function calcAge() {
+  console.log(this);
+}
+
+const calcAge1 = function () {
+  console.log(this);
+};
+
+const calcAge2 = () => {
+  console.log(this);
+};
+
+calcAge(); //undefined
+calcAge1(); //undefined
+calcAge2(); //window --> global scope
+gulsah.calcAge(); //gulsah
+
+/*----- this keyword in objects ----- 
 const gulsah = {
   year: 2000,
   calcAge: function () {
@@ -20,6 +44,7 @@ esra.calcAge = gulsah.calcAge;
 
 const funExp = gulsah.calcAge;
 funExp(); //this inside function expression equals to undefined
+*/
 
 /*----- this keyword in functions ----- 
 
