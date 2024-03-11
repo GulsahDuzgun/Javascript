@@ -1,5 +1,29 @@
 'use strict';
-/*----- Example ----- */
+
+console.log(this); //window
+
+function calcAge(bYear) {
+  console.log(this); //undefined
+  return 2025 - bYear;
+}
+
+calcAge(2000);
+
+const calcAgeExp = function (bYear) {
+  console.log(this); //undefined
+  return 2025 - bYear;
+};
+
+calcAgeExp(2000);
+
+const calcAgeArr = bYear => {
+  console.log(this); //window
+  return 2025 - bYear;
+};
+
+calcAgeArr(2000);
+
+/*----- Example ----- 
 
 let x = 'let';
 const y = 'const';
@@ -16,6 +40,7 @@ var productNum = 18;
 function giveProduct() {
   console.log('Product order got given');
 }
+*/
 
 /*----- Hoisting for functions ----- 
 console.log(addVarExpression); //undefined
