@@ -24,21 +24,55 @@
 > - 2 -Scope Chain - consist of references to variables that are located outside of the current function.-
 > - 3- this keyword:
 >   Execution context is generated right before execution. Arrow functions' execution context doesn't contain this keyword and arguments object.Instead they can use the arguments object ans the this keyword from their closest regular function parent.
-> - _What is the Call Stack? Where execution contexts get stacked on top of each other to keep track of where we are in the program's execution. The execution context is on top of the stack which is currently running.And it has finished running, it will be removed from the stack and execution will go back to the previous execution context.While running the execution at the top of the Call Stach , other executions have been stopped because Javascript is a single-thread language.So that it can only do one thing at a time.,_
+> - _What is the Call Stack? Where execution contexts get stacked on top of each other to keep track of where we are in the program's execution. The execution context is on top of the stack which is currently running.And it has finished running, it will be removed from the stack and execution will go back to the previous execution context.While running the execution at the top of the Call Stach , other executions have been stopped because Javascript is a single-thread language .So that it can only do one thing at a time.,_
 > - _While executing code come across with return keyword, execution has beem stopped and gets popped off the stack. When browser or browser tab is closed, global execution gets popped off the stack. ,_
 > - _*What is scope?* Space or environment in which a certain variable is declared.There is global scope, function scope and block scope.,_
 > - _*What is scoping?* How our program's variables are organized and accessed. ,_
 > - _*What is Lexical Scoping?* Javascript has lexical scoping. Scoping is controlled by placement of functions and blocks in the code. It is the rules of where we can access variables are based on exactly where in code functions and blocks are written. ,_
 > - _*What is scope of a variable?* Region of our code where a certain variable can be accessed. ,_
 > - _*What is Global Scope?* It keeps top-level code's variables -outside of any function or block- and these variables are accessible everwhere in code ,_
-> - _*What is Function Scope* It is also called "local scope". Variables are only accessible inside function, Not outside. ,_
+> - _**What is Function Scope?** It is also called "local scope". Variables are only accessible inside function, Not outside. ,_
 > - _*What is Block Scope(ES6)?* Variables are only accessible inside block.However this is only applies to let and const variables!! Functions are also block scoped.Variables declared with var end up in the closest function scope.,_
 > - _Scope Chain has nothing to do with the order in which function were called. In other words, the scope chain has nothing to do with the order the execution context in the call stack,_
 > - _Every scope alway has access to all the varisbles from all its outer scopes. This is the scope chain!,_
 > - _When a variable is not in the current scope, the engine looks up in the scope chain until it finds the variable it's looking for.This is called variable lookup.,_
 > - _The scope chain is a one-way street. A scope will never ever have access to the variables of an inner scopes ,_
-> - _The scope chain in a certain scope is equal to adding together all the variable environments of the all parent scopes
->   ,_
+> - _The scope chain in a certain scope is equal to adding together all the variable environments of the all parent scopes,_
 > - _The scope chain has nothing to do with the order in which fuctions were called. It does not affect the scope chain at all!! ,_
+> - _**What is hoisting?** It makes some types of variables accessible/usable in the code before they are actually declared."Variables lifted to the top of their scope".But behind the scenes in the creation phase of the execution context, code is scanned for variable declarations, and for each variable a new property is created in the variable environment object.,_
 >
-> #
+> <table>
+
+  <tr>
+    <th style="background-color: #ddd;"></th>
+    <th style="background-color: #ddd;">HOISTED</th>
+    <th style="background-color: #ddd;">INITIAL VALUE</th>
+    <th style="background-color: #ddd;">SCOPE</th>
+  </tr>
+  <tr>
+    <td>Function declaration</td>
+    <td >Yes</td>
+    <td> Actual function</td>
+    <td >Block -In strict mode. Otherwise:function!!-</td>
+  </tr>
+  <tr>
+    <td>var variables</td>
+    <td>Yes</td>
+    <td>undefined</td>
+    <td>Function</td>
+  </tr>
+  <tr>
+    <td>let and const variables</td>
+    <td>No -Technically, yes. But not in practice-</td>
+    <td>uninitialized, -TDZ (Temporal Dead Zone)-</td>
+    <td>Block</td>
+  </tr>
+  <tr>
+    <td>Function expressions and arrows</td>
+    <td colspan="3">Depends if using var or let/const</td>
+  </tr>
+</table>
+
+- _**What is TDZ (Temporal Dead Zone)?** Every let and const variables get their own temporal dead zone that starts at the beginning of the scope until the line where it is defined. And the variable is only safe to use after the TDZ,_
+- _**What is TDZ(Temporal Dead Zone) created for ?** Because makes it easier to avoid and catch errors. Using a variable that is set to undefined before it's actually declared can cause serious bugs which might be hard to find. Accessing variables before declaration is bad practice and should be avoided. Also it makes const variables work the way they are suppose to. We can't reassign const variables. It doesn't let them set it to undefined first and then assign their real value later. Const is only assigned when execution actually reaches the declaration.,_
+  > #
