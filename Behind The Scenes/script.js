@@ -6,14 +6,20 @@ const gulsah = {
   year: 2000,
   calcAge: function () {
     console.log(this);
+    const greet3 = () => {
+      console.log(`Arrow function: ${firstName}`);
+      console.log(this);
+      console.log(`Arrow function: ${this.firstName}`);
+    };
+    greet3();
   },
   greet: () => console.log(`Hi ${this.firstName}`),
   greet2: function () {
     console.log(`Again hi ${this.firstName}`);
+    this.calcAge();
   },
 };
 
-gulsah.calcAge();
 gulsah.greet();
 gulsah.greet2();
 
