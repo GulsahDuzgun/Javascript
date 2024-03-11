@@ -1,4 +1,11 @@
 'use strict';
+console.log(addVarExpression); //undefined
+console.log(addVarExpression(3, 4)); // TypeError: addVarExpression is not a function.It is undefined.
+console.log(undefined(3, 4)); //TypeError: undefined is not a function
+
+console.log(addVarArrow); //undefined
+console.log(undefined(3, 4)); //TypeError: undefined is not a function
+console.log(addVarArrow(3, 4)); //addVarArrow is not a function
 
 console.log(addDeclaration(4, 2));
 console.log(addExpression(32, 4)); // ReferenceError: Cannot access 'addExpression' before initialization -- uninitialized
@@ -13,6 +20,12 @@ let addExpression = function (a, b) {
 };
 
 const addArrow = (a, b) => a + b;
+
+var addVarExpression = function (a, b) {
+  return a + b;
+};
+
+var addVarArrow = (a, b) => a + b;
 
 /* ----- Hoisting for variables ----- 
 console.log(job); //undefined
