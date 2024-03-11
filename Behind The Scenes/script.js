@@ -1,4 +1,22 @@
 'use strict';
+
+const addExp = function (a, b) {
+  console.log(arguments);
+  console.log(arguments[0]);
+  console.log(arguments[2]);
+};
+
+addExp(3, 4, 'made');
+
+const addArr = a => {
+  console.log(arguments); //ReferenceError: arguments is not defined
+  console.log(a);
+};
+
+addArr(3, 'it', 9);
+
+/*----- this keyword in functions ----- 
+
 var firstName = 'Esra';
 
 const gulsah = {
@@ -22,6 +40,8 @@ const gulsah = {
 
 gulsah.greet();
 gulsah.greet2();
+
+*/
 
 /*----- this keyword in objects ----- 
 
