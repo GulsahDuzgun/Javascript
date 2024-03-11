@@ -1,4 +1,14 @@
 'use strict';
+/*----- Example ----- */
+
+if (!productNum) giveProduct();
+var productNum = 18;
+
+function giveProduct() {
+  console.log('Product order got given');
+}
+
+/*----- Hoisting for functions ----- 
 console.log(addVarExpression); //undefined
 console.log(addVarExpression(3, 4)); // TypeError: addVarExpression is not a function.It is undefined.
 console.log(undefined(3, 4)); //TypeError: undefined is not a function
@@ -26,6 +36,8 @@ var addVarExpression = function (a, b) {
 };
 
 var addVarArrow = (a, b) => a + b;
+
+*/
 
 /* ----- Hoisting for variables ----- 
 console.log(job); //undefined
