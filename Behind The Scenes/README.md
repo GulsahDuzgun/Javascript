@@ -85,3 +85,5 @@
   > - Event Listener: this || DOM element that the handler is attached to
 
 - _this does not point to the function itself and also not the its variable environment! ,_
+
+- _Javascript variables consist of primitive types(primitive-variables:Number, String, Boolean, Symbol, BıgInt, Null, undefined) and reference types(Objects: Object literal, Arrays, Functions). Primitive Types are stored in execution context in call stack and Reference Types are store in Heap. Heap and Call Stack are components of Javascript Engine. ,_

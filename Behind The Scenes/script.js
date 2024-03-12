@@ -1,5 +1,22 @@
 'use strict';
+let age = 24;
+const tAge = age;
+age = 25;
 
+console.log(tAge); //24
+console.log(age); //25
+
+const gulsah = {
+  firstName: 'Gülşah',
+  year: 2000,
+};
+
+const deniz = gulsah;
+deniz.firstName = 'Deniz';
+console.log(deniz.firstName); //Deniz
+console.log(gulsah.firstName); //Deniz
+
+/*
 const addExp = function (a, b) {
   console.log(arguments);
   console.log(arguments[0]);
@@ -15,6 +32,7 @@ const addArr = a => {
 
 addArr(3, 'it', 9);
 
+*/
 /*----- this keyword in functions ----- 
 
 var firstName = 'Esra';
