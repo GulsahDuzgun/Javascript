@@ -227,3 +227,8 @@ const books = [
 
 const [firstBook, secondBook] = books;
 console.log(firstBook, secondBook);
+
+//1.2 Destructure the books array into a variable called thirdBook. You must skip the first two books.
+
+const [, , thirdBook] = books;
+console.log(thirdBook);
