@@ -1,5 +1,23 @@
 'use strict';
 
+const gulsah = {
+  firstName: 'Gülşah',
+  year: 2000,
+  lastName: 'Düzgün',
+  family: ['Yesim', 'Hasan', 'Mery', 'John'],
+};
+
+const troye = Object.assign({}, gulsah);
+console.log(troye);
+console.log(gulsah);
+
+troye.firstName = 'Troye';
+troye.family.pop();
+troye.family.pop();
+troye.family.push('Alice');
+
+console.log(troye.family === gulsah.family); //true
+/*
 let lastName = 'guney';
 const oldLastName = lastName;
 lastName = 'duzgun';
@@ -10,6 +28,7 @@ console.log(lastName);
 const gulsah = {
   firstName: 'Gülşah',
   year: 2000,
+  lastName:'Düzgün'
 };
 
 const esra = gulsah;
@@ -18,6 +37,7 @@ esra.firstName = 'Esra';
 console.log(esra === gulsah); //true
 
 esra = {}; // TypeError: Assignment to constant variable.
+*/
 
 /*
 let age = 24;
