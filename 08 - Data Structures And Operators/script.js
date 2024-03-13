@@ -23,10 +23,19 @@ const restaurant = {
   },
 };
 
-const [first, second, , fourth] = restaurant.categories;
-console.log(first);
-console.log(second);
-console.log(fourth);
+let [first, second, , fourth] = restaurant.categories;
+console.log(first, second, fourth);
+
+//switching values
+// const temp = second;
+// second = fourth;
+// fourth = temp;
+
+[second, fourth] = [fourth, second];
+console.log(second, fourth);
+
+[fourth, second] = [second, fourth];
+console.log(second, fourth);
 
 /* ----- Destructuring Arrays -----
 const arr = [1, 2, 3];
