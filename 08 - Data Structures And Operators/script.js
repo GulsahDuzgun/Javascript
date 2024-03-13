@@ -27,3 +27,16 @@ const restaurant = {
     },
   },
 };
+
+const arr = [1, 2, 3];
+const [a, b, c] = arr;
+let [x, y, z] = arr;
+
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(arr);
+
+console.log(x);
+console.log(y);
+console.log(z);
