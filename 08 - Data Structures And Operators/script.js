@@ -21,6 +21,9 @@ const restaurant = {
       close: 24,
     },
   },
+  getOrder: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
 
 let [first, second, , fourth] = restaurant.categories;
@@ -36,6 +39,9 @@ console.log(second, fourth);
 
 [fourth, second] = [second, fourth];
 console.log(second, fourth);
+
+const [a, b] = restaurant.getOrder(3, 2);
+console.log(a, b);
 
 /* ----- Destructuring Arrays -----
 const arr = [1, 2, 3];
