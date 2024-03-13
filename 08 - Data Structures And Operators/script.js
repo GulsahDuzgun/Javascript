@@ -26,6 +26,13 @@ const restaurant = {
   },
 };
 
+const arr = [2, 3, [4, 5]];
+const [x, , [y, z]] = arr;
+console.log(x, y, z);
+
+/* ----- Destructuring Arrays  Part--II  -----
+
+
 let [first, second, , fourth] = restaurant.categories;
 console.log(first, second, fourth);
 
@@ -42,6 +49,8 @@ console.log(second, fourth);
 
 const [a, b] = restaurant.getOrder(3, 2);
 console.log(a, b);
+
+*/
 
 /* ----- Destructuring Arrays -----
 const arr = [1, 2, 3];
