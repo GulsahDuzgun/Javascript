@@ -30,6 +30,14 @@ const arr = [2, 3, [4, 5]];
 const [x, , [y, z]] = arr;
 console.log(x, y, z);
 
+const apiCall = [7, 2];
+const [m, n, i] = apiCall;
+const [m2 = 1, n2 = 1, i2 = 1] = apiCall;
+
+console.log(m, n, i); // 7 2 undefined
+console.log(m2, n2, i2); // 7 2 1
+console.log([apiCall[2]]); //undefined
+
 /* ----- Destructuring Arrays  Part--II  -----
 
 
