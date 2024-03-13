@@ -1,4 +1,25 @@
 'use strict';
+
+let lastName = 'guney';
+const oldLastName = lastName;
+lastName = 'duzgun';
+
+console.log(oldLastName);
+console.log(lastName);
+
+const gulsah = {
+  firstName: 'Gülşah',
+  year: 2000,
+};
+
+const esra = gulsah;
+esra.firstName = 'Esra';
+
+console.log(esra === gulsah); //true
+
+esra = {}; // TypeError: Assignment to constant variable.
+
+/*
 let age = 24;
 const tAge = age;
 age = 25;
@@ -15,6 +36,7 @@ const deniz = gulsah;
 deniz.firstName = 'Deniz';
 console.log(deniz.firstName); //Deniz
 console.log(gulsah.firstName); //Deniz
+*/
 
 /*
 const addExp = function (a, b) {
