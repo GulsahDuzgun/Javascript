@@ -243,3 +243,12 @@ const ratings = [
 
 const [[, rating], [, ratingsCount]] = ratings;
 console.log(rating, ratingsCount);
+
+/*1.4
+Below is the ratingStars array. Destructure it into three variables called fiveStarRatings, oneStarRatings and threeStarRatings. Assign the threeStarRatings variable with a default value of 0. */
+
+const ratingStars = [63405, 1808];
+const [fiveStarRatings = 0, oneStarRatings = 0, threeStarRatings = 0] =
+  ratingStars;
+
+console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
