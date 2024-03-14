@@ -45,7 +45,18 @@ const restaurant = {
   },
 };
 
-//Short Circuiting (&& and ||)
+// The Nullish Coalescing (??)
+let a = 0,
+  b = 0,
+  c = NaN;
+const flag = a || -1;
+const flag2 = b ?? -1; //Nullish Coalescing accepts null and undefined as falsy
+const flag3 = c ?? -1;
+console.log(a, flag);
+console.log(b, flag2);
+console.log(c, flag3);
+
+/*  ----- Short Circuiting (&& and ||) -----
 console.log('---OR (||) ---');
 
 console.log(3 || 'Jonas');
@@ -68,6 +79,7 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
+*/
 
 /*1-) THE REST  OPERATOR --- Destructuring
 
