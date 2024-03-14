@@ -35,6 +35,10 @@ const restaurant = {
       `${firtsName} was delivered ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} to ${adrs} at ${deliverTime}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here the ingredients in pasta: 
+    ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
 const arr = [6, 7, 8];
@@ -65,6 +69,25 @@ const copyArr = [...arr1];
 copyArr[2].title = 'Front-End Developer';
 console.log(copyArr[2].title); //Front-End Developer
 console.log(arr1[2].title); //Front-End Developer
+
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+const str = 'Gulsah';
+const str2 = 'uzgun';
+const strArr = [...str, 'd', ...str2];
+console.log(`${strArr}`);
+//console.log(`${...str}`); Unexpected token '...'
+console.log('G', ' u l s a h d u z g u n');
+
+const ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3?'),
+];
+
+restaurant.orderPasta(...ingredients);
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
 
 /* ----- Destructuring Objects  -----
 

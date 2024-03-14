@@ -5,6 +5,7 @@
 > - _**What is destructuring?** Destructuring is an ESX feature and it is a way of unpacking values from an array or an object into separate variables. Destructuring is to break a complex data structure down into a smaller data structure like a variable. So for arrays we use destructuring to retrieve elements from the array and store them into variables,_
 > - _destructuring arrays,_
 > - _destructuring objects,_
-> - _The Spread Operator(...) for unpacking all the array elements at one.It takes all the elements out of array. ,_
+> - _The Spread Operator(...) for unpacking all the array elements at one.It takes all the elements out of array.The Spread Operator works on all iterables. Iterables are arrays, strings, maps, sets but not objects.The most built-in data structure in Javascript are iterables but expect objects.,_
+> - _Iterables: arrays, strings, maps, sets. NOT objects. We can work with the spread operators on iterables. It gives us mutiple values seperate by a comma and these value is usually used when we pass arguments into a a function or when we build an array.,_
 >
 > #
