@@ -26,10 +26,12 @@ const restaurant = {
   },
 };
 
-const { name, categories, openingHours } = restaurant;
 const { name: restName, categories: cat, openingHours: hours } = restaurant;
-console.log(name, categories, openingHours);
 console.log(restName, cat, hours);
+
+const { menu = [], mainMenu: resMenu = [] } = restaurant;
+console.log(menu, resMenu);
+
 /* ----- Destructuring Arrays  Part--III  -----
 
 
