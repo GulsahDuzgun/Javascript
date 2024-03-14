@@ -41,6 +41,12 @@ const obj = { a: 8, b: 9, c: 31 };
 ({ a, b } = obj);
 console.log(a, b);
 
+const { openingHours } = restaurant;
+const {
+  fri: { open: o, close },
+} = openingHours;
+console.log(o, close);
+
 /* ----- Destructuring Arrays  Part--III  -----
 
 
