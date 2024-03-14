@@ -37,6 +37,23 @@ const restaurant = {
   },
 };
 
+const arr = [6, 7, 8];
+let badWay = [1, 2, arr];
+console.log(badWay.length); //3
+
+badWay = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badWay.length); //5
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+const newMenu2 = ['Gnocci', ...restaurant.mainMenu];
+console.log(newMenu, newMenu2);
+
+/* ----- Destructuring Objects  -----
+
 restaurant.deliverOrder({
   firtsName: 'Gülşah',
   time: '10:38',
@@ -71,6 +88,8 @@ const {
   fri: { open: o, close },
 } = openingHours;
 console.log(o, close);
+
+*/
 
 /* ----- Destructuring Arrays  Part--III  -----
 
