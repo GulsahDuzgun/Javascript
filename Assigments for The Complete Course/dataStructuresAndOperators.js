@@ -276,6 +276,23 @@ const {
 
 console.log(bookRating);
 
+/*2.6
+Write a function called printBookInfo that has three parameters called title, author and year. This function should work for a single object passed as an argument, and it should log to the console information about the book in this format: "${title} by ${author}, ${year}".
+
+If year is undefined (was not passed), it should be assigned with a default value of 'year unknown'.*/
+
+const printBookInfo = function ({ title, author, year = "year unknown" }) {
+  console.log(`${title} by ${author}, ${year}.`);
+};
+
+printBookInfo({
+  title: "Algorithms",
+  author: "Robert Sedgewick",
+  year: "2011",
+});
+
+printBookInfo({ title: "Algorithms", author: "Robert Sedgewick" });
+
 /* ----- Destructuring Arrays ------
 //1.1 Destructure the books array into two variables called firstBook and secondBook.
 
