@@ -52,6 +52,20 @@ const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 const newMenu2 = ['Gnocci', ...restaurant.mainMenu];
 console.log(newMenu, newMenu2);
 
+const arr1 = [
+  1,
+  2,
+  {
+    title: 'Software Engineer',
+    firtsName: 'Gülşah',
+  },
+];
+
+const copyArr = [...arr1];
+copyArr[2].title = 'Front-End Developer';
+console.log(copyArr[2].title); //Front-End Developer
+console.log(arr1[2].title); //Front-End Developer
+
 /* ----- Destructuring Objects  -----
 
 restaurant.deliverOrder({
