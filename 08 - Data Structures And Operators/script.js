@@ -41,6 +41,8 @@ const restaurant = {
   },
 };
 
+//1-) THE REST  OPERATOR --- Destructuring
+
 //right side of equal sign
 const arr = [2, 4, ...[6, 7, 8]];
 console.log(arr);
@@ -55,6 +57,23 @@ console.log(allMeal);
 
 const [meal1, , meal3, ...restMeals] = allMeal;
 console.log(meal1, meal3, restMeals);
+
+const { fri, sat: saturday, ...other } = restaurant.openingHours;
+console.log(other, saturday, fri);
+
+//2-) FUNCTIONS
+
+const add = function (...arg) {
+  let temp = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    temp += arg[i];
+  }
+  return console.log(temp);
+};
+
+add(2, 3);
+add(2, 3, 4, 5, 6);
+add(22, 32, 44);
 
 /* ----- The Spread Operator  -----
 
