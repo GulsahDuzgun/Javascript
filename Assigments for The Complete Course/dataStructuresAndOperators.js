@@ -237,6 +237,15 @@ Destructure the second book from the books array into a variable called bookPubl
 
 const { publisher: bookPublisher, ...restOfTheBook } = books[1];
 
+/*4.3
+Write a function called printBookAuthorsCount that has two parameters called title and authors. The authors parameter should accept any number of arguments. This function should log to the console a string formatted like that: "The book "${title}" has ${authors.length} authors".*/
+
+const printBookAuthorsCount = function (title, ...authors) {
+  console.log(`The book "${title}" has ${authors.length} authors`);
+};
+
+printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+
 //The Spread Operator -- unpacking
 
 /*3.1
