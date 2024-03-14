@@ -242,6 +242,13 @@ const hasExamplesInJava = function (book) {
 const result = hasExamplesInJava(books[0]);
 console.log(result);
 
+/*5.2
+Some of the book objects have the onlineContent property, which is either true or false. Loop over the books array, and for the books that provide online content, log to the console a string in this format: "${title}" provides online content. Use short-circuiting.*/
+for (let i = 0; i < books.length; i++) {
+  books[i].onlineContent &&
+    console.log(`${books[i].title} provides online content`);
+}
+
 //Rest Pattern and Parameters
 
 /*
