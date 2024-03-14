@@ -24,7 +24,32 @@ const restaurant = {
   getOrder: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  deliverOrder: function ({
+    firtsName,
+    time: deliverTime = '20.00',
+    address: adrs,
+    starterIndex,
+    mainIndex = 0,
+  }) {
+    console.log(
+      `${firtsName} was delivered ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} to ${adrs} at ${deliverTime}`
+    );
+  },
 };
+
+restaurant.deliverOrder({
+  firtsName: 'Gülşah',
+  time: '10:38',
+  address: 'Avcılar, Istanbul',
+  starterIndex: 0,
+  mainIndex: 1,
+});
+
+restaurant.deliverOrder({
+  firtsName: 'Esra',
+  address: 'Eyüp, Istanbul',
+  starterIndex: 2,
+});
 
 const { name: restName, categories: cat, openingHours: hours } = restaurant;
 console.log(restName, cat, hours);
