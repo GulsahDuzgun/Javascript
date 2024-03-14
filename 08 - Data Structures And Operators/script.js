@@ -50,6 +50,12 @@ const [a, b, ...rest] = arr;
 console.log(a, b); //2 4
 console.log(rest, typeof rest); //6,7,8 object
 
+const allMeal = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(allMeal);
+
+const [meal1, , meal3, ...restMeals] = allMeal;
+console.log(meal1, meal3, restMeals);
+
 /* ----- The Spread Operator  -----
 
 const arr = [6, 7, 8];
