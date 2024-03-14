@@ -44,7 +44,19 @@ const restaurant = {
   },
 };
 
-//1-) THE REST  OPERATOR --- Destructuring
+//Short Circuiting (&& and ||)
+
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+const temp = restaurant.guestNumber ? restaurant.guestNumber : 10;
+const temp2 = restaurant.guestNumber || 10;
+console.log(temp, temp2);
+
+/*1-) THE REST  OPERATOR --- Destructuring
 
 //right side of equal sign
 const arr = [2, 4, ...[6, 7, 8]];
@@ -84,6 +96,7 @@ add(...x); //unpacking
 
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
+*/
 
 /* ----- The Spread Operator  -----
 
