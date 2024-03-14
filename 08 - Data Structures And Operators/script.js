@@ -29,8 +29,17 @@ const restaurant = {
 const { name: restName, categories: cat, openingHours: hours } = restaurant;
 console.log(restName, cat, hours);
 
+//default value while object destructuring
 const { menu = [], mainMenu: resMenu = [] } = restaurant;
 console.log(menu, resMenu);
+
+//switching while object destructuring
+let a = 12;
+let b = 27;
+const obj = { a: 8, b: 9, c: 31 };
+
+({ a, b } = obj);
+console.log(a, b);
 
 /* ----- Destructuring Arrays  Part--III  -----
 
