@@ -41,6 +41,17 @@ const restaurant = {
   },
 };
 
+//right side of equal sign
+const arr = [2, 4, ...[6, 7, 8]];
+console.log(arr);
+
+//left side of equal sign
+const [a, b, ...rest] = arr;
+console.log(a, b); //2 4
+console.log(rest, typeof rest); //6,7,8 object
+
+/* ----- The Spread Operator  -----
+
 const arr = [6, 7, 8];
 let badWay = [1, 2, arr];
 console.log(badWay.length); //3
@@ -97,6 +108,7 @@ console.log(restaurant.name);
 
 console.log(newRestaurant.mainMenu[0]);
 console.log(restaurant.mainMenu[0]);
+*/
 
 /* ----- Destructuring Objects  -----
 
