@@ -232,6 +232,11 @@ Destructure the keywords property (array) of the first book from the books array
 const [mainKeyword, ...rest] = books[0].keywords;
 console.log(mainKeyword, rest);
 
+/*4.2
+Destructure the second book from the books array into a variable called bookPublisher. The bookPublisher variable should be assigned with the value of the publisher property of the book object. Assign the rest of the properties to the restOfTheBook variable.*/
+
+const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+
 //The Spread Operator -- unpacking
 
 /*3.1
