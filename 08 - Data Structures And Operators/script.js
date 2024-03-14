@@ -40,11 +40,13 @@ const restaurant = {
     ${ing1}, ${ing2}, ${ing3}`);
   },
   orderPizza: function (mainIngredients, ...otherIngredients) {
+    //console.log(typeof otherIngredients); object
     console.log(mainIngredients, otherIngredients);
   },
 };
 
 //Short Circuiting (&& and ||)
+console.log('---OR (||) ---');
 
 console.log(3 || 'Jonas');
 console.log('' || 'Jonas');
@@ -55,6 +57,17 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 const temp = restaurant.guestNumber ? restaurant.guestNumber : 10;
 const temp2 = restaurant.guestNumber || 10;
 console.log(temp, temp2);
+
+console.log('---AND (&&) ---');
+console.log(0 && 'Jonas');
+console.log('Jonas' && 23);
+console.log('Hello' && 23 && null && 'jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushroom', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
 
 /*1-) THE REST  OPERATOR --- Destructuring
 
