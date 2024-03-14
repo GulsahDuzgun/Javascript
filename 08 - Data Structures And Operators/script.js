@@ -39,6 +39,9 @@ const restaurant = {
     console.log(`Here the ingredients in pasta: 
     ${ing1}, ${ing2}, ${ing3}`);
   },
+  orderPizza: function (mainIngredients, ...otherIngredients) {
+    console.log(mainIngredients, otherIngredients);
+  },
 };
 
 //1-) THE REST  OPERATOR --- Destructuring
@@ -64,6 +67,7 @@ console.log(other, saturday, fri);
 //2-) FUNCTIONS
 
 const add = function (...arg) {
+  //packing
   let temp = 0;
   for (let i = 0; i < arguments.length; i++) {
     temp += arg[i];
@@ -74,6 +78,12 @@ const add = function (...arg) {
 add(2, 3);
 add(2, 3, 4, 5, 6);
 add(22, 32, 44);
+
+const x = [1, 2, 3, 4, 5, 6];
+add(...x); //unpacking
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
 
 /* ----- The Spread Operator  -----
 
