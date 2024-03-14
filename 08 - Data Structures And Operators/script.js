@@ -81,13 +81,22 @@ console.log(`${strArr}`);
 console.log('G', ' u l s a h d u z g u n');
 
 const ingredients = [
-  prompt("Let's make pasta! Ingredient 1?"),
-  prompt('Ingredient 2?'),
-  prompt('Ingredient 3?'),
+  // prompt("Let's make pasta! Ingredient 1?"),
+  // prompt('Ingredient 2?'),
+  // prompt('Ingredient 3?'),
 ];
 
 restaurant.orderPasta(...ingredients);
 restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+
+const newRestaurant = { foundIn: 2000, ...restaurant, founder: 'Guiseppe' };
+newRestaurant.name = 'New Name';
+newRestaurant.mainMenu[0] = 'New Meal';
+console.log(newRestaurant.name);
+console.log(restaurant.name);
+
+console.log(newRestaurant.mainMenu[0]);
+console.log(restaurant.mainMenu[0]);
 
 /* ----- Destructuring Objects  -----
 
