@@ -250,6 +250,32 @@ let bookAuthor = "unknown";
 ({ title: bookTitle, author: bookAuthor } = books[0]);
 console.log(bookTitle, bookAuthor);
 
+/*2.5
+Each book object has a deeply nested rating property as illustrated below:
+
+{
+  title: 'Algorithms',
+  ...
+  thirdParty: {
+    goodreads: {
+      rating: 4.41,              // <-- HERE
+      ratingsCount: 1733,
+      reviewsCount: 63,
+      fiveStarRatingCount: 976,
+      oneStarRatingCount: 13
+    }
+  }
+},
+Destructure the first book object from the books array into a variable called bookRating. In the result of your destructuring, the bookRating variable should be assigned with the value of the book[0].thirdParty.goodreads.rating property.*/
+
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
+
+console.log(bookRating);
+
 /* ----- Destructuring Arrays ------
 //1.1 Destructure the books array into two variables called firstBook and secondBook.
 
