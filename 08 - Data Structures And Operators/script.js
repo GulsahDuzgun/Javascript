@@ -3,7 +3,7 @@
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
-  [weekdays[3]]: {
+  [weekdays[1]]: {
     open: 12,
     close: 22,
   },
@@ -11,7 +11,7 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  sat: {
+  wed: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -52,6 +52,25 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////////
+// Optional Chaining(?.)
+
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+console.log(restaurant.openingHours.mon); //undefined
+console.log(restaurant.openingHours?.mon?.open); //undefined
+//console.log(restaurant.openingHours.mon.open); //TypeError: Cannot readproperties of undefined
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  // console.log(restaurant.openingHours?.[`${day}`]);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we open at ${open}`);
+}
+
+/*
 console.log(restaurant.openingHours);
 
 ///////////////////////////////////////
@@ -74,6 +93,7 @@ for (const [i, element] of menu.entries()) {
   console.log(`${i + 1} --> ${element}`);
 }
 
+*/
 ///////////////////////////////////////
 // Coding Challenge #1
 

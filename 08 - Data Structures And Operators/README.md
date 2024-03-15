@@ -12,5 +12,6 @@
 > - _The Nullish Coalescing(??) Operator:null and undefined (Not 0 or '') ,_
 > - _Logical Assignment Operators (&&=, ||=, ??=),_
 > - _usage of for-of Loop and to get index arr.entries() ,_
+> - _Optional Chaining(?.) It controls the property which comes before it exist. If the property exists(not null or undefined) then it will evealute the result. If the property doesn't exist it immmediately returns undefined and provides to avoid bugs ,_
 >
 > #
