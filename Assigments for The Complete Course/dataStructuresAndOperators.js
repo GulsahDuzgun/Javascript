@@ -224,12 +224,27 @@ const books = [
 ];
 
 ///////////////////////////////////////
+// Optional Chaining(?.)
+/*
+10.1
+Write a function called getFirstKeyword that takes the book object as an argument. This function should return the first keyword from the book's keywords property (array) or undefined (if the keywords property doesn't exist). It shouldn't throw an error. Use optional chaining for that.*/
+
+const getFirstKeyword = function (bookArr) {
+  console.log(bookArr, bookArr.length);
+  for (const item of bookArr) {
+    console.log(item.keywords?.[0] ?? "Property doesn't exist. ");
+  }
+};
+
+getFirstKeyword(books);
+
+///////////////////////////////////////
 // Enhanced Object Literals
 /*
 9.1
 Below is the bookData array that contains other arrays. Each inner array consists of the property name (first element), and the value (second element). For example, in ['title', 'Computer Networking: A Top-Down Approach'], 'title' is the property name, and 'Computer Networking: A Top-Down Approach' is meant to be the value assigned to that property name.
 
-Using computed properties, fill the newBook object with the properties and values from the bookData array. The first one is done already.*/
+Using computed properties, fill the newBook object with the properties and values from the bookData array. The first one is done already.
 
 const bookData = [
   ['title', 'Computer Networking: A Top-Down Approach'],
@@ -249,9 +264,10 @@ const newBook = {
 console.log(newBook);
 console.log(newBook['pageNum']); //200
 console.log(newBook.pageNum); //200
+*/
 
 /*9.2
-Below is the pages variable. Add it as a property of the newBook2 object. Use the shorter way.*/
+Below is the pages variable. Add it as a property of the newBook2 object. Use the shorter way.
 
 const pages = 880;
 
@@ -261,6 +277,7 @@ const newBook2 = {
   pages,
 };
 console.log(newBook2.pages);
+*/
 
 ///////////////////////////////////////
 // Looping Arrays: The for-of Loop
