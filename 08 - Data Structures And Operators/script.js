@@ -17,8 +17,6 @@ const openingHours = {
   },
 };
 
-console.log(openingHours);
-
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -53,6 +51,25 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
+//Looping Objects:Object Keys, Values and Entries
+
+const keys = Object.keys(openingHours);
+console.log(keys);
+
+for (const day of Object.keys(openingHours)) {
+  console.log(day);
+}
+
+const variables = Object.values(openingHours);
+console.log(variables);
+
+for (const [day, { open, close: closeHour }] of Object.entries(openingHours)) {
+  // console.log(day, hours);
+  console.log(`On ${day} we open at ${open} and close ${closeHour}`);
+}
+
+/*
+///////////////////////////////////////
 // Optional Chaining(?.)
 
 if (restaurant.openingHours && restaurant.openingHours.mon) {
@@ -85,6 +102,8 @@ if (arr2.length > 0) {
 } else {
   console.log("Property doesn't defined");
 }
+*/
+
 /*
 console.log(restaurant.openingHours);
 
