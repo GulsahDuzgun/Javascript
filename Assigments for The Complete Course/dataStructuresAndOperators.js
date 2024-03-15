@@ -250,6 +250,18 @@ console.log(newBook);
 console.log(newBook['pageNum']); //200
 console.log(newBook.pageNum); //200
 
+/*9.2
+Below is the pages variable. Add it as a property of the newBook2 object. Use the shorter way.*/
+
+const pages = 880;
+
+const newBook2 = {
+  title: 'The C Programming Language',
+  author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+  pages,
+};
+console.log(newBook2.pages);
+
 ///////////////////////////////////////
 // Looping Arrays: The for-of Loop
 
@@ -277,13 +289,14 @@ for (const [index, val] of allAuthors.entries()) {
 
 /* 
 8.1
-Use the for-of loop to loop over the books array and sum the pages of all books. Use the pageSum variable below, and the pages property of the book objects.*/
+Use the for-of loop to loop over the books array and sum the pages of all books. Use the pageSum variable below, and the pages property of the book objects.
 
 let pageSum = 0;
 for (const book of books) {
   pageSum += book.pages;
 }
 console.log(pageSum);
+*/
 
 ///////////////////////////////////////
 //Logical Assignments Operators
