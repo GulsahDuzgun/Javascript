@@ -11,5 +11,6 @@
 > - _Short Circuiting (&& and ||) the OR operator will return the first truthy value of all the operands or simply the last value if all of them are falsy. The And operator will return the first falsy value or the last value if all of them are truthy. We can use OR operator to set default values and we can use the AND operator to execute code in the second operand,_
 > - _The Nullish Coalescing(??) Operator:null and undefined (Not 0 or '') ,_
 > - _Logical Assignment Operators (&&=, ||=, ??=),_
+> - _usage of for-of Loop and to get index arr.entries() ,_
 >
 > #
