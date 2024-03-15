@@ -223,22 +223,58 @@ const books = [
   },
 ];
 
+///////////////////////////////////////
+// Looping Arrays: The for-of Loop
+
+/*8.2
+Below is the allAuthors variable which stores an empty array. Use the for-of loop to fill allAuthors with the authors of each book from the books array.
+
+Remember that each book object has the author property, which can be a string (if there is only a single author) or an array (if there are multiple authors). You may need to use the typeof operator. You can also use multiple loops if needed. The allAuthors array should have just one level (no nested arrays).*/
+
+const allAuthors = [];
+for (const el of books) {
+  typeof el.author === 'string'
+    ? allAuthors.push(el.author)
+    : allAuthors.push(...el.author);
+}
+
+console.log(allAuthors);
+
+/*8.3
+Use the for-of loop together with Array's entries() method to log each author from allAuthors to the console together with its index. Make the index start from 1, instead of 0.*/
+for (const [index, val] of allAuthors.entries()) {
+  console.log(`${index + 1}. ${val}`);
+}
+/* 
+8.1
+Use the for-of loop to loop over the books array and sum the pages of all books. Use the pageSum variable below, and the pages property of the book objects.*/
+
+let pageSum = 0;
+for (const book of books) {
+  pageSum += book.pages;
+}
+console.log(pageSum);
+
+///////////////////////////////////////
 //Logical Assignments Operators
 /*
 7.1
-Some of the book objects from the books array are missing the edition property. Loop over the books array, and assign this property with a number 1 (if it doesn't already exist). Use logical assignment operators.*/
+Some of the book objects from the books array are missing the edition property. Loop over the books array, and assign this property with a number 1 (if it doesn't already exist). Use logical assignment operators.
 
 for (let i = 0; i < books.length; i++) {
   books[i].edition ??= 1;
 }
 
+*/
+
 /*7.2
-Some of the book objects from the books array have the highlighted property, which by default is set to true. Iterate over the books array, and if the thirdParty.goodreads.rating property is less than 4.2, reassign it with false.*/
+Some of the book objects from the books array have the highlighted property, which by default is set to true. Iterate over the books array, and if the thirdParty.goodreads.rating property is less than 4.2, reassign it with false.
 for (let i = 0; i < books.length; i++) {
   books[i].highlighted &&= books[i].thirdParty.goodreads.rating >= 4.2;
   // books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
   console.log(books[i].highlighted);
 }
+*/
 
 //The Nullish Coalescing(??)
 /*6.1
