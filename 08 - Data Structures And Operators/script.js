@@ -45,6 +45,46 @@ const restaurant = {
   },
 };
 
+//Logical Assigment Operators
+
+const rest1 = {
+  name: 'Capri',
+  // numGuest: 20,
+  numGuest: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numGuest = rest1.numGuest || 10;
+// rest2.numGuest = rest2.numGuest || 10;
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 10;
+
+// console.log(rest2.numGuest);
+// console.log(rest1.numGuest);
+
+// rest1.numGuest = rest1.numGuest ?? 12;
+// rest2.numGuest = rest2.numGuest ?? 12;
+
+rest1.numGuest ??= 27;
+rest2.numGuest ??= 27;
+
+console.log(rest2.numGuest);
+console.log(rest1.numGuest);
+
+// rest1.owner = rest1.owner && '<ANONYMOUS>'; //undefined
+// rest2.owner = rest2.owner && '<ANONYMOUS>'; //<ANONYMOUS>
+
+rest1.owner &&= '<ANONYMOUS>';
+rest2.name &&= '<ANONYMOUS>';
+
+console.log(rest1.owner);
+console.log(rest2.owner);
+
+/*
 // The Nullish Coalescing (??)
 let a = 0,
   b = 0,
@@ -55,6 +95,7 @@ const flag3 = c ?? -1;
 console.log(a, flag);
 console.log(b, flag2);
 console.log(c, flag3);
+*/
 
 /*  ----- Short Circuiting (&& and ||) -----
 console.log('---OR (||) ---');
