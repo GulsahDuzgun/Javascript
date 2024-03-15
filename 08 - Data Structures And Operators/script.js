@@ -70,6 +70,21 @@ for (const day of days) {
   console.log(`On ${day} we open at ${open}`);
 }
 
+//Optional Chaining(?.) in Methods
+console.log(restaurant.getPizza?.(1, 2) ?? 'Method does not exist');
+console.log(restaurant.getOrder?.(0, 2) ?? 'Method does not exist');
+
+//Optional Chaining(?.) in Arrays
+
+const arr2 = [{ name: 'gulsah', age: 22 }];
+console.log(arr2[2]?.name ?? "Property doesn't defined");
+console.log(arr2[0]?.age ?? "Property doesn't defined");
+
+if (arr2.length > 0) {
+  console.log(arr2[0].age);
+} else {
+  console.log("Property doesn't defined");
+}
 /*
 console.log(restaurant.openingHours);
 
