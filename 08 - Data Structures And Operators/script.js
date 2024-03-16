@@ -51,6 +51,49 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
+// Sets
+
+const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta']);
+console.log(orderSet);
+
+//string, sets, arrays are iterable --> can loop over them
+const myName = new Set('Gülşah Düzgün');
+const empty = new Set();
+console.log(myName, myName.size); //11
+console.log(empty, empty.size); //0
+
+console.log(myName.has('e')); //false
+console.log(orderSet.has('Pizza')); //true
+console.log(orderSet.has('pizza')); //false
+
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+console.log(orderSet);
+
+orderSet.delete('Pasta');
+console.log(orderSet);
+
+myName.clear();
+console.log(myName);
+
+for (const meal of orderSet) {
+  console.log(meal);
+}
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+console.log(...staff);
+console.log([...staff]);
+
+const titles = new Set(staff);
+console.log(titles);
+
+const titleArr = [...titles];
+console.log(titleArr);
+
+console.log(new Set('gülşahdüzgün').size); //how many different letter is in my name?
+
+///////////////////////////////////////
 // Coding Challenge #2
 
 /* 
@@ -72,7 +115,7 @@ BONUS: Create an object called 'scorers' which contains the names of the players
       }
 
 GOOD LUCK 😀
-*/
+
 
 const game = {
   team1: 'Bayern Munich',
@@ -144,6 +187,8 @@ for (const el of game.scored) {
 }
 // scorers['gulsah'] = 2;
 console.log(scorers);
+
+*/
 
 /*
 ///////////////////////////////////////

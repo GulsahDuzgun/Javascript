@@ -14,5 +14,6 @@
 > - _usage of for-of Loop and to get index arr.entries() ,_
 > - _Optional Chaining(?.) It controls the property which comes before it exist. If the property exists(not null or undefined) then it will evealute the result. If the property doesn't exist it immmediately returns undefined and provides to avoid bugs. It controls the element which the left side of this operator and often use with nullish coalescing operator. ,_
 > - _work with Object.keys(obj), Object.values(obj) and Object.entries(obj),_
+> - _**What is set in Javascript?** Set is a collection of unique values. Set has no any dublicates so they are useful in certain situations.Set works with iterable elements and also set can hold different data types. Set similar to an array.Both of them hold a bunch of values grouped together.And just like an arrays sets are also iterables .But sets elements are unique and sets is irrelevant.There is no way of getting values out of a set,_
 >
 > #
