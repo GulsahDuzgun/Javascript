@@ -224,21 +224,72 @@ const books = [
 ];
 
 ///////////////////////////////////////
+// Sets
+
+/*12.1
+Below is the allKeywords variable, which stores an empty array. Loop over the books array, and fill the allKeywords array with the keywords coming from the keywords property of each book object. The allKeywords array should have just one level (no nested arrays).
+
+Use whatever loop and methods you want. You can also use the spread syntax. In the end, the allKeywords array should look more or less like this: ['computer science', 'programming', 'algorithms', 'data structures', ...].*/
+
+const allKeywords = [];
+for (const el of books) {
+  allKeywords.push(...el.keywords);
+}
+console.log(allKeywords);
+
+// const arr = ['a', 'b'];
+// console.log(...arr);
+// const [...c] = arr;
+// console.log(c);
+
+/*12.2
+The allKeyword array contains duplicates. Remove them by creating a Set out of that array. Assign the newly created set to the uniqueKeywords variable.*/
+
+const uniqueKeywords = new Set(allKeywords);
+const newArr = ['a', 'b', 'c', 'b'];
+uniqueKeywords.add(...newArr);
+uniqueKeywords.add('x', 'v');
+console.log(uniqueKeywords);
+
+/*12.3
+Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.*/
+uniqueKeywords.add('science');
+uniqueKeywords.add('coding');
+
+/*12.4
+Delete 'business' from the uniqueKeywords set.*/
+uniqueKeywords.delete('business');
+console.log(uniqueKeywords.has('business')); //false
+
+/*12.5
+Create an array out of the uniqueKeywords set, and assign it to the uniqueKeywordsArr variable.*/
+
+const uniqueKeywordsArr = [...uniqueKeywords];
+console.log(uniqueKeywordsArr, typeof uniqueKeywordsArr); //object
+console.log(uniqueKeywords, typeof uniqueKeywords); //object
+
+/*12.6
+Delete all items from the uniqueKeywords set.*/
+
+uniqueKeywords.clear();
+console.log(uniqueKeywords); //0
+
+///////////////////////////////////////
 // Looping Objects: Object Keys, Values and Entries
 
 /*11.3
-Use the Object.entries() method on the thirdParty.goodreads property of the first book from the books array. Assign the returned value to the variable called entries2.*/
+Use the Object.entries() method on the thirdParty.goodreads property of the first book from the books array. Assign the returned value to the variable called entries2.
 
 const entries2 = Object.entries(books[0].thirdParty.goodreads);
 console.log(entries2);
+*/
 
 /*11.2
 The Object.values() method returns an array, which means you can call the Array's entries() method on it, for example, Object.entries(books[0].thirdParty.goodreads).entries(). The Array's entries() method returns [index, value] arrays for each element in the array.
 
 Use the for-of loop together with the Object.values() method and Array's entries() method to loop over thirdParty.goodreads property of the first book from the books array.
 
-Push each value to the appropriate inner array in the entries array (use index from entries()).*/
-
+Push each value to the appropriate inner array in the entries array (use index from entries()).
 let entries = [];
 
 for (const [i, element] of Object.values(
@@ -248,6 +299,7 @@ for (const [i, element] of Object.values(
 }
 
 console.log(entries);
+*/
 
 /*11.1
 Below is the entries variable that stores an empty array. Use the for-of loop together with the Object.keys() method to loop over the thirdParty.goodreads property (array) of the first book object from the books array. For each key, push a new array that contains that key to the entries array.
