@@ -225,10 +225,35 @@ const books = [
 
 ///////////////////////////////////////
 // Maps: Fundamentals
+/*Maps: Iteration
+14.1
+Convert the first book object from the books array into a Map, and assign it to a firstBookMap variable.*/
+
+const firstBookMap = new Map(Object.entries(books[0]));
+console.log(firstBookMap);
+
+for (const el of firstBookMap) {
+  console.log(el);
+}
+
+/*14.2
+Use the for-of loop to iterate over firstBookMap, and log to the console keys that have numbers as values.
+*/
+
+for (const [index, element] of firstBookMap) {
+  if (typeof element === 'number') console.log(`${index} ---> ${element}`);
+}
+
+for (const [index, element] of firstBookMap.entries()) {
+  if (typeof element === 'number') console.log(`${index} ---> ${element}`);
+}
+
+///////////////////////////////////////
+// Maps: Fundamentals
 /*13.1
 Create a new book, but this time, as a Map. Assign it to the bookMap variable. Use this array as initial data:
 [['title', 'Clean Code'], ['author', 'Robert C. Martin']]
-*/
+
 
 const obj = { firstname: 'Gülşah Düzgün' };
 
@@ -243,28 +268,32 @@ console.log(bookMap);
 console.log(bookMap.get('title'));
 console.log(bookMap.get('obj'));
 console.log(bookMap.get(obj));
-
+*/
 /*13.2
-Set a new key in bookMap called pages, and assign it with a number 464.*/
+Set a new key in bookMap called pages, and assign it with a number 464.
 
 bookMap.set('pages', 464);
 console.log(bookMap.get('pages'));
+*/
 
 /*13.3
-Get the title and author values from bookMap, and log to the console a string formatted like that: "${title} by ${author}".*/
+Get the title and author values from bookMap, and log to the console a string formatted like that: "${title} by ${author}".
 
 console.log(`${bookMap.get('title')} by ${bookMap.get('author')}`);
+*/
 
 /*13.4
-Get the size of bookMap, and log it to the console.*/
+Get the size of bookMap, and log it to the console.
 
 console.log(bookMap.size);
+*/
 
 /*13.5
-Check if bookMap has the author key. and if so, log "The author of the book is known" to the console.*/
+Check if bookMap has the author key. and if so, log "The author of the book is known" to the console.
 
 bookMap.has('author') &&
   console.log(`The author of the book is known  ${bookMap.get('author')}`);
+*/
 
 ///////////////////////////////////////
 // Sets
