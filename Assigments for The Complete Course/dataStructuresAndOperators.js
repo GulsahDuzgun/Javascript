@@ -224,11 +224,66 @@ const books = [
 ];
 
 ///////////////////////////////////////
-// Maps: Fundamentals
+/*Working with Strings - Part 2
 
+/*16.1
+Write a function called normalizeAuthorName that takes an author's name (string) as an argument, and returns the same string, but the first name and last name are capitalized, and the "(Contributor)" part is removed (if exists).
+
+You can be sure that the author's name always consists of two words separated by a space, and possibly ends with "(Contributor)". The string may also contain trailing spaces.*/
+
+const normalizeAuthorName = function (authorInfo) {
+  authorInfo = authorInfo.toLowerCase().trim();
+  authorInfo = authorInfo.replace('(contributor)', ' ');
+
+  const authorName =
+    authorInfo[0].toUpperCase() + authorInfo.slice(1, authorInfo.indexOf(' '));
+
+  let authorLastname = authorInfo.slice(authorInfo.indexOf(' ') + 1);
+  authorLastname = authorLastname[0].toUpperCase() + authorLastname.slice(1);
+
+  return console.log(authorName + ' ' + authorLastname);
+};
+normalizeAuthorName('  JuliE sussMan (Contributor)');
+
+/*16.2
+Take the title of the second book (books[1]) from the books array, and replace the word "Programs" with "Software". Assign the new string to the newBookTitle variable.*/
+const title = books[1].title;
+const newBookTitle = title.replace('Programs', 'Software');
+console.log(newBookTitle);
+
+/*16.3
+Write a function called logBookTheme that takes book's title (string), and logs to the console:
+
+"This book is about computers" if the title starts with the word "computer",
+
+"This book is about algorithms and data structures" if the title includes both the "algorithms" and "structures" words,
+
+and, "This book is about some systems, but definitely not about operating systems" if the title ends with the word "system" or "systems", but doesn't include the word "operating".*/
+
+const logBookTheme = function ([...arr]) {
+  for (let { title } of arr) {
+    title = title.toLowerCase();
+    if (title.startsWith('computer')) {
+      console.log('This book is about computers');
+    } else if (title.includes('algorithms') && title.includes('structures')) {
+      console.log('This book is about algorithms and data structures');
+    } else if (
+      (title.endsWith('system') || title.endsWith('systems')) &&
+      !title.includes('operating')
+    ) {
+      console.log(
+        'This book is about some systems, but definitely not about operating systems'
+      );
+    }
+  }
+};
+
+logBookTheme(books.values());
+
+///////////////////////////////////////
 /*Working with Strings - Part 1
 15.1
-Take the ISBN property of the first book from the books array, and log to the console characters at index 6, 4, 9 and 8. Use bracket notation to access individual characters.*/
+Take the ISBN property of the first book from the books array, and log to the console characters at index 6, 4, 9 and 8. Use bracket notation to access individual characters.
 
 const ISBN = books[0].ISBN;
 console.log(ISBN[6], ISBN[4], ISBN[9], ISBN[8]);
@@ -238,16 +293,19 @@ console.log(
   books[0].ISBN['9'],
   books[0].ISBN[8]
 );
+*/
 
 /*15.2
-Below is the quote variable that stores a string. Find the index of the word 'chess', and log it to the console.*/
+Below is the quote variable that stores a string. Find the index of the word 'chess', and log it to the console.
 
 let quote =
   'A computer once beat me at chess, but it was no match for me at kick boxing';
 console.log(quote.indexOf('chess'));
 
+*/
+
 /*15.3
-Extract the word "boxing" from the same quote string, and log it to the console.*/
+Extract the word "boxing" from the same quote string, and log it to the console.
 
 const startIndex = quote.indexOf('boxing');
 const res = quote.slice(startIndex, startIndex + 7);
@@ -256,9 +314,10 @@ quote = quote.slice(0, startIndex) + quote.slice(startIndex + 6);
 console.log(quote);
 console.log(res);
 console.log(res2);
+*/
 
 /*15.4
-Some authors are noted as "(Contributor)", for example "Julie Sussman (Contributor)". Create a function called isContributor that takes an author's name as an argument, and returns either true (if he's a contributor) of false (if he's not a contributor). The string "(Contributor)" is always the last part of the author's name string.*/
+Some authors are noted as "(Contributor)", for example "Julie Sussman (Contributor)". Create a function called isContributor that takes an author's name as an argument, and returns either true (if he's a contributor) of false (if he's not a contributor). The string "(Contributor)" is always the last part of the author's name string.
 
 const isContributor = function (authorName) {
   // return authorName.slice(authorName.lastIndexOf(' ') + 1) === '(Contributor)';
@@ -269,8 +328,9 @@ const isContributor = function (authorName) {
 console.log(isContributor('Julie Sussman (Contributor)'));
 console.log(isContributor('Robert Sedgewick'));
 
+*/
+
 ///////////////////////////////////////
-// Maps: Fundamentals
 /*Maps: Iteration
 14.1
 Convert the first book object from the books array into a Map, and assign it to a firstBookMap variable.
