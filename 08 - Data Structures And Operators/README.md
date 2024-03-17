@@ -16,6 +16,9 @@
 > - _work with Object.keys(obj), Object.values(obj) and Object.entries(obj),_
 > - _**What is Set in Javascript?** Set is a collection of unique values. Set has no any dublicates so they are useful in certain situations.Set works with iterable elements and also set can hold different data types. Set similar to an array.Both of them hold a bunch of values grouped together.And just like an arrays sets are also iterables .But sets elements are unique and sets is irrelevant.There is no way of getting values out of a set,_
 > - _ has(), add(), clear(), delete() methods with set data ,_
-> - _**What is Maps in Javascript?** Map is a data structure that we can use to map values to key. Data is stored key-value pairs in maps.In maps keys can have any type.In objects keys are always strings but in maps we can have any type of key. Like objects, arrays or other maps. ,_
+> - _**What is Maps in Javascript?** Map is a data structure that we can use to map values to key. Data is stored key-value pairs in maps. In maps keys can have any type. In objects keys are always strings but in maps we can have any type of key. Like objects, arrays or other maps. ,_
+> - _**Which Data Structure to use?** If you need simple list you should choose Array or List. If you need key-value pairs(keys allow us to describe values), you should choose Objects or Maps ,_
+> - _**Arrays vs. Sets** When you need ordered list of values(might contain duplicates) and manipulate data, it will be used arrays. When you need to work with unique values and high-performance is really important or remove dublicates from arrays. ,_
+> - _**Objects vs. Maps** Objects get easier to write and access values with . and []. When you need functions(methods) or to use this keyword, you should choose objects. Maps can have any type(not just string) and easy to iterate, easy to compute size and provide better performance. ,_
 >
 > #
