@@ -224,12 +224,55 @@ const books = [
 ];
 
 ///////////////////////////////////////
+// Maps: Fundamentals
+/*13.1
+Create a new book, but this time, as a Map. Assign it to the bookMap variable. Use this array as initial data:
+[['title', 'Clean Code'], ['author', 'Robert C. Martin']]
+*/
+
+const obj = { firstname: 'Gülşah Düzgün' };
+
+const bookMap = new Map([
+  ['title', 'Clean Code'],
+  ['author', 'Robert C. Martin'],
+  ['obj', { firstname: 'Gülşah Düzgün' }],
+  [obj, 'me'],
+]);
+
+console.log(bookMap);
+console.log(bookMap.get('title'));
+console.log(bookMap.get('obj'));
+console.log(bookMap.get(obj));
+
+/*13.2
+Set a new key in bookMap called pages, and assign it with a number 464.*/
+
+bookMap.set('pages', 464);
+console.log(bookMap.get('pages'));
+
+/*13.3
+Get the title and author values from bookMap, and log to the console a string formatted like that: "${title} by ${author}".*/
+
+console.log(`${bookMap.get('title')} by ${bookMap.get('author')}`);
+
+/*13.4
+Get the size of bookMap, and log it to the console.*/
+
+console.log(bookMap.size);
+
+/*13.5
+Check if bookMap has the author key. and if so, log "The author of the book is known" to the console.*/
+
+bookMap.has('author') &&
+  console.log(`The author of the book is known  ${bookMap.get('author')}`);
+
+///////////////////////////////////////
 // Sets
 
 /*12.1
 Below is the allKeywords variable, which stores an empty array. Loop over the books array, and fill the allKeywords array with the keywords coming from the keywords property of each book object. The allKeywords array should have just one level (no nested arrays).
 
-Use whatever loop and methods you want. You can also use the spread syntax. In the end, the allKeywords array should look more or less like this: ['computer science', 'programming', 'algorithms', 'data structures', ...].*/
+Use whatever loop and methods you want. You can also use the spread syntax. In the end, the allKeywords array should look more or less like this: ['computer science', 'programming', 'algorithms', 'data structures', ...].
 
 const allKeywords = [];
 for (const el of books) {
@@ -237,42 +280,49 @@ for (const el of books) {
 }
 console.log(allKeywords);
 
+*/
+
 // const arr = ['a', 'b'];
 // console.log(...arr);
 // const [...c] = arr;
 // console.log(c);
 
 /*12.2
-The allKeyword array contains duplicates. Remove them by creating a Set out of that array. Assign the newly created set to the uniqueKeywords variable.*/
+The allKeyword array contains duplicates. Remove them by creating a Set out of that array. Assign the newly created set to the uniqueKeywords variable.
 
 const uniqueKeywords = new Set(allKeywords);
 const newArr = ['a', 'b', 'c', 'b'];
 uniqueKeywords.add(...newArr);
 uniqueKeywords.add('x', 'v');
 console.log(uniqueKeywords);
+*/
 
 /*12.3
-Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.*/
+Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.
 uniqueKeywords.add('science');
 uniqueKeywords.add('coding');
+*/
 
 /*12.4
-Delete 'business' from the uniqueKeywords set.*/
+Delete 'business' from the uniqueKeywords set.
 uniqueKeywords.delete('business');
 console.log(uniqueKeywords.has('business')); //false
+*/
 
 /*12.5
-Create an array out of the uniqueKeywords set, and assign it to the uniqueKeywordsArr variable.*/
+Create an array out of the uniqueKeywords set, and assign it to the uniqueKeywordsArr variable.
 
 const uniqueKeywordsArr = [...uniqueKeywords];
 console.log(uniqueKeywordsArr, typeof uniqueKeywordsArr); //object
 console.log(uniqueKeywords, typeof uniqueKeywords); //object
+*/
 
 /*12.6
-Delete all items from the uniqueKeywords set.*/
+Delete all items from the uniqueKeywords set.
 
 uniqueKeywords.clear();
 console.log(uniqueKeywords); //0
+*/
 
 ///////////////////////////////////////
 // Looping Objects: Object Keys, Values and Entries
