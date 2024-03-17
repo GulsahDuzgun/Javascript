@@ -51,6 +51,48 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
+// Working With Strings- Part 1
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(airline[0]);
+console.log(airline); // 'TAP Air Portugal'
+console.log('TAP Air Portugal'[0]);
+
+console.log(plane.length);
+console.log('A320'.length);
+console.log('TAP Air Portugal'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Air'));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(4, airline.lastIndexOf(' ')));
+console.log(airline.slice(airline.indexOf('Portugal')));
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1)); //[)
+console.log(airline); //strings are immutable
+
+const checkMiddleSeat = function (seat) {
+  const lastLetter = seat.slice(-1);
+
+  if (lastLetter === 'B' || lastLetter === 'E')
+    console.log('You got the middle seat');
+  else console.log('You got lucky');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(typeof 'abc'.slice(2)); //string
+console.log(typeof new String('abc').slice(2)); //string
+console.log(typeof new String('abc')); //object
+console.log(new String('abc')); //object
+
+///////////////////////////////////////
 // Coding Challenge #3
 
 /* 
@@ -63,7 +105,7 @@ Let's continue with our football betting app! This time, we have a map with a lo
       [FIRST HALF] 17: ⚽️ GOAL
 
 GOOD LUCK 😀
-*/
+
 
 const gameEvents = new Map([
   [17, '⚽️ GOAL'],
@@ -101,6 +143,8 @@ for (const [min, event] of gameEvents) {
   min > 45 && console.log(`[SECOND HALF] ${min}: ${event}`);
   min < 45 && console.log(`[FIRST HALF] ${min}: ${event}`);
 }
+
+*/
 
 /*
 ///////////////////////////////////////
