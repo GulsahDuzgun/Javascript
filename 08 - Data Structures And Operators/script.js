@@ -52,9 +52,48 @@ const restaurant = {
 
 /*
 ///////////////////////////////////////
-// Maps:Fundamentals
+// Maps:Iteration*/
 
-*/
+const quiz = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Javascript'],
+  ['trueAnswer', 3],
+  [true, 'Correct Answer'],
+  [false, 'Try Again'],
+]);
+
+console.log(quiz);
+console.log(quiz.entries());
+console.log(quiz === quiz.entries()); //false
+
+console.log(quiz.get('question'));
+for (const [key, value] of quiz) {
+  if (typeof key === 'number') {
+    console.log(`${key}-) ${quiz.get(key)}`);
+  }
+}
+
+// const answer = Number(prompt('Enter your answer'));
+const answer = 3;
+console.log(quiz.get(answer === quiz.get('trueAnswer')));
+
+console.log(quiz);
+console.log([...quiz]);
+console.log(quiz.entries());
+console.log([...quiz.entries()]);
+console.log([...quiz.keys()]);
+console.log([...quiz.values()]);
+
+// console.log('***');
+// for (const el of quiz.entries()) {
+//   console.log(el);
+// }
+
+/*
+///////////////////////////////////////
+// Maps:Fundamentals
 
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
@@ -99,6 +138,7 @@ rest.set(obj, 'Gülşah Düzgün');
 
 console.log(rest.get(obj)); //Gülşah Düzgün
 console.log(rest.get({ firstName: 'Gülşah' })); //undefined
+*/
 
 /*
 ///////////////////////////////////////
