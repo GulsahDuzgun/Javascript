@@ -52,7 +52,7 @@ const restaurant = {
 
 ///////////////////////////////////////
 // Working With Strings- Part 1
-
+/*
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 
@@ -91,6 +91,8 @@ console.log(typeof 'abc'.slice(2)); //string
 console.log(typeof new String('abc').slice(2)); //string
 console.log(typeof new String('abc')); //object
 console.log(new String('abc')); //object
+
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #3
