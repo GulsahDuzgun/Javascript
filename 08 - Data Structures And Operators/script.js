@@ -51,6 +51,62 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
+// Working With Strings- Part 2
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+const passenger = 'GÜlşAH DüZGün';
+
+console.log(passenger.toLowerCase());
+console.log(passenger.toUpperCase());
+
+const lowerPassName =
+  passenger[0].toUpperCase() +
+  passenger.slice(1, passenger.indexOf(' ')).toLowerCase();
+
+const upperPassLast = passenger.slice(passenger.indexOf(' ') + 1).toUpperCase();
+console.log(lowerPassName, upperPassLast);
+
+const email = 'hello@jonas.io';
+const loginEmail = '   Hello@Jonas.Io   \n';
+
+// const normalizedEmail = loginEmail.toLowerCase();
+// const trimMail = normalizedEmail.trim();
+const trimMail = loginEmail.toLowerCase().trim();
+console.log(email === trimMail);
+
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+console.log(announcement.replace(/door/g, 'gate'));
+
+const plane2 = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane2.endsWith('ne'));
+console.log(plane2.endsWith('neo'));
+console.log(plane2.startsWith('air'));
+console.log(plane2.startsWith('Air'));
+
+const checkBaggage = function (item) {
+  item = item.toLowerCase();
+  if (item.includes('knife') || item.includes('gun')) {
+    console.log('You are not allowed on board');
+  } else {
+    console.log('Welcome aboard');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a Pocket Knife');
+checkBaggage('Socks and Camera');
+checkBaggage('Got some snack ans a GuN for protection');
+
+///////////////////////////////////////
 // Working With Strings- Part 1
 /*
 const airline = 'TAP Air Portugal';
