@@ -50,6 +50,57 @@ const restaurant = {
   },
 };
 
+/*
+///////////////////////////////////////
+// Maps:Fundamentals
+
+*/
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+rest
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open:D')
+  .set(false, 'We are closed :(');
+
+console.log(rest);
+
+console.log(rest.get('1')); //undefined
+console.log(rest.get(1));
+
+const visitHour = 0;
+console.log(
+  rest.get(visitHour < rest.get('close') && visitHour > rest.get('open'))
+);
+
+console.log(rest.has('open'));
+console.log(rest.has('opens'));
+
+console.log(rest.size);
+console.log(rest.delete(1)); //true
+console.log(rest.delete(1)); //false
+console.log(rest.size);
+
+const arr2 = [3, 4];
+rest.set([1, 2], 'array');
+rest.set(arr2, 'array2');
+console.log(rest.get([1, 2]));
+console.log(rest.get(arr2));
+console.log(arr2);
+
+rest.set(document.querySelector('h1'), 'object');
+console.log(rest.get(document.querySelector('h1')));
+
+const obj = { firstName: 'Gülşah' };
+rest.set({ firstName: 'Gülşah' }, 'Düzgün');
+rest.set(obj, 'Gülşah Düzgün');
+
+console.log(rest.get(obj)); //Gülşah Düzgün
+console.log(rest.get({ firstName: 'Gülşah' })); //undefined
+
+/*
 ///////////////////////////////////////
 // Sets
 
@@ -92,6 +143,7 @@ const titleArr = [...titles];
 console.log(titleArr);
 
 console.log(new Set('gülşahdüzgün').size); //how many different letter is in my name?
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #2
