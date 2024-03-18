@@ -4,6 +4,60 @@
 // Functions Returning Functions
 /* */
 
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  booking: [],
+  // book:function(){}
+  book(flight, passenger) {
+    const book = {
+      passenger,
+      flight,
+      airline: this.airline,
+      iataCode: this.iataCode,
+    };
+    console.log(
+      `${passenger} booked a seat on ${this.airline} flight ${this.iataCode}${flight}`
+    );
+    this.booking.push(book);
+  },
+};
+
+lufthansa.book('238', 'Gülşah Düzgün');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'SW',
+  booking: [],
+  // book: lufthansa.book,
+};
+
+const book = lufthansa.book;
+//book('Deniz Düzgün', '54'); TypeError: Cannot read properties of undefined (reading 'airline')
+book.call(swiss, '54', 'Deniz Düzgün');
+console.log(swiss);
+
+// swiss.book('54', 'Esra Nur Düzgün');
+// console.log(swiss);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  booking: [],
+};
+
+book.call(eurowings, 'Sarah Willliams', '23');
+console.log(eurowings);
+
+const infoArr = [39, 'Mary Cooper'];
+book.apply(eurowings, infoArr);
+book.call(swiss, ...infoArr);
+
+///////////////////////////////////////
+// Functions Returning Functions
+/* 
+
 const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
@@ -32,6 +86,7 @@ sayHello('Ahmet');
 
 console.log(sayHello);
 console.log(greeting2);
+*/
 
 ///////////////////////////////////////
 // How Passing Arguments Works: Value vs. Reference
