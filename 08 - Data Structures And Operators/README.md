@@ -20,6 +20,6 @@
 > - _**Which Data Structure to use?** If you need simple list you should choose Array or List. If you need key-value pairs(keys allow us to describe values), you should choose Objects or Maps ,_
 > - _**Arrays vs. Sets** When you need ordered list of values(might contain duplicates) and manipulate data, it will be used arrays. When you need to work with unique values and high-performance is really important or remove dublicates from arrays. ,_
 > - _**Objects vs. Maps** Objects get easier to write and access values with . and []. When you need functions(methods) or to use this keyword, you should choose objects. Maps can have any type(not just string) and easy to iterate, easy to compute size and provide better performance. ,_
-> - _indexOf(), lastIndexOf(), slice(), toLowerCase(), toUpperCase(), trim(), replace(), replaceAll(), includes(), endsWith(), startsWith() methods in Javascript ,_
+> - _indexOf(), lastIndexOf(), slice(), toLowerCase(), toUpperCase(), trim(), replace(), replaceAll(), includes(), endsWith(), startsWith(), split(), join(), padStart(), padEnd(), repeat() methods in Javascript ,_
 >
 > #

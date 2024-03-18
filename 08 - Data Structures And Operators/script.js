@@ -51,8 +51,66 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
+// Working With Strings- Part 3
+
+console.log('It+is very+sunny'.split('+')); //split takes string and returns an array
+console.log('Gülşah Düzgün'.split(' '));
+
+const [firstName, lastName] = 'Gülşah Düzgün'.split(' ');
+console.log(firstName, lastName);
+
+const str = ['Mrs.', firstName, lastName].join(' '); //join takes array and returns string
+console.log(str);
+
+const capitalizedName = function (argName) {
+  const arr = argName.split(' ');
+  const newArr = [];
+  for (const word of arr) {
+    // newArr.push(word[0].toUpperCase() + word.slice(1));
+    newArr.push(word.replace(word[0], word[0].toUpperCase()));
+  }
+  return console.log(newArr.join(' '));
+};
+
+capitalizedName('jessica ann smith davis');
+capitalizedName('gulsah duzgun');
+
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '*').padEnd(26, '-'));
+console.log('gülşah'.padStart(9, '^').padEnd(12, '*'));
+
+// const maskCreditCard = function (cardNum) {
+//   const maskNum = cardNum.trim().slice(-4).padStart(12, '*');
+//   return console.log(maskNum);
+// };
+
+// maskCreditCard('1234 2332 4244 2322');
+
+const maskCreditCard = function (number) {
+  const str = number + ''; //String(number)
+  const result = str.slice(-4).padStart(str.length, '*');
+  return console.log(result);
+};
+
+maskCreditCard(23235408);
+maskCreditCard('85039403');
+maskCreditCard(12345676534565434);
+
+const message1 = 'Bad waether... All Departues Delayed... ';
+console.log(message1.repeat(2));
+
+const planesInLine = function (n) {
+  return console.log(`There are ${n} planes in line: ${'✈'.repeat(n)}`);
+};
+
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+
+///////////////////////////////////////
 // Working With Strings- Part 2
 
+/*
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 const passenger = 'GÜlşAH DüZGün';
@@ -105,6 +163,8 @@ const checkBaggage = function (item) {
 checkBaggage('I have a laptop, some Food and a Pocket Knife');
 checkBaggage('Socks and Camera');
 checkBaggage('Got some snack ans a GuN for protection');
+
+*/
 
 ///////////////////////////////////////
 // Working With Strings- Part 1
