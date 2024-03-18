@@ -2,4 +2,6 @@
 
 > #
 >
+> - _default parameters -if the parameters would be set default value, we can use undefined as value- in Javascript,_
+>
 > #
