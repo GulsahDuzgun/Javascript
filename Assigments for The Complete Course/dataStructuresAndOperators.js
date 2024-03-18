@@ -224,12 +224,88 @@ const books = [
 ];
 
 ///////////////////////////////////////
+//Working with Strings - Part 3
+
+/*17.3
+Below is the bookChapters array that contains inner arrays. Each inner array consists of a chapter's title, and the number of a page, for example, in ['The Basics', 14], 'The Basics' is the chapter's title, and 14 is the number of a page.
+
+Write a function called logBookChapters that takes an array of arrays (like bookChapters) as an argument, and logs each chapter's name to the console together with the page number. The page number should be separated from the chapter's name with underscores (take a look at the example below).
+
+Use the padEnd method.
+*/
+const bookChapters = [
+  ['The Basics', 14],
+  ['Sorting', 254],
+  ['Searching', 372],
+  ['Graphs', 526],
+  ['Strings', 706],
+];
+
+logBookChapters(bookChapters);
+
+function logBookChapters(arrChapter) {
+  for (const [title, page] of arrChapter) {
+    console.log(title.padEnd(20, '_') + ' ' + page);
+  }
+}
+
+/*Now, the opposite. Each book from the books array has the keywords property.
+
+Write a function called getKeywordsAsString that takes the books array as an argument, collects keywords from each book, removes duplicates, and then joins them to create a single string where keywords are separated by a semicolon.*/
+
+const getKeywordsAsString = function ([...bookArr]) {
+  // console.log(bookArr);
+  // console.log(...bookArr);
+
+  // for (const [index, { title }] of bookArr.entries()) {
+  //   console.log(index, title);
+  // }
+
+  //1
+  // const titleUniq = new Set();
+  // for (const { title } of bookArr.values()) {
+  //   titleUniq.add(title);
+  // }
+  // const uniqTitleArr = [...titleUniq];
+  // return console.log(uniqTitleArr.join(';'));
+
+  //2
+  const tempArr = [];
+  for (const book of books) {
+    tempArr.push(...book.keywords);
+  }
+
+  const uniqueKeywords = [...new Set(tempArr)];
+  // console.log(uniqueKeywords);
+  return console.log(uniqueKeywords.join(';'));
+};
+
+getKeywordsAsString(books);
+
+/*17.1
+Below is the bookCategories variable that stores a string of categories. Each category is separated with a semicolon, for example, in a string "science;computing", 'science' and 'computing' are separate categories.
+
+Write a function called logBookCategories that takes a string of categories separated with semicolons, and logs each category to the console (as separate strings).*/
+
+const bookCategories =
+  'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+
+const logBookCategories = function (categories) {
+  const catArr = categories.trim().split(';');
+  for (const categori of catArr) {
+    console.log(categori);
+  }
+};
+
+logBookCategories(bookCategories);
+
+///////////////////////////////////////
 /*Working with Strings - Part 2
 
 /*16.1
 Write a function called normalizeAuthorName that takes an author's name (string) as an argument, and returns the same string, but the first name and last name are capitalized, and the "(Contributor)" part is removed (if exists).
 
-You can be sure that the author's name always consists of two words separated by a space, and possibly ends with "(Contributor)". The string may also contain trailing spaces.*/
+You can be sure that the author's name always consists of two words separated by a space, and possibly ends with "(Contributor)". The string may also contain trailing spaces.
 
 const normalizeAuthorName = function (authorInfo) {
   authorInfo = authorInfo.toLowerCase().trim();
@@ -244,12 +320,15 @@ const normalizeAuthorName = function (authorInfo) {
   return console.log(authorName + ' ' + authorLastname);
 };
 normalizeAuthorName('  JuliE sussMan (Contributor)');
+*/
 
 /*16.2
-Take the title of the second book (books[1]) from the books array, and replace the word "Programs" with "Software". Assign the new string to the newBookTitle variable.*/
+Take the title of the second book (books[1]) from the books array, and replace the word "Programs" with "Software". Assign the new string to the newBookTitle variable.
 const title = books[1].title;
 const newBookTitle = title.replace('Programs', 'Software');
 console.log(newBookTitle);
+
+*/
 
 /*16.3
 Write a function called logBookTheme that takes book's title (string), and logs to the console:
@@ -258,7 +337,7 @@ Write a function called logBookTheme that takes book's title (string), and logs 
 
 "This book is about algorithms and data structures" if the title includes both the "algorithms" and "structures" words,
 
-and, "This book is about some systems, but definitely not about operating systems" if the title ends with the word "system" or "systems", but doesn't include the word "operating".*/
+and, "This book is about some systems, but definitely not about operating systems" if the title ends with the word "system" or "systems", but doesn't include the word "operating".
 
 const logBookTheme = function ([...arr]) {
   for (let { title } of arr) {
@@ -279,6 +358,7 @@ const logBookTheme = function ([...arr]) {
 };
 
 logBookTheme(books.values());
+*/
 
 ///////////////////////////////////////
 /*Working with Strings - Part 1
