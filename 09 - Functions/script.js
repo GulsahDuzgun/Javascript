@@ -1,6 +1,39 @@
 'use strict';
 
 ///////////////////////////////////////
+// Functions Returning Functions
+/* */
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+console.log(greet); //function
+console.log(typeof greet('Hello')); //function
+
+const greetPerson = greet('Hi');
+console.log(greetPerson);
+greetPerson('Gülşah');
+
+greet('Hello')('Hasan');
+
+// const greeting2 = greetWord =>
+//   function (name2) {
+//     console.log(`${greetWord} ${name2}`);
+//   };
+
+const greeting2 = greetWord => name2 => console.log(`${greetWord} ${name2}`);
+
+greeting2('Hi')('Adem');
+const sayHello = greeting2('Hello');
+sayHello('Ahmet');
+
+console.log(sayHello);
+console.log(greeting2);
+
+///////////////////////////////////////
 // How Passing Arguments Works: Value vs. Reference
 /*
 
@@ -36,7 +69,7 @@ checkIn(me, flight);
 
 ///////////////////////////////////////
 // Functions Accepting Callback Functions
-/* */
+/* 
 
 const oneWord = function (str) {
   return str.replaceAll(' ', '').toLowerCase();
@@ -69,6 +102,7 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['a', 2, 'abc'].forEach(high5);
+*/
 
 ///////////////////////////////////////
 // Default Parameters
