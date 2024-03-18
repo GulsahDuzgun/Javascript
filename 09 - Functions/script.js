@@ -1,5 +1,9 @@
 'use strict';
 
+///////////////////////////////////////
+// How Passing Arguments Works: Value vs. Reference
+/*
+
 const flight = 23456787654;
 
 const me = {
@@ -28,6 +32,7 @@ const newPassport = function (person) {
 newPassport(me);
 console.log(me, flight);
 checkIn(me, flight);
+*/
 
 ///////////////////////////////////////
 // Default Parameters
