@@ -8,5 +8,6 @@
 > - _callback functions in Javascript ,_
 > - _call() and apply() methods ,_
 > - _the bind() method,_
+> - _Immediately Invoked Function Expressions(IIFE) ,_
 >
 > #

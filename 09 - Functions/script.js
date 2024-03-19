@@ -1,6 +1,33 @@
 'use strict';
 
 ///////////////////////////////////////
+//Immediately Invoked Function Expressions(IIFE)
+
+const runOne = function () {
+  console.log('This function will be called whenever it calls');
+};
+
+runOne();
+
+(function () {
+  console.log(this); //undefined
+  const isPrived = 27;
+  var isPublic = 12;
+  console.log('This function will be called just once');
+})();
+
+{
+  const isPrived1 = 34;
+  var isPublic1 = 98;
+  console.log(this); //Window
+}
+
+console.log(`${isPublic1}`);
+// console.log(`${isPublic}`);// isPublic is not defined
+console.log(`${isPrived}`); // isPrived is not defined
+console.log(`${isPrived1}`); // isPrived1 is not defined
+
+///////////////////////////////////////
 // Coding Challenge #1
 
 /* 
@@ -32,7 +59,7 @@ BONUS TEST DATA 1: [5, 2, 3]
 BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
 GOOD LUCK 😀
-*/
+
 const pullBtn = document.querySelector('.poll');
 
 const poll = {
@@ -80,13 +107,13 @@ const obj2 = {
   answers: [5, 2, 3],
 };
 
-/*
-poll.displayResults.call(obj, 'string'); // call immediately calls the method
-const bindGetResults = poll.displayResults.bind(obj2); //bins calls the method when it calls with()
 
-bindGetResults('array');
-bindGetResults('string');
-*/
+// poll.displayResults.call(obj, 'string'); // call immediately calls the method
+// const bindGetResults = poll.displayResults.bind(obj2); //bins calls the method when it calls with()
+
+// bindGetResults('array');
+// bindGetResults('string');
+
 
 const getDisplayResults = poll.displayResults;
 const bindGetResults = getDisplayResults.bind(obj);
@@ -94,6 +121,7 @@ getDisplayResults.call(obj2, 'string');
 
 bindGetResults('array');
 bindGetResults('string');
+*/
 
 ///////////////////////////////////////
 // The bind() method
