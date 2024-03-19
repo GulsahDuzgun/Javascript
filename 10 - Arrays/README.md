@@ -2,4 +2,6 @@
 
 > #
 >
+> - _slice(), splice(), reverse(), concat(), join() methods in arrays,_
+>
 > #
