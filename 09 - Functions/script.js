@@ -1,8 +1,28 @@
 'use strict';
 
 ///////////////////////////////////////
-//More Closure Example - 1
+//More Closure Example - 2
 /* */
+
+const boardPassengers = function (time, numberPassenger) {
+  const perGroup = numberPassenger / 3;
+
+  setTimeout(function () {
+    console.log(
+      `We are now boarding all ${numberPassenger} passengers in ${time} minutes`
+    );
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, 1000 * time);
+
+  console.log(`We will start boarding in ${time} seconds`);
+};
+
+const perGroup = 40;
+boardPassengers(2, 90);
+
+///////////////////////////////////////
+//More Closure Example - 1
+/* 
 
 let f;
 
@@ -27,6 +47,8 @@ console.dir(f);
 g();
 f();
 console.dir(f);
+
+*/
 
 ///////////////////////////////////////
 //Closures
