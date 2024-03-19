@@ -9,5 +9,6 @@
 > - _call() and apply() methods ,_
 > - _the bind() method,_
 > - _Immediately Invoked Function Expressions(IIFE) ,_
+> - _ **What is Closure in Javascript?** A closure is the closed-over variable environment of the execution context in which a function was created, even after execution context is gone. A closure gives a function access to all the variables of its parent function, even after that parent function has returned. The function keeps a reference to its outer scope, which preservers the the scope chain throughout time. A closure makes sure that function doesn't loose connection to variables that existed at the function's birth place and closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were present in the environment where the function was created. We don't manually create closures, this is a Javascript feature that happens automatically. We can't even access closed-over variables explicitly.Closure has priority according to scope chain. A closure is not a tangible Javascript object. ,_
 >
 > #

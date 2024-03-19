@@ -1,8 +1,29 @@
 'use strict';
 
 ///////////////////////////////////////
-//Immediately Invoked Function Expressions(IIFE)
+//Closures
 
+let passengerCount = 10;
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+console.log(booker);
+booker();
+booker();
+
+console.dir(booker);
+
+///////////////////////////////////////
+//Immediately Invoked Function Expressions(IIFE)
+/*
 const runOne = function () {
   console.log('This function will be called whenever it calls');
 };
@@ -26,6 +47,7 @@ console.log(`${isPublic1}`);
 // console.log(`${isPublic}`);// isPublic is not defined
 console.log(`${isPrived}`); // isPrived is not defined
 console.log(`${isPrived1}`); // isPrived1 is not defined
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #1
