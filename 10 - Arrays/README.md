@@ -8,5 +8,8 @@
 > - _**What difference is there between forEach and for of loop? ** You can not break out of a forEach loop,continue and breal statements don't work any forEach loop at all. forEach will always loop over the entire array. for of loop allows us to break out loop. ,_
 > - _forEach with Maps and Sets ,_
 > - _insertAdjacentHTML() method in Javascript,_
+> - _**What is map() method in Javascript?** map() returns a new array containing the results of applying an operation on all original array elements. It returns an array.,_
+> - _**What is filter() method in Javascript?** filter() returns a new array containing the array elements that passed a specified test condition.It returns an array.,_
+> - _**What is reduce() method in Javascript?** reduce() boils('reduces') all array elements down to one single value. It returns a variable. ,_
 >
 > #
