@@ -1,8 +1,84 @@
 'use strict';
 
 ///////////////////////////////////////
-// Functions Returning Functions
+// The bind() method
 /* */
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  booking: [],
+  // book:function(){}
+  book(flight, passenger) {
+    const book = {
+      passenger,
+      flight,
+      airline: this.airline,
+      iataCode: this.iataCode,
+    };
+    console.log(
+      `${passenger} booked a seat on ${this.airline} flight ${this.iataCode}${flight}`
+    );
+    this.booking.push(book);
+  },
+};
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'SW',
+  booking: [],
+  // book: lufthansa.book,
+};
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  booking: [],
+};
+
+const book = lufthansa.book;
+
+const LHBook = book.bind(swiss);
+LHBook(89, 'Mary Cooper');
+console.log(swiss);
+
+const EWBook = book.bind(eurowings, undefined, 'gülşah');
+EWBook(67, 'esra');
+console.log(eurowings);
+
+swiss.plane = 200;
+swiss.buyPlane = function () {
+  this.plane++;
+  console.log(this);
+  console.log(this.plane);
+};
+
+swiss.buyPlane();
+const btn = document.querySelector('.buy');
+
+// btn.addEventListener('click', swiss.buyPlane);  //this is btn object
+btn.addEventListener('click', swiss.buyPlane.bind(swiss));
+
+const addTax = (rate, val) => val + val * rate;
+
+const VAT = addTax.bind(null, 0.23); //order of argument is important
+console.log(VAT);
+console.log(VAT(100));
+
+const addTax2 = function (rate) {
+  return function (val) {
+    return val + val * rate;
+  };
+};
+
+const VAT2 = addTax2(0.23);
+
+console.log(VAT2(100));
+console.log(VAT2(200));
+
+///////////////////////////////////////
+// The call() and apply() method
+/* 
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -53,6 +129,7 @@ console.log(eurowings);
 const infoArr = [39, 'Mary Cooper'];
 book.apply(eurowings, infoArr);
 book.call(swiss, ...infoArr);
+*/
 
 ///////////////////////////////////////
 // Functions Returning Functions

@@ -7,5 +7,6 @@
 > - _**What is Higher-Order Functions?** This is only possible because of first-class functions. A function that receives another function as an argument(like addEventListener()), that returns a new function or both.,_
 > - _callback functions in Javascript ,_
 > - _call() and apply() methods ,_
+> - _the bind() method,_
 >
 > #
