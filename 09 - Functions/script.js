@@ -1,7 +1,36 @@
 'use strict';
 
 ///////////////////////////////////////
+//More Closure Example - 1
+/* */
+
+let f;
+
+function h() {
+  const a = 12;
+  f = function () {
+    console.log(a * 2);
+  };
+}
+
+function g() {
+  const b = 27;
+  f = function () {
+    console.log(b * 2);
+  };
+}
+
+h();
+f();
+console.dir(f);
+
+g();
+f();
+console.dir(f);
+
+///////////////////////////////////////
 //Closures
+/*
 
 let passengerCount = 10;
 
@@ -20,6 +49,7 @@ booker();
 booker();
 
 console.dir(booker);
+*/
 
 ///////////////////////////////////////
 //Immediately Invoked Function Expressions(IIFE)
