@@ -1,9 +1,41 @@
 'use strict';
 
 ///////////////////////////////////////
-// Looping Arrays: forEach
+// forEach With Maps and Sets
 /* */
 
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+const currenciesArr2 = [
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+];
+
+currenciesArr2.forEach(function (element, index, arr) {
+  console.log(index, element, arr);
+});
+
+currencies.forEach(function (element, index, map) {
+  console.log(index, element, map);
+});
+
+const setCurrencies = new Set(['Euro', 'Dolar', 'USD', 'GBP', 'EUR', 'Euro']);
+
+setCurrencies.forEach(function (element, index, set) {
+  console.log(index, element, set);
+});
+//There is no key value in Sets.
+
+console.log(setCurrencies);
+
+///////////////////////////////////////
+// Looping Arrays: forEach
+/* 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 for (const [i, movement] of movements.entries()) {
@@ -23,6 +55,7 @@ movements.forEach(function (movement, index, array) {
     console.log(`Movement ${index + 1}:You withdrew ${Math.abs(movement)}`);
   }
 });
+*/
 
 ///////////////////////////////////////
 // The new at Method
