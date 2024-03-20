@@ -57,6 +57,43 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 ///////////////////////////////////////
+// The Map Method
+/* */
+
+const eurToUsd = 1.1;
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const movementsUSD = movements.map(function (el, indx, arr) {
+  // console.log(el, indx, arr);
+  return el * eurToUsd;
+});
+console.log(movementsUSD);
+
+const movementsUSD1 = movements.map((el, indx, arr) => el * eurToUsd);
+console.log(movementsUSD1);
+
+const movementsUSD2 = [];
+for (const el of movements) {
+  movementsUSD2.push(el * eurToUsd);
+}
+console.log(movementsUSD2);
+
+const movementsUSD3 = [];
+movements.forEach(function (el, indx, arr) {
+  movementsUSD3.push(el * eurToUsd);
+});
+console.log(movementsUSD3);
+
+const movementsDescription = movements.map(
+  (el, indx, arr) =>
+    `Movement ${indx + 1}: You ${el > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      el
+    )}`
+);
+
+console.log(movementsDescription);
+
+///////////////////////////////////////
 // Coding Challenge #1
 
 /* 
@@ -74,7 +111,7 @@ HINT: Use tools from all lectures in this section so far 😉
 TEST DATA 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
 TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 
-GOOD LUCK 😀*/
+GOOD LUCK 😀
 
 const checkDogs = function (dogsJulia, dogsKate) {
   // const correctedDogsJ = dogsJulia.slice(1, -2);
@@ -97,6 +134,7 @@ const checkDogs = function (dogsJulia, dogsKate) {
 };
 
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+*/
 
 ///////////////////////////////////////
 // Creating DOM Elements
