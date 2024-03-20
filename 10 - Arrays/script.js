@@ -97,7 +97,7 @@ const calcDisplaySummary = function (movement) {
     .filter(el => el > 0)
     .map(el => (el * 1.2) / 100)
     .filter((el, indx, arr) => {
-      console.log(el, arr);
+      // console.log(el, arr);
       return el >= 1;
     })
     .reduce((acc, el) => el + acc);
@@ -111,8 +111,31 @@ calcDisplaySummary(account1.movements);
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ///////////////////////////////////////
-//The Magic of Chaining Methods
+// Coding Challenge #3
 
+/* 
+Rewrite the 'calcAverageHumanAge' function from the previous challenge, but this time as an arrow function, and using chaining!
+
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+
+GOOD LUCK 😀
+*/
+
+const calcAverageHumanAge = function (ages) {
+  const average = ages
+    .map(el => (el <= 2 ? el * 2 : el * 4 + 16))
+    .filter(el => el >= 18)
+    .reduce((acc, el, indx, arr) => acc + el / arr.length, 0);
+  return console.log(average);
+};
+
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+///////////////////////////////////////
+//The Magic of Chaining Methods
+/*
 const eurToUsd = 1.1;
 
 const totalDepositsUSD = movements
@@ -124,6 +147,8 @@ const totalDepositsUSD = movements
   .reduce((acc, el) => acc + el, 0);
 
 console.log(totalDepositsUSD);
+*/
+
 ///////////////////////////////////////
 // Coding Challenge #2
 
