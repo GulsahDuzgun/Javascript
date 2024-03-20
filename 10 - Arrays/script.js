@@ -111,6 +111,24 @@ calcDisplaySummary(account1.movements);
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ///////////////////////////////////////
+// The find method
+/* */
+
+const firstWithdrawal = movements.find(el => el < 0);
+console.log(firstWithdrawal);
+
+const accountSarah = accounts.find(el => el.owner === 'Sarah Smith');
+console.log(accountSarah);
+
+let trueMatch;
+for (const acc of accounts) {
+  if (acc.owner === 'Jonas Schmedtmann') {
+    trueMatch = acc;
+  }
+}
+console.log(trueMatch);
+
+///////////////////////////////////////
 // Coding Challenge #3
 
 /* 
@@ -120,7 +138,7 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
-*/
+
 
 const calcAverageHumanAge = function (ages) {
   const average = ages
@@ -132,6 +150,7 @@ const calcAverageHumanAge = function (ages) {
 
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+*/
 
 ///////////////////////////////////////
 //The Magic of Chaining Methods
