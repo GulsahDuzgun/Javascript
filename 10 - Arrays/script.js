@@ -56,6 +56,17 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const createUserNames = function (accs) {
+  accs.forEach(function (acc, indx) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(el => el[0])
+      .join('');
+  });
+};
+createUserNames(accounts);
+
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
   movements.forEach(function (movement, indx) {
@@ -71,31 +82,27 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
-
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, el) => acc + el, 0);
   labelBalance.textContent = balance;
 };
 
-calcDisplayBalance(account1.movements);
-
-const calcDisplaySummary = function (movement) {
-  const incomes = movement
+const calcDisplaySummary = function (account) {
+  const incomes = account.movements
     .filter(el => el > 0)
     .reduce((acc, el) => acc + el, 0);
 
   labelSumIn.textContent = `${incomes}€`;
 
-  const outComes = movement
+  const outComes = account.movements
     .filter(el => el < 0)
     .reduce((acc, el) => acc + el, 0);
 
   labelSumOut.textContent = `${outComes}€`;
 
-  const interest = movement
+  const interest = account.movements
     .filter(el => el > 0)
-    .map(el => (el * 1.2) / 100)
+    .map(el => (el * account.interestRate) / 100)
     .filter((el, indx, arr) => {
       // console.log(el, arr);
       return el >= 1;
@@ -105,14 +112,36 @@ const calcDisplaySummary = function (movement) {
   labelSumInterest.textContent = `${interest}€`;
 };
 
-calcDisplaySummary(account1.movements);
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.userName === inputLoginUsername.value
+  );
+
+  if (currentAccount.pin === Number(inputLoginPin.value)) {
+    containerApp.style.opacity = 100;
+
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    displayMovements(currentAccount.movements);
+    calcDisplayBalance(currentAccount.movements);
+    calcDisplaySummary(currentAccount);
+  }
+
+  inputLoginPin.value = inputLoginUsername.value = '';
+  inputLoginPin.blur();
+});
 
 // ------ LECTURES ------
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ///////////////////////////////////////
 // The find method
-/* */
+/* 
 
 const firstWithdrawal = movements.find(el => el < 0);
 console.log(firstWithdrawal);
@@ -127,6 +156,7 @@ for (const acc of accounts) {
   }
 }
 console.log(trueMatch);
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #3
