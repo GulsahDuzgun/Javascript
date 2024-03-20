@@ -57,8 +57,25 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 ///////////////////////////////////////
-// The Map Method
+// Computing Usernames
 /* */
+
+const createUserNames = function (accs) {
+  accs.forEach(function (acc, indx) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(el => el[0])
+      .join('');
+  });
+};
+
+createUserNames(accounts);
+console.log(accounts);
+
+///////////////////////////////////////
+// The Map Method
+/* 
 
 const eurToUsd = 1.1;
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -92,6 +109,7 @@ const movementsDescription = movements.map(
 );
 
 console.log(movementsDescription);
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #1
