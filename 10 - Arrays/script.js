@@ -56,9 +56,79 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+  movements.forEach(function (movement, indx) {
+    const type = movement > 0 ? 'deposit' : 'withdrawal';
+    const movElement = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">
+       ${indx + 1} ${type} </div>
+      <div class="movements__value">${movement}€</div>
+    </div>`;
+
+    containerMovements.insertAdjacentHTML('afterbegin', movElement);
+  });
+};
+
+displayMovements(account1.movements);
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, el) => acc + el, 0);
+  labelBalance.textContent = balance;
+};
+
+calcDisplayBalance(account1.movements);
+
+// ------ LECTURES ------
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+///////////////////////////////////////
+// The reduce Method
+/* */
+
+//Accumulator -> SNOWBAL
+const totalMov = movements.reduce(function (acc, element, index, arr) {
+  return acc + element;
+}, 0);
+console.log(totalMov);
+
+let sum = 0; //acc
+for (const el of movements) {
+  sum += el;
+}
+console.log(sum);
+
+//get max value
+const maxVal = movements.reduce(function (acc, val) {
+  return val > acc ? val : acc;
+}, movements[0]);
+
+console.log(maxVal);
+
+///////////////////////////////////////
+// The filter Method
+/* 
+
+const withdrawal = movements.filter(el => el < 0);
+console.log(withdrawal);
+
+const deposits = movements.filter(function (element, indx, arr) {
+  return element > 0;
+});
+console.log(deposits);
+
+const deposits2 = [];
+movements.forEach(function (el, indx, arr) {
+  if (el > 0) deposits2.push(el);
+});
+console.log(deposits2);
+
+*/
+
 ///////////////////////////////////////
 // Computing Usernames
-/* */
+/* 
 
 const createUserNames = function (accs) {
   accs.forEach(function (acc, indx) {
@@ -72,6 +142,7 @@ const createUserNames = function (accs) {
 
 createUserNames(accounts);
 console.log(accounts);
+*/
 
 ///////////////////////////////////////
 // The Map Method
