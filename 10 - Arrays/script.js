@@ -80,9 +80,50 @@ const calcDisplayBalance = function (movements) {
 
 calcDisplayBalance(account1.movements);
 
+const calcDisplaySummary = function (movement) {
+  const incomes = movement
+    .filter(el => el > 0)
+    .reduce((acc, el) => acc + el, 0);
+
+  labelSumIn.textContent = `${incomes}€`;
+
+  const outComes = movement
+    .filter(el => el < 0)
+    .reduce((acc, el) => acc + el, 0);
+
+  labelSumOut.textContent = `${outComes}€`;
+
+  const interest = movement
+    .filter(el => el > 0)
+    .map(el => (el * 1.2) / 100)
+    .filter((el, indx, arr) => {
+      console.log(el, arr);
+      return el >= 1;
+    })
+    .reduce((acc, el) => el + acc);
+
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+calcDisplaySummary(account1.movements);
+
 // ------ LECTURES ------
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+///////////////////////////////////////
+//The Magic of Chaining Methods
+
+const eurToUsd = 1.1;
+
+const totalDepositsUSD = movements
+  .filter(el => el > 0)
+  .map((el, indx, arr) => {
+    // console.log(arr);
+    return el * eurToUsd;
+  })
+  .reduce((acc, el) => acc + el, 0);
+
+console.log(totalDepositsUSD);
 ///////////////////////////////////////
 // Coding Challenge #2
 
@@ -100,7 +141,7 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
-*/
+
 
 const calcAverageHumanAge = function (ages) {
   // const calcAges = ages.map(function (el, indx, arr) {
@@ -134,6 +175,7 @@ const calcAverageHumanAge = function (ages) {
 
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+*/
 
 ///////////////////////////////////////
 // The reduce Method
