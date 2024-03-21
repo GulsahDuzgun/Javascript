@@ -206,8 +206,64 @@ btnSort.addEventListener('click', function (e) {
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ///////////////////////////////////////
-// Sorting Arrays
+// Creating and Filing  Arrays
 /* */
+
+const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(arr);
+console.log(new Array(1, 2, 3, 4, 5, 6, 7, 8));
+
+const emptArr = new Array(4);
+console.log(emptArr); //[empty × 4]
+
+emptArr[0] = 32;
+console.log(emptArr);
+
+emptArr.map((el, indx, arr) => (arr[indx] = el));
+console.log(emptArr); // [32, empty × 3]
+
+emptArr.fill(2, 0, 2); //element,startPoint, endPoint
+emptArr.fill(7, 2, 5);
+console.log(emptArr);
+
+//Array.from({length:x}, (_, i) => i+1);
+const y = Array.from({ length: 4 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (elm, indx, arr) => {
+  console.log(elm, arr, indx);
+  return indx + 1;
+});
+console.log(z);
+
+const ranArr = Array.from(
+  { length: 100 },
+  () => Math.trunc(Math.random() * 7) + 1
+);
+
+console.log(ranArr);
+
+const movArrays = document.querySelectorAll('.movements__value');
+console.log(movArrays); //NodeList
+console.log([...movArrays]);
+
+const arrMov1 = [...movArrays].map(e => e.textContent.replace('€', ''));
+console.log(arrMov1);
+
+const getMovementFromUI = () => {
+  const arrMov2 = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => {
+      return el.textContent.replace('€', '');
+    }
+  );
+  return console.log(arrMov2);
+};
+labelBalance.addEventListener('click', getMovementFromUI);
+
+///////////////////////////////////////
+// Sorting Arrays
+/* 
 
 // return < 0, A, B(keep order)
 // return > 0, B, A (switch order)
@@ -226,6 +282,7 @@ console.log(movements);
 //Descending
 movements.sort((curr, next) => next - curr);
 console.log(movements);
+*/
 
 ///////////////////////////////////////
 // The flat() and flatMap() method
