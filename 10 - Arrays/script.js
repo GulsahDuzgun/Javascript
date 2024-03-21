@@ -178,8 +178,33 @@ btnClose.addEventListener('click', function (e) {
   inputClosePin.value = inputCloseUsername.value = '';
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if (
+    amount > 0 &&
+    currentAccount.movements.some(element => element >= amount * 0.1)
+  ) {
+    currentAccount.movements.push(amount);
+    updateAccountData(currentAccount);
+  }
+
+  inputLoanAmount.value = '';
+});
+
 // ------ LECTURES ------
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+///////////////////////////////////////
+// The some method
+/* */
+
+const flag = movements.includes(70); //using for certainty
+const any2 = movements.some((el, indx, arr) => el === 70);
+const any = movements.some((el, indx, arr) => el > 300); //some allow us to do more complex works
+
+console.log(flag, any, any2);
 
 ///////////////////////////////////////
 // The find method
