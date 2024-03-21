@@ -67,9 +67,11 @@ const createUserNames = function (accs) {
 };
 createUserNames(accounts);
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, isShort = false) {
+  const movs = isShort ? movements.slice().sort((a, b) => a - b) : movements;
   containerMovements.innerHTML = '';
-  movements.forEach(function (movement, indx) {
+
+  movs.forEach(function (movement, indx) {
     const type = movement > 0 ? 'deposit' : 'withdrawal';
     const movElement = `
     <div class="movements__row">
@@ -191,6 +193,13 @@ btnLoan.addEventListener('click', function (e) {
   }
 
   inputLoanAmount.value = '';
+});
+
+let shortFlag = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  shortFlag = !shortFlag;
+  displayMovements(currentAccount.movements, shortFlag);
 });
 
 // ------ LECTURES ------
