@@ -197,8 +197,30 @@ btnLoan.addEventListener('click', function (e) {
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ///////////////////////////////////////
-// The flat() and flatMap() method
+// Sorting Arrays
 /* */
+
+// return < 0, A, B(keep order)
+// return > 0, B, A (switch order)
+
+console.log(movements);
+movements.sort((current, next) => {
+  if (current > next) return 1;
+  if (next > current) return -1;
+});
+console.log(movements);
+
+//Ascending
+movements.sort((curr, next) => curr - next);
+console.log(movements);
+
+//Descending
+movements.sort((curr, next) => next - curr);
+console.log(movements);
+
+///////////////////////////////////////
+// The flat() and flatMap() method
+/*
 
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat()); //don't mutate the original array
@@ -227,6 +249,7 @@ const totalBalance2 = accounts
   .flatMap(elm => elm.movements)
   .reduce((acc, elm) => acc + elm, 0);
 console.log(totalBalance2);
+ */
 
 ///////////////////////////////////////
 // The some() method
