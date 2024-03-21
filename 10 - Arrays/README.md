@@ -14,5 +14,6 @@
 > - _find() method in Javascript. We can use find() method to retrieve one element of an array based on a condition.find() method needs a callback function that returns a Boolean. It doesn't return an array, it returns the first element in the array that fits the condition,_
 > - _findIndex() method in Javascript,_
 > - _includes() and some() method in Javascript. includes()is more likely to use find a certain value -Equality- and we use some() to know there is any value fit the condition we described. ,_
+> - _every() method in Javascript check whether fits condition to every element in array and returns Boolean ,_
 >
 > #

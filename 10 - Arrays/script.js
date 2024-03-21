@@ -203,9 +203,23 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const flag = movements.includes(70); //using for certainty
 const any2 = movements.some((el, indx, arr) => el === 70);
 const any = movements.some((el, indx, arr) => el > 300); //some allow us to do more complex works
-
 console.log(flag, any, any2);
 
+const callBackFunc = el => el > 0;
+
+const everIsDeposit = movements.every(el => el > 0);
+const getDeposits = movements.filter(el => el > 0);
+const ever4IsDeposit = account4.movements.every(el => el > 0);
+const everIsDeposit2 = movements.every(callBackFunc);
+const getDeposits2 = movements.filter(callBackFunc);
+const ever4IsDeposit2 = account4.movements.every(callBackFunc);
+
+console.log(everIsDeposit, ever4IsDeposit);
+console.log(getDeposits);
+
+console.log(everIsDeposit2, ever4IsDeposit2);
+console.log(getDeposits2);
+console.log(callBackFunc);
 ///////////////////////////////////////
 // The find method
 /* 
