@@ -209,6 +209,77 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // Creating and Filing  Arrays
 /* */
 
+const sumAllDeposits = accounts
+  .map(el => el.movements)
+  .flat()
+  .filter(el => el > 0)
+  .reduce((acc, el) => acc + el, 0);
+console.log(sumAllDeposits);
+
+const allMovements = accounts.flatMap(el => el.movements);
+
+const numDeposits1000 = allMovements.filter(el => el >= 1000).length;
+const numDeposits1000_2 = allMovements
+  .filter(el => el >= 1000)
+  .reduce((acc, el) => (el >= 1000 ? acc + 1 : acc), 0);
+
+console.log(numDeposits1000, numDeposits1000_2);
+console.log(allMovements);
+
+let a = 2;
+console.log(a++); //2
+console.log(a); //3
+console.log(++a); //4
+
+const { depositSum, withDrawlSum } = allMovements.reduce(
+  (acc, el, indx, arr) => {
+    if (el > 0) {
+      acc.depositSum += el;
+    } else {
+      acc.withDrawlSum += el;
+    }
+    // console.log(acc);
+    return acc;
+  },
+  {
+    depositSum: 0,
+    withDrawlSum: 0,
+  }
+);
+
+console.log(depositSum, withDrawlSum);
+
+const movArrays = Array.from(document.querySelectorAll('.movements__value'));
+
+console.log(movArrays);
+
+const movs = movArrays.reduce((acc, el) => {
+  acc.push(el.textContent);
+  return acc;
+}, []);
+console.log(movs);
+
+const convertTitleCase = function (str) {
+  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const capitzalize = str => str[0].toUpperCase() + str.slice(1);
+
+  const strTitleCase = str
+    .toLowerCase()
+    .split(' ')
+    .map(el => (exceptions.includes(el) ? el : capitzalize(el)))
+    .join(' ');
+
+  return capitzalize(strTitleCase);
+};
+
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+///////////////////////////////////////
+// Creating and Filing  Arrays
+/* 
+
 const arr = [1, 2, 3, 4, 5, 6, 7, 8];
 console.log(arr);
 console.log(new Array(1, 2, 3, 4, 5, 6, 7, 8));
@@ -260,6 +331,7 @@ const getMovementFromUI = () => {
   return console.log(arrMov2);
 };
 labelBalance.addEventListener('click', getMovementFromUI);
+*/
 
 ///////////////////////////////////////
 // Sorting Arrays

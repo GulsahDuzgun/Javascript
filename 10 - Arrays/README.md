@@ -16,5 +16,6 @@
 > - _includes() and some() method in Javascript. includes()is more likely to use find a certain value -Equality- and we use some() to know there is any value fit the condition we described. ,_
 > - _every() method in Javascript check whether fits condition to every element in array and returns Boolean ,_
 > - _flat() and flatMap() method in Javascript flatMap() is a combined method of map() and flat(). But provides us one level flattening, If we need to flat more deeper we should use flat() method.,_
+> - _Array.from() method in Javascript ,_
 >
 > #
