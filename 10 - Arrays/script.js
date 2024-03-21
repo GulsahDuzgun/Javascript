@@ -197,8 +197,40 @@ btnLoan.addEventListener('click', function (e) {
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ///////////////////////////////////////
-// The some method
+// The flat() and flatMap() method
 /* */
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat()); //don't mutate the original array
+
+const deeperArr = [[[1, 2], 3], [4, [5], 6], 7, 8];
+console.log(deeperArr.flat()); // [Array(2), 3, 4, Array(1), 6, 7, 8]
+console.log(deeperArr.flat(2)); //[1, 2, 3, 4, 5, 6, 7, 8]
+
+// const allMovements = accounts.map(acc => acc.movements);
+// console.log(allMovements);
+
+// const flatMovements = allMovements.flat();
+// console.log(flatMovements);
+
+// const totalBalance = flatMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(totalBalance);
+
+const totalBalance = accounts
+  .map(elm => elm.movements)
+  .flat()
+  .reduce((acc, elt) => acc + elt, 0);
+
+console.log(totalBalance);
+
+const totalBalance2 = accounts
+  .flatMap(elm => elm.movements)
+  .reduce((acc, elm) => acc + elm, 0);
+console.log(totalBalance2);
+
+///////////////////////////////////////
+// The some() method
+/* 
 
 const flag = movements.includes(70); //using for certainty
 const any2 = movements.some((el, indx, arr) => el === 70);
@@ -220,6 +252,8 @@ console.log(getDeposits);
 console.log(everIsDeposit2, ever4IsDeposit2);
 console.log(getDeposits2);
 console.log(callBackFunc);
+*/
+
 ///////////////////////////////////////
 // The find method
 /* 
