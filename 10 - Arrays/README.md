@@ -12,5 +12,6 @@
 > - _**What is filter() method in Javascript?** filter() returns a new array containing the array elements that passed a specified test condition.It returns an array.,_
 > - _**What is reduce() method in Javascript?** reduce() boils('reduces') all array elements down to one single value. It returns a variable. ,_
 > - _find() method in Javascript. We can use find() method to retrieve one element of an array based on a condition.find() method needs a callback function that returns a Boolean. It doesn't return an array, it returns the first element in the array that fits the condition,_
+> - _findIndex() method in Javascript,_
 >
 > #

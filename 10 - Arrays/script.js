@@ -126,7 +126,7 @@ btnLogin.addEventListener('click', function (e) {
     acc => acc.userName === inputLoginUsername.value
   );
 
-  if (currentAccount.pin === Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
     containerApp.style.opacity = 100;
 
     labelWelcome.textContent = `Welcome back, ${
@@ -158,6 +158,24 @@ btnTransfer.addEventListener('click', function (e) {
   }
 
   inputTransferAmount.value = inputTransferTo.value = '';
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    currentAccount.userName === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const deleteAccIndx = accounts.findIndex((el, indx, arr) => {
+      return el => el.userName === inputCloseUsername.value;
+    });
+
+    accounts.splice(deleteAccIndx, 1);
+    containerApp.style.opacity = 0;
+  }
+
+  inputClosePin.value = inputCloseUsername.value = '';
 });
 
 // ------ LECTURES ------
