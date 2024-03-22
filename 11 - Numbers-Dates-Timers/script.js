@@ -255,8 +255,83 @@ btnSort.addEventListener('click', function (e) {
 // LECTURES
 
 /////////////////////////////////////////////////
-//Numeric Separators
+//Creating Dates
+
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Fri Mar 22 2024 14:07:08 GMT+0300 (GMT+03:00)'));
+
+console.log(new Date(1999, 11, 27, 12, 23, 53));
+console.log(new Date('December 27, 2000'));
+
+console.log(new Date(0));
+console.log(new Date(4 * 24 * 60 * 60 * 1000));
+
+const future = new Date(2000, 11, 27, 18, 23, 8, 9);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate()); //which day of month
+console.log(future.getDay()); //which day of week
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.getMilliseconds());
+
+console.log(future.getTime());
+console.log(future.toISOString());
+console.log(new Date(977934188009));
+
+let now2 = Date.now();
+now2 = new Date(now2);
+console.log(now2);
+
+now2.setFullYear(2034);
+console.log(now2);
+
 /* */
+/////////////////////////////////////////////////
+//Working with BigInt
+/* 
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+console.log(2 ** 53 + 5);
+
+console.log(BigInt(98767819925474099654740996));
+console.log(98767819925474099654740996n);
+console.log(67819925474099654345676543n);
+
+console.log(1000n + 2000n);
+console.log(99254740996n * 12n);
+// console.log(Math.sqrt(16n)); Cannot convert a BigInt value to a number
+
+const huge = 23456345677865476n;
+const num = 27;
+//console.log(huge * num);Cannot mix BigInt and other types, use explicit conversions
+
+console.log(huge * BigInt(num)); //633321333302367852n
+
+console.log(20n > 15);
+console.log(20n == 20); //Type coercion does ==
+console.log(20n === 20); //Type coercion doen't ===
+console.log(20n == '20'); //true
+
+console.log(huge + 'is REALLY big!!');
+
+console.log(10 / 3); //3.333
+console.log(10n / 3n); //3
+*/
+
+/////////////////////////////////////////////////
+//Numeric Separators
+/* 
 const diameter = 287_532_002_000;
 console.log(diameter, typeof diameter); //number
 
@@ -270,6 +345,7 @@ console.log(transferFee2); //1500
 
 console.log(Number('12_27_2000')); //NaN
 console.log(Number.parseInt('12_27_2000')); //12
+*/
 
 /////////////////////////////////////////////////
 //The Remainder Operator
