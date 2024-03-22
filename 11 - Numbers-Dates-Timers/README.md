@@ -7,5 +7,7 @@
 > - _Math.round(), Math.ceil(), Math.floor(), Number.toFixed() methods in Javascript ,_
 > - _The Remainder Operatorin javascript ,_
 > - _Numeric Separators in Javascript,_ > _new Date(), getTime(),getFullYear(), getMonth(), getDate(), getDay(), getHours(), getMinutes(), getSeconds(), getMilliseconds() methods in Javascript ,_
+> - _Intl.DateTimeFormat(locale,options) method in Internationalization API ,_
+> - _Intl.NumberFormat(locale,options) Internationalization API ,_
 >
 > #
