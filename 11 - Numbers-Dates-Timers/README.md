@@ -9,5 +9,7 @@
 > - _Numeric Separators in Javascript,_ > _new Date(), getTime(),getFullYear(), getMonth(), getDate(), getDay(), getHours(), getMinutes(), getSeconds(), getMilliseconds() methods in Javascript ,_
 > - _Intl.DateTimeFormat(locale,options) method in Internationalization API ,_
 > - _Intl.NumberFormat(locale,options) Internationalization API ,_
+> - _setTimeOut() schedules a function to run after a certain amount of time and the callback function is only executed once,_
+> - _setInterval() runs the callback function over and over again after the time that passed as an argument,_
 >
 > #

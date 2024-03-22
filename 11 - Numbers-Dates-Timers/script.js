@@ -271,12 +271,14 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
-    currentAccount.movements.push(amount);
-    currentAccount.movementsDates.push(new Date().toISOString());
+    setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 3000);
   }
   inputLoanAmount.value = '';
 });
@@ -315,6 +317,31 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // LECTURES
 
+const ingredients = ['olives', 'spinach', 'mushroom'];
+
+const orderPizza = setTimeout(
+  (ing1, ing2) => {
+    console.log(`Here is your pizza with ${ing1} and ${ing2}  `);
+  },
+  3000,
+  'olives',
+  'spinach'
+);
+
+console.log('Waiting...');
+
+if (ingredients.includes('olives')) clearTimeout(orderPizza);
+
+// setInterval(function () {
+//   const now = new Date();
+//   const day = now.getDate();
+//   const month = now.getMonth() + 1;
+//   const year = now.getFullYear();
+
+//   console.log(day, month, year);
+// }, 2000);
+
+/*
 const num = 234567654345676.34;
 
 const options2 = {
@@ -326,7 +353,7 @@ const options2 = {
 console.log('US', new Intl.NumberFormat('en-US').format(num));
 console.log('TR', new Intl.NumberFormat(navigator.locale).format(num));
 console.log('GR:', new Intl.NumberFormat('de-DE', options2).format(num));
-
+*/
 /////////////////////////////////////////////////
 //Creating Dates
 /*
