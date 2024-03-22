@@ -6,5 +6,6 @@
 > - _Math.trunc() method always removes any decimal part,_
 > - _Math.round(), Math.ceil(), Math.floor(), Number.toFixed() methods in Javascript ,_
 > - _The Remainder Operatorin javascript ,_
+> - _Numeric Separators in Javascript,_
 >
 > #

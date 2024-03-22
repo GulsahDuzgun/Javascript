@@ -255,8 +255,25 @@ btnSort.addEventListener('click', function (e) {
 // LECTURES
 
 /////////////////////////////////////////////////
-//The Remainder Operator
+//Numeric Separators
 /* */
+const diameter = 287_532_002_000;
+console.log(diameter, typeof diameter); //number
+
+const price = 14_99;
+console.log(price);
+
+const transferFee = 1_500;
+const transferFee2 = 15_00;
+console.log(transferFee); //1500
+console.log(transferFee2); //1500
+
+console.log(Number('12_27_2000')); //NaN
+console.log(Number.parseInt('12_27_2000')); //12
+
+/////////////////////////////////////////////////
+//The Remainder Operator
+/*
 console.log(5 % 2); //1
 console.log(5 / 2); //2 * 2 + 1
 
@@ -285,6 +302,9 @@ labelBalance.addEventListener('click', function () {
       }
     });
 });
+
+ */
+
 /////////////////////////////////////////////////
 // Math and Rounding
 /* 
