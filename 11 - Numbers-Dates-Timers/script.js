@@ -255,8 +255,39 @@ btnSort.addEventListener('click', function (e) {
 // LECTURES
 
 /////////////////////////////////////////////////
-// Math and Rounding
+//The Remainder Operator
 /* */
+console.log(5 % 2); //1
+console.log(5 / 2); //2 * 2 + 1
+
+console.log(8 / 3); //3 * 2 + 2
+console.log(8 % 3); //2
+
+const isEven = num => (num % 2 === 0 ? 'even' : 'odd');
+console.log(isEven(7));
+
+// labelBalance.addEventListener('click', function () {
+//   [...document.querySelectorAll('.movements__row')].forEach(
+//     (elm, indx, arr) => {
+//       if (indx % 2 === 0) {
+//         elm.style.backgroundColor = '#ddd';
+//       }
+//     }
+//   );
+// });
+
+labelBalance.addEventListener('click', function () {
+  Array.from(document.querySelectorAll('.movements__row'))
+    .flat()
+    .forEach((el, indx) => {
+      if (indx % 3 === 0) {
+        el.style.backgroundColor = '#ed34';
+      }
+    });
+});
+/////////////////////////////////////////////////
+// Math and Rounding
+/* 
 
 console.log(Math.sqrt(25));
 console.log(25 ** (1 / 2));
@@ -301,6 +332,7 @@ console.log((2.7).toFixed(3)); //2.700
 console.log((2.7).toFixed(0)); //3
 console.log((2.345).toFixed(2)); //2.35
 console.log((+3.455).toFixed(2));
+*/
 
 /////////////////////////////////////////////////
 // Converting And Checking Numbers
