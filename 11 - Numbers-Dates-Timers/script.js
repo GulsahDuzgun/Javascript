@@ -251,3 +251,43 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+console.log(23 === 23.0); //true
+console.log(0.1 + 0.2); //3.0004
+console.log(0.1 + 0.2 === 0.3); //false
+
+console.log(Number('27'));
+console.log(typeof +'27'); //number
+
+console.log(typeof ('a' + '27')); //string
+console.log(typeof (2 + '27')); //string
+
+console.log(typeof -'27'); //number
+console.log(typeof +'27'); //number
+
+//Parsing
+
+console.log(Number.parseInt('30px')); //30
+console.log(Number.parseInt('2.5rem')); //2
+console.log(Number.parseInt('e34')); //NaN
+
+console.log(Number.parseFloat('2.5rem')); //2.5
+console.log(Number.parseFloat('30px')); //30
+console.log(Number.parseFloat('e34')); //NaN
+
+console.log(Number.isNaN('38px')); //false
+console.log(Number.isNaN(38)); //false
+console.log(Number.isNaN(+'38px')); //true
+console.log(Number.isNaN(30 / 0)); //false --> Infinity
+
+console.log(Number.isFinite('38px')); //false
+console.log(Number.isFinite(38)); //true
+console.log(Number.isFinite(48.3)); //true
+console.log(Number.isFinite(+'38px')); //false
+console.log(Number.isFinite(30 / 0)); //false
+
+console.log(Number.isInteger(27)); //true
+console.log(Number.isInteger('12')); //false
+console.log(Number.isInteger(12.0)); //true
+console.log(Number.isInteger(12.27)); //false
+console.log(Number.isInteger(12 / 0)); //false

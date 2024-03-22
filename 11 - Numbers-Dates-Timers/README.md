@@ -2,4 +2,6 @@
 
 > #
 >
+> - _parseInt(), parseFloat(), isNaN(), isFinite(), isInteger() methods in Javascript,_
+>
 > #
