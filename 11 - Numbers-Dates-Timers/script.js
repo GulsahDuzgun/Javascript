@@ -94,7 +94,7 @@ const displayMovements = function (movements, sort = false) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}€</div>
+        <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
 
@@ -104,19 +104,19 @@ const displayMovements = function (movements, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance}€`;
+  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
 };
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -126,7 +126,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 const createUsernames = function (accs) {
@@ -176,8 +176,10 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginPin.blur();
 
     // Update UI
-    updateUI(currentAccount);
+    // updateUI(currentAccount);
   }
+  currentAccount = account1;
+  updateUI(currentAccount);
 });
 
 btnTransfer.addEventListener('click', function (e) {
@@ -206,7 +208,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -252,6 +254,57 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // LECTURES
 
+/////////////////////////////////////////////////
+// Math and Rounding
+/* */
+
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+console.log(8 ** (1 / 3));
+console.log(8 ** (1 / 3));
+
+console.log(Math.max(2, 3, 5, 8, 34, 486, 87)); //486
+console.log(Math.max(2, 3, 5, 8, 34, '486', 87)); //486
+console.log(Math.max(2, 3, 5, 8, 34, '-486', 87)); //87
+console.log(Math.max(2, 3, 5, 8, 34, '-486N', 87)); //NaN
+
+console.log(Math.min(6, 12, 11, 2)); //2
+console.log(Math.min(6, 12, 11, '-2')); //-2
+console.log(Math.min(6, 12, 11, '-2e')); //NaN
+
+console.log((Math.PI * Number.parseFloat('25rem')) ** 2);
+
+const randomBtwTwoNum = (min, max) =>
+  Math.floor(Math.random() * (max - min) + 1) + min;
+
+console.log(randomBtwTwoNum(1, 8));
+
+console.log(Math.trunc(12.8));
+console.log(Math.trunc(12.27));
+
+console.log(Math.round(24.27));
+console.log(Math.round('24.74'));
+
+console.log(Math.ceil(12.37)); //13
+console.log(Math.ceil('27.01')); //28
+
+console.log(Math.floor(12.98)); //12
+console.log(Math.floor('27.89')); //27
+
+console.log(Math.floor(24.03)); //24
+console.log(Math.trunc(24.93)); //24
+console.log(Math.floor(-24.03)); //-25
+console.log(Math.trunc(-24.93)); //-24
+
+//Rounding Integers
+console.log((2.7).toFixed(3)); //2.700
+console.log((2.7).toFixed(0)); //3
+console.log((2.345).toFixed(2)); //2.35
+console.log((+3.455).toFixed(2));
+
+/////////////////////////////////////////////////
+// Converting And Checking Numbers
+/*
 console.log(23 === 23.0); //true
 console.log(0.1 + 0.2); //3.0004
 console.log(0.1 + 0.2 === 0.3); //false
@@ -291,3 +344,4 @@ console.log(Number.isInteger('12')); //false
 console.log(Number.isInteger(12.0)); //true
 console.log(Number.isInteger(12.27)); //false
 console.log(Number.isInteger(12 / 0)); //false
+*/
