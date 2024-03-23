@@ -180,15 +180,14 @@ const updateUI = function (acc) {
 
   // Display summary
   calcDisplaySummary(acc);
+
+  clearInterval(timer);
+  timer = startLogOutTimer();
 };
 
 ///////////////////////////////////////
 // Event handlers
 let currentAccount;
-
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
 
 const options = {
   hour: '2-digit',
@@ -203,6 +202,29 @@ const lang = navigator.language;
 
 const now = new Date();
 labelDate.innerHTML = Intl.DateTimeFormat(lang, options).format(now);
+
+const startLogOutTimer = function () {
+  const tick = function () {
+    const minute = String(Number.parseInt(time / 60)).padStart(2, '0');
+    const sec = String(time % 60).padStart(2, '0');
+    labelTimer.innerHTML = `${minute}: ${sec}`;
+
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Log in to get started';
+      containerApp.style.opacity = 0;
+    }
+
+    time--;
+  };
+
+  let time = 10;
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
+
+let timer;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -233,6 +255,9 @@ btnLogin.addEventListener('click', function (e) {
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
+
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
 
     // Update UI
     updateUI(currentAccount);
