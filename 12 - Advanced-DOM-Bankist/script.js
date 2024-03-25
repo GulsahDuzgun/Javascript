@@ -29,3 +29,18 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+///////////////////////////////////////
+// Selecting Elements
+
+console.log(document.documentElement); // all HTML
+console.log(document.head); //Just head-> not visible on the page
+console.log(document.body); // body element of HTML
+
+document.querySelector('.header');
+const allSelections = document.querySelectorAll('.section');
+console.log(allSelections); //NodeList
+
+document.getElementById('section--1');
+const allButtons = document.getElementsByTagName('button');
+console.log(allButtons); //HTMLCollection
