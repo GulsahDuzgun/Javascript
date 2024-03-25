@@ -13,4 +13,9 @@
 >   <br/>
 > - _while querSelectorAll() method returns NodeList, getElementByTagName() and getElementsByClassName() return an HTMLCollection. HTMLCollection is updated automatically.NodeList doesn't update itself automatically ,_
 
+> - _We use textContent and innerHTML to get and set HTML elements properties.,_
+> - _insertAdjacentElement(), prepend() and append() methods to insert a DOM element to HTML ,_
+> - before() and after() methods in HTML.
+> - _remove() and removeChild() methods in Javascript ,_
+>
 > #

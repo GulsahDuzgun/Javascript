@@ -37,10 +37,31 @@ console.log(document.documentElement); // all HTML
 console.log(document.head); //Just head-> not visible on the page
 console.log(document.body); // body element of HTML
 
-document.querySelector('.header');
 const allSelections = document.querySelectorAll('.section');
 console.log(allSelections); //NodeList
 
 document.getElementById('section--1');
 const allButtons = document.getElementsByTagName('button');
 console.log(allButtons); //HTMLCollection
+
+//creating and inserting elements
+const message = document.createElement('div');
+const header = document.querySelector('.header');
+message.classList.add('cookie-message');
+
+// message.textContent = 'We use cookied for improved functionality and analytics';
+message.innerHTML = `We use cookied for improved functionality and analytics. <button class ="btn btn--close-cookie">Got it!</button>`;
+
+// header.prepend(message);
+// header.append(message.cloneNode(true));
+
+// header.before(message);
+// header.after(message);
+header.insertAdjacentElement('beforeend', message);
+
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    // message.remove();
+    message.parentElement.removeChild(message);
+  });
