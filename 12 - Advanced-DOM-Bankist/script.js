@@ -65,3 +65,48 @@ document
     // message.remove();
     message.parentElement.removeChild(message);
   });
+
+message.style.backgroundColor = '#373458';
+message.style.width = '120%';
+
+console.log(message.style.width);
+console.log(message.style.color);
+
+console.log(getComputedStyle(message));
+console.log(getComputedStyle(message).height);
+console.log(Number.parseFloat(getComputedStyle(message).height));
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+
+console.log(getComputedStyle(message).height);
+
+// document.documentElement --> root
+
+document.documentElement.style.setProperty('--color-primary', '#f3f234');
+
+const logo = document.querySelector('.nav__logo');
+
+console.log(logo.alt);
+logo.alt = 'Bankist LOGO';
+console.log(logo.alt);
+
+logo.setAttribute('unDefined', 'New property');
+console.log(logo.getAttribute('unDefined'));
+
+console.log(logo.src); //absolute URL
+console.log(logo.getAttribute('src')); //relative url
+
+const link = document.querySelector('.nav__link');
+
+console.log(link.href); //exact url
+console.log(link.getAttribute('href')); //fragment
+console.log(link.dataset.setProperty);
+console.log(link.className);
+
+/*
+link.classList.remove()
+link.classList.toggle()
+link.classList.contains()
+link.classList.add();
+*/

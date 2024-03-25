@@ -17,5 +17,7 @@
 > - _insertAdjacentElement(), prepend() and append() methods to insert a DOM element to HTML ,_
 > - before() and after() methods in HTML.
 > - _remove() and removeChild() methods in Javascript ,_
+> - _With style property we can set the value of property as inline css and we can get the value of property if it is declared as inline css rule ,_
+> - _document.documentElement.style.setProperty('a','#345654') ,_
 >
 > #
