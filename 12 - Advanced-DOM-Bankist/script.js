@@ -31,7 +31,42 @@ document.addEventListener('keydown', function (e) {
 });
 
 ///////////////////////////////////////
+// Implementing Smooth Scrolling
+/* */
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+
+  /*
+  console.log(s1coords);
+  console.log(window.pageYOffset);
+
+  //viewport measures
+  console.log(document.documentElement.clientHeight);
+  console.log(document.documentElement.clientWidth);
+  */
+
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   window.pageYOffset + s1coords.top //current scroll + current position
+  // );
+
+  // window.scrollTo({
+  //   top: s1coords.top + window.pageYOffset,
+  //   left: s1coords.left + window + pageXOffset,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+///////////////////////////////////////
 // Selecting Elements
+/* 
 
 console.log(document.documentElement); // all HTML
 console.log(document.head); //Just head-> not visible on the page
@@ -103,7 +138,7 @@ console.log(link.href); //exact url
 console.log(link.getAttribute('href')); //fragment
 console.log(link.dataset.setProperty);
 console.log(link.className);
-
+*/
 /*
 link.classList.remove()
 link.classList.toggle()

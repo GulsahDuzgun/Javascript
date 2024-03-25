@@ -19,5 +19,7 @@
 > - _remove() and removeChild() methods in Javascript ,_
 > - _With style property we can set the value of property as inline css and we can get the value of property if it is declared as inline css rule ,_
 > - _document.documentElement.style.setProperty('a','#345654') ,_
+> - _getBoundingClientRect() is basically relative with visible view port,_
+> - _window.scrollTo() and htmlElement.scrollIntoView({behavior:'smooth'}) ,_
 >
 > #
