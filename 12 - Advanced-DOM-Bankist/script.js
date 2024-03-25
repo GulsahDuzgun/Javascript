@@ -31,8 +31,28 @@ document.addEventListener('keydown', function (e) {
 });
 
 ///////////////////////////////////////
-// Implementing Smooth Scrolling
+// Types of Events and Event Handlers
 /* */
+
+const h1 = document.querySelector('h1');
+const clickH1 = function (e) {
+  alert('addEventListener: Great!');
+  h1.removeEventListener('mouseenter', clickH1);
+};
+
+h1.addEventListener('mouseenter', clickH1);
+
+h1.onmouseenter = function () {
+  alert('x.onmouseenter');
+};
+
+setTimeout(() => {
+  alert('setTimeout method');
+}, 3000);
+
+///////////////////////////////////////
+// Implementing Smooth Scrolling
+/*
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 
@@ -41,14 +61,14 @@ const section1 = document.querySelector('#section--1');
 btnScrollTo.addEventListener('click', function (e) {
   const s1coords = section1.getBoundingClientRect();
 
-  /*
+ 
   console.log(s1coords);
   console.log(window.pageYOffset);
 
   //viewport measures
   console.log(document.documentElement.clientHeight);
   console.log(document.documentElement.clientWidth);
-  */
+
 
   // window.scrollTo(
   //   s1coords.left + window.pageXOffset,
@@ -62,7 +82,7 @@ btnScrollTo.addEventListener('click', function (e) {
   // });
 
   section1.scrollIntoView({ behavior: 'smooth' });
-});
+}); */
 
 ///////////////////////////////////////
 // Selecting Elements

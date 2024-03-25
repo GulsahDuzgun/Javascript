@@ -21,5 +21,6 @@
 > - _document.documentElement.style.setProperty('a','#345654') ,_
 > - _getBoundingClientRect() is basically relative with visible view port,_
 > - _window.scrollTo() and htmlElement.scrollIntoView({behavior:'smooth'}) ,_
+> - _addEventListener and removeEventListener() ,_
 >
 > #
