@@ -67,6 +67,49 @@ allLinkContainer.addEventListener('click', function (e) {
 // });
 
 ///////////////////////////////////////
+///////////////////////////////////////
+//LECTURES
+
+///////////////////////////////////////
+//DOM Traversing
+/* */
+
+//Going downwards: child
+const h1 = document.querySelector('h1');
+const child1 = h1.querySelector('.highlight');
+const childs = h1.querySelectorAll('.highlight');
+
+console.log(child1);
+console.log(childs); //NodeList
+console.log(h1.children); //HTML Collection
+console.log(h1.childNodes); //NodeList
+h1.firstElementChild.style.color = 'red';
+h1.lastElementChild.style.color = 'rebeccapurple';
+
+//Going upwards: parents
+
+h1.parentElement.style.backgroundColor = 'var(--color-secondary)';
+console.log(h1.parentNode);
+
+h1.closest('.header').style.opacity = 0.8;
+h1.closest('h1').style.color = 'orangered'; //itself
+
+//Going sideways: siblings
+
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+
+const allSiblingsWitItself = h1.parentElement.children; //HTMLCollection
+
+console.log(allSiblingsWitItself);
+[...allSiblingsWitItself].forEach(sib => {
+  if (sib !== h1) {
+    sib.style.transform = 'scale(0.5)';
+  }
+});
+///////////////////////////////////////
 // Event Propagation in Practice
 /* 
 

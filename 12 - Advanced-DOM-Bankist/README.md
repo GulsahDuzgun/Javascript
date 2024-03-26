@@ -26,4 +26,6 @@
 
 Also e.target point to click elemnent e.currentElement points to this keyword - element was attached to event handler- ,\_
 
+> - DOM Traversing with children, childNodes, firstElementChild, lastElementChild, parentElement, parentNode, previousElementSibling, nextElementSibling properties and closest method.
+>
 > #
