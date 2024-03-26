@@ -117,6 +117,18 @@ const changeOpacity = function (e) {
 nav.addEventListener('mouseover', changeOpacity.bind(0.5));
 nav.addEventListener('mouseout', changeOpacity.bind(1));
 
+//sticky navigation
+
+const initialCords = section1.getBoundingClientRect();
+
+window.addEventListener('scroll', function (e) {
+  if (this.window.scrollY > initialCords.top) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
+});
+
 ///////////////////////////////////////
 ///////////////////////////////////////
 //LECTURES
