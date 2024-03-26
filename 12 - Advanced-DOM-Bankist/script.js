@@ -90,6 +90,33 @@ tabContainer.addEventListener('click', function (e) {
   activeContent.classList.add('operations__content--active');
 });
 
+const nav = document.querySelector('.nav');
+
+const changeOpacity = function (e) {
+  // console.log(this, e.currentTarget);
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(el => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+// nav.addEventListener('mouseover', function (e) {
+//   changeOpacity(e, 0.5);
+// });
+
+// nav.addEventListener('mouseout', function (e) {
+//   changeOpacity(e, 1);
+// });
+
+nav.addEventListener('mouseover', changeOpacity.bind(0.5));
+nav.addEventListener('mouseout', changeOpacity.bind(1));
+
 ///////////////////////////////////////
 ///////////////////////////////////////
 //LECTURES
