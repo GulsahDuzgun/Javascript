@@ -43,14 +43,28 @@ btnScrollTo.addEventListener('click', function (e) {
 //
 
 const allLinks = document.querySelectorAll('.nav__link');
-allLinks.forEach(function (link) {
-  link.addEventListener('click', function (e) {
-    // console.log(link.href); http://127.0.0.1:8080/#section--1
-    // console.log(this.getAttribute('href'));#section--1
-    const target = this.getAttribute('href');
-    document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-  });
+const allLinkContainer = document.querySelector('.nav__links');
+allLinkContainer.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (e.target.classList.contains('nav__link')) {
+    const clickedEl = e.target;
+    const id = clickedEl.getAttribute('href');
+    const scrollTo = document.querySelector(id);
+
+    scrollTo.scrollIntoView({ behavior: 'smooth' });
+  }
 });
+
+// allLinks.forEach(function (link) {
+//   link.addEventListener('click', function (e) {
+//      e.preventDefault()
+//     // console.log(link.href); http://127.0.0.1:8080/#section--1
+//     // console.log(this.getAttribute('href'));#section--1
+//     const target = this.getAttribute('href');
+//     document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+//   });
+// });
 
 ///////////////////////////////////////
 // Event Propagation in Practice
