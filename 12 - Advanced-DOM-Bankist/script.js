@@ -31,8 +31,37 @@ document.addEventListener('keydown', function (e) {
 });
 
 ///////////////////////////////////////
-// Types of Events and Event Handlers
+// Event Propagation in Practice
 /* */
+
+//12-16 --> 12 + (5*0.9)
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+const getRandColor = () => `rgb(${randomInt(0, 255)}, 
+${randomInt(0, 255)}, ${randomInt(0, 255)})`;
+console.log(getRandColor());
+
+document.querySelector('.nav').addEventListener('click', function (e) {
+  this.style.backgroundColor = getRandColor();
+  console.log('NAV', e.target, e.currentTarget);
+  console.log(this === e.currentTarget); //true
+});
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  this.style.backgroundColor = getRandColor();
+  console.log('Container', e.target, e.currentTarget);
+  e.stopPropagation();
+});
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  this.style.backgroundColor = getRandColor();
+  console.log('LINK', e.target, e.currentTarget);
+});
+
+///////////////////////////////////////
+// Types of Events and Event Handlers
+/* 
 
 const h1 = document.querySelector('h1');
 const clickH1 = function (e) {
@@ -49,6 +78,7 @@ h1.onmouseenter = function () {
 setTimeout(() => {
   alert('setTimeout method');
 }, 3000);
+*/
 
 ///////////////////////////////////////
 // Implementing Smooth Scrolling

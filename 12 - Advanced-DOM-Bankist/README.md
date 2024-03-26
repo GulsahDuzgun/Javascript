@@ -22,5 +22,8 @@
 > - _getBoundingClientRect() is basically relative with visible view port,_
 > - _window.scrollTo() and htmlElement.scrollIntoView({behavior:'smooth'}) ,_
 > - _addEventListener and removeEventListener() ,_
->
+> - \_When we trigger an event then this event goes down through the target element just passes its parents element. It is named as capturing phase and when it arrived the target element then event goes up and this is names as bubling phase . In bubling phase parent elements can handle this event too, Actually when parent element catches event can be changed by giving a boolean third argument to event handler functions.
+
+Also e.target point to click elemnent e.currentElement points to this keyword - element was attached to event handler- ,\_
+
 > #
