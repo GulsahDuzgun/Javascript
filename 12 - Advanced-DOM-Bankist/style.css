@@ -33,6 +33,13 @@ body {
   background-color: #f3f3f3;
 }
 
+/*Intersection Observer API*/
+#section--box {
+  height: 200px;
+  width: 200px;
+  background-color: orangered;
+}
+
 /* GENERAL ELEMENTS */
 .section {
   padding: 15rem 3rem;

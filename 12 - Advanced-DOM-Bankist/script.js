@@ -168,6 +168,21 @@ const headerObserver = new IntersectionObserver(
 );
 headerObserver.observe(header);
 
+const callbackFunc = function (entries, observer) {
+  console.log('It is seen');
+  console.log(entries[0]);
+};
+
+const obsObj = {
+  root: null,
+  treshold: [1],
+};
+
+const box = document.querySelector('#section--box');
+const boxObserver = new IntersectionObserver(callbackFunc, obsObj);
+
+boxObserver.observe(box);
+
 ///////////////////////////////////////
 ///////////////////////////////////////
 //LECTURES
