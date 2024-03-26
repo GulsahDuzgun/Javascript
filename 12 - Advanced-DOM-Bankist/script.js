@@ -7,6 +7,8 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -31,8 +33,28 @@ document.addEventListener('keydown', function (e) {
 });
 
 ///////////////////////////////////////
+// btn Scroll
+
+btnScrollTo.addEventListener('click', function (e) {
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+///////////////////////////////////////
+//
+
+const allLinks = document.querySelectorAll('.nav__link');
+allLinks.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    // console.log(link.href); http://127.0.0.1:8080/#section--1
+    // console.log(this.getAttribute('href'));#section--1
+    const target = this.getAttribute('href');
+    document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+///////////////////////////////////////
 // Event Propagation in Practice
-/* */
+/* 
 
 //12-16 --> 12 + (5*0.9)
 const randomInt = (min, max) =>
@@ -58,6 +80,7 @@ document.querySelector('.nav__link').addEventListener('click', function (e) {
   this.style.backgroundColor = getRandColor();
   console.log('LINK', e.target, e.currentTarget);
 });
+*/
 
 ///////////////////////////////////////
 // Types of Events and Event Handlers
