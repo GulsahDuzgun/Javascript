@@ -66,13 +66,41 @@ allLinkContainer.addEventListener('click', function (e) {
 //   });
 // });
 
+//Tabbed component
+
+const tabContainer = document.querySelector('.operations__tab-container');
+const allTabs = document.querySelectorAll('.operations__tab');
+const tabContainers = document.querySelectorAll('.operations__content');
+
+tabContainer.addEventListener('click', function (e) {
+  const clickedTab = e.target.closest('.operations__tab');
+
+  // Guard clause
+  if (!clickedTab) return;
+  allTabs.forEach(tab => tab.classList.remove('operations__tab--active'));
+  clickedTab.classList.add('operations__tab--active');
+
+  tabContainers.forEach(content =>
+    content.classList.remove('operations__content--active')
+  );
+
+  const activeContent = document.querySelector(
+    `.operations__content--${clickedTab.dataset.tab}`
+  );
+  activeContent.classList.add('operations__content--active');
+});
+
 ///////////////////////////////////////
 ///////////////////////////////////////
 //LECTURES
 
 ///////////////////////////////////////
-//DOM Traversing
+//
 /* */
+
+///////////////////////////////////////
+//DOM Traversing
+/* 
 
 //Going downwards: child
 const h1 = document.querySelector('h1');
@@ -109,6 +137,8 @@ console.log(allSiblingsWitItself);
     sib.style.transform = 'scale(0.5)';
   }
 });
+*/
+
 ///////////////////////////////////////
 // Event Propagation in Practice
 /* 
