@@ -218,8 +218,40 @@ const slides = document.querySelectorAll('.slide');
 const slider = document.querySelectorAll('.slider');
 const rightBtn = document.querySelector('.slider__btn--right');
 const leftBtn = document.querySelector('.slider__btn--left');
+const dotsContainer = document.querySelector('.dots');
 let currSlide = 0;
 const lengthSlides = slides.length - 1;
+
+const createDots = function () {
+  slides.forEach((_, indx) => {
+    dotsContainer.insertAdjacentHTML(
+      'beforeend',
+      `
+    <button class="dots__dot" data-slide=${indx}></button>`
+    );
+  });
+};
+createDots();
+
+const displayActiveSlider = function (activeSlide) {
+  document.querySelectorAll('.dots__dot').forEach(dot => {
+    dot.classList.remove('dots__dot--active');
+  });
+
+  document
+    .querySelector(`.dots__dot[data-slide = "${activeSlide}"]`)
+    .classList.add('dots__dot--active');
+};
+
+displayActiveSlider(0);
+
+dotsContainer.addEventListener('click', function (e) {
+  if (!e.target.classList.contains('dots__dot')) return; //guard
+
+  const { slide } = e.target.dataset;
+  setPlaceSlides(slide);
+  displayActiveSlider(slide);
+});
 
 const setPlaceSlides = function (currIndx) {
   slides.forEach((slide, i) => {
@@ -234,6 +266,7 @@ const nextSlide = () => {
     currSlide++;
   }
   setPlaceSlides(currSlide);
+  displayActiveSlider(currSlide);
 };
 
 const previousSlide = function () {
@@ -243,10 +276,19 @@ const previousSlide = function () {
     currSlide--;
   }
   setPlaceSlides(currSlide);
+  displayActiveSlider(currSlide);
 };
 
 rightBtn.addEventListener('click', nextSlide);
 leftBtn.addEventListener('click', previousSlide);
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowRight') {
+    nextSlide();
+  }
+
+  e.key === 'ArrowLeft' && previousSlide();
+});
 
 // Building a Slider Component: Part1
 
