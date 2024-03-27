@@ -28,5 +28,6 @@ Also e.target point to click elemnent e.currentElement points to this keyword - 
 
 > - DOM Traversing with children, childNodes, firstElementChild, lastElementChild, parentElement, parentNode, previousElementSibling, nextElementSibling properties and closest() method.
 > - _The Intersection Observer API ,_
+> - _How to implement lazy Loading strategy with The Intersection API in Javascript ,_
 >
 > #
