@@ -168,6 +168,39 @@ const headerObserver = new IntersectionObserver(
 );
 headerObserver.observe(header);
 
+//Revealing Elements on Scroll
+
+const displaySection = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) return; //Guard
+
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+
+const allSection = document.querySelectorAll('.section');
+const sectionObserver = new IntersectionObserver(displaySection, {
+  root: null,
+  threshold: 0.18,
+});
+
+allSection.forEach(function (section) {
+  section.classList.add('section--hidden');
+  sectionObserver.observe(section);
+});
+
+///////////////////////////////////////
+///////////////////////////////////////
+//LECTURES
+
+///////////////////////////////////////
+//
+/* */
+
+///////////////////////////////////////
+//The Intersection Observer
+/*
 const callbackFunc = function (entries, observer) {
   console.log('It is seen');
   console.log(entries[0]);
@@ -181,15 +214,7 @@ const obsObj = {
 const box = document.querySelector('#section--box');
 const boxObserver = new IntersectionObserver(callbackFunc, obsObj);
 
-boxObserver.observe(box);
-
-///////////////////////////////////////
-///////////////////////////////////////
-//LECTURES
-
-///////////////////////////////////////
-//
-/* */
+boxObserver.observe(box); */
 
 ///////////////////////////////////////
 //DOM Traversing
