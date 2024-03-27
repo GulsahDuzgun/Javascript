@@ -29,5 +29,8 @@ Also e.target point to click elemnent e.currentElement points to this keyword - 
 > - DOM Traversing with children, childNodes, firstElementChild, lastElementChild, parentElement, parentNode, previousElementSibling, nextElementSibling properties and closest() method.
 > - _The Intersection Observer API ,_
 > - _How to implement lazy Loading strategy with The Intersection API in Javascript ,_
+> - _DOM content loaded event is fired by the document as soon as the HTML is completely parsed. This means HTML has been downloaded and been converted to the DOM tree. Also all scripts must be downloaded and executed before the DOM content loaded event can happen. This event does not wait for images and other external resources to load, just HTML and Javascript need to be loaded. We put the script tag at the end of the body to be sure about HTML has been parsed. We can access this event by document.addEventListener('DOMContentLoaded', function(){} ) ,_
+> - _When all the images and external resources like CSS has finished loading is load event gets fired. This event happens on window ,_
+> - _beforeunload event gets fired on window. This event is created immediately before a user is about to leave a page.Some browsers require to implement e.preventDefault() for working accurately. ,_
 >
 > #

@@ -297,8 +297,21 @@ document.addEventListener('keydown', function (e) {
 //LECTURES
 
 ///////////////////////////////////////
-//
+//Lifecycle DOM Events
 /* */
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('Document has been parsed ', e);
+});
+
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+window.addEventListener('beforeunload', function (e) {
+  e.preventDefault();
+  console.log(e);
+  e.returnValue = ' ';
+});
 
 ///////////////////////////////////////
 //The Intersection Observer
