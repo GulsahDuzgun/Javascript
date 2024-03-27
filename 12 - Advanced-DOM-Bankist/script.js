@@ -185,7 +185,7 @@ const sectionObserver = new IntersectionObserver(displaySection, {
 });
 
 allSection.forEach(function (section) {
-  section.classList.add('section--hidden');
+  // section.classList.add('section--hidden');
   sectionObserver.observe(section);
 });
 
@@ -193,7 +193,6 @@ allSection.forEach(function (section) {
 
 const callForLoadImg = function (entries, observer) {
   const [entry] = entries;
-  console.log(entry);
 
   if (!entry.isIntersecting) return;
 
@@ -212,7 +211,45 @@ const imgObserver = new IntersectionObserver(callForLoadImg, {
   rootMargin: '-50px',
 });
 
+// Building a Slider Component: Part1
+
 allImages.forEach(img => imgObserver.observe(img));
+const slides = document.querySelectorAll('.slide');
+const slider = document.querySelectorAll('.slider');
+const rightBtn = document.querySelector('.slider__btn--right');
+const leftBtn = document.querySelector('.slider__btn--left');
+let currSlide = 0;
+const lengthSlides = slides.length - 1;
+
+const setPlaceSlides = function (currIndx) {
+  slides.forEach((slide, i) => {
+    slide.style.transform = `translateX(${100 * (i - currIndx)}%)`;
+  });
+};
+
+const nextSlide = () => {
+  if (currSlide === lengthSlides) {
+    currSlide = 0;
+  } else {
+    currSlide++;
+  }
+  setPlaceSlides(currSlide);
+};
+
+const previousSlide = function () {
+  if (currSlide === 0) {
+    currSlide = lengthSlides;
+  } else {
+    currSlide--;
+  }
+  setPlaceSlides(currSlide);
+};
+
+rightBtn.addEventListener('click', nextSlide);
+leftBtn.addEventListener('click', previousSlide);
+
+// Building a Slider Component: Part1
+
 ///////////////////////////////////////
 ///////////////////////////////////////
 //LECTURES
