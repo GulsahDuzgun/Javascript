@@ -18,5 +18,6 @@
 > - _**What is Constructor functions?** Constructor functions are a way of creating objects programmatically using a function which will also set the new object's prototype and this is actually how built-in objects like Arrays, Maps, Sets are implemented ,_
 > - _**What is ES6 Classes?** ES6 classes are the more modern way of doing OOP in Javascript. They are called "Syntactic sugar" behind the scenes, ES6 classes work exactly like constructor functions. ES6 classes do not behave like classes in "classical OOP" And behind the scenes, ES6 classes are implemented with constructor functions. So they also use prototypal inheritance. ,_
 > - _**What is Object.create()?** It is the easiest way of linking an object to a prototype object ,_
+> - _When we call a constructor function with new keyword first a new empty object is created, second function is called and this keyword will be set this empty object(That is why constructor is defined with function expression or declaration not arrow function).The third step is this newly created object is linked to a prototype. The last step is that the object was created in the beginning is then automatically returned from the constructor function. ,_
 >
 > #
