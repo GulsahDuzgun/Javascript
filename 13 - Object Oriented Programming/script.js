@@ -7,10 +7,10 @@ const Person = function (firstName, birthYear) {
   this.firstName = firstName;
   this.birthYear = birthYear;
 
-  //Never create a method inside of constructor function. Use prototype and prototype inheritance
-  this.calcAge = function () {
-    console.log(2025 - this.birthYear);
-  };
+  // //Never create a method inside of constructor function. Use prototype and prototype inheritance
+  // this.calcAge = function () {
+  //   console.log(2025 - this.birthYear);
+  // };
 };
 
 //1- new {} is created
@@ -29,4 +29,27 @@ console.log(deniz);
 console.log(esra instanceof Person); //true
 console.log(jay instanceof Person); //false
 
-function Person2() {}
+Person.prototype.calcAge = function () {
+  console.log(2025 - this.birthYear);
+};
+
+console.log(Person.prototype);
+console.log(gulsah);
+console.log(gulsah.__proto__);
+gulsah.calcAge();
+deniz.calcAge();
+
+console.log(gulsah.__proto__ === Person.prototype);
+console.log(Person.prototype.isPrototypeOf(gulsah));
+console.log(Person.prototype.isPrototypeOf(deniz));
+console.log(Person.prototype.isPrototypeOf(Person)); //false
+
+//Person.prototype => .prototypeOfLinkedObjects
+
+Person.prototype.hasCar = false;
+Person.prototype.species = 'Homo Sapiens';
+console.log(gulsah.hasCar);
+console.log(gulsah.species);
+
+console.log(gulsah.hasOwnProperty('firstName'));
+console.log(gulsah.hasOwnProperty('species'));
