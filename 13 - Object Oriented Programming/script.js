@@ -1,4 +1,33 @@
 'use strict';
+
+///////////////////////////////////////
+// ES6 Classes
+
+//class expression
+//const Car = class {}
+
+//class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  //Methods will be added to .prototype property of Constructor
+  greetings() {
+    console.log(` Hello ${this.firstName}`);
+  }
+}
+
+const gulsah = new PersonCl('Gülşah', 2000);
+
+PersonCl.prototype.calcAge = function () {
+  console.log(`2025 -${this.birthYear}`);
+};
+console.log(gulsah);
+console.log(PersonCl.prototype);
+console.log(PersonCl.prototype === gulsah.__proto__); //true
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -12,7 +41,6 @@ DATA CAR 1: 'BMW' going at 120 km/h
 DATA CAR 2: 'Mercedes' going at 95 km/h
 
 GOOD LUCK 😀
-*/
 
 const Car = function (make, speed) {
   this.make = make;
@@ -41,6 +69,7 @@ bmw.accelerate();
 mercedes.brake();
 mercedes.brake();
 mercedes.accelerate();
+*/
 
 ///////////////////////////////////////
 //Prototypal Inheritance on Built-In Objects

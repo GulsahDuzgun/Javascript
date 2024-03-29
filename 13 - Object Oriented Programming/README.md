@@ -22,5 +22,6 @@
 > - _Every object and function has its own Prototype Object. So Constructor function has it own Prototype object which can be access via .prototype properties. When we create a new object first new empty object is created and and this keyword in constructor function is call set to the new object. The new object is linked (\_\_proto\_\_ property) to constructor functions prototype property. The new object is returned from the constructor function call. ,_
 >
 > - _**How does the prototype chain work?** When we try to access a property or method in object if it doesn't be found in objects then search is done in its Prototype.If it again doesn't be found in its Prototype object the searching is being continued to its prototype object. Constructor's prototypes is an object so it has its own Object.prototype object that is Object() constructor functions prototype property. And its \_\_proto\_\_property is set to null. That searching is called "Prototype Chain" ,_
+> - _Classes are not hoisted and they are first-class citizens( we can pass them into functions and return them from functions). Classes are executed in strict mode. ,_
 >
 > #
