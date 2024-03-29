@@ -1,5 +1,45 @@
 'use strict';
 
+///////////////////////////////////////
+//Prototypal Inheritance on Built-In Objects
+/* */
+
+const Person = function (firstName, birthYear) {
+  console.log(this); // {}
+
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+const gulsah = new Person('Gülşah', 2000);
+
+Person.prototype.calcAge = function () {
+  console.log(2025 - this.birthYear);
+};
+
+console.log(gulsah.__proto__);
+console.log(gulsah.__proto__.__proto__); //Object.prototype
+console.log(gulsah.__proto__.__proto__.__proto__); //null
+console.log(gulsah.__proto__.constructor);
+
+const arr = [3, 4, 3, 2, 2, 4, 5, 6, 7, 4, 849, 76, 6, 3, 6]; //[] === new Array && {} === new Object
+console.log(arr.__proto__);
+console.log(arr.__proto__.__proto__);
+console.log(arr.__proto__.__proto__.__proto__);
+
+// arr.__proto__.uniq = function () {
+//   return [...new Set(this)];
+// };
+
+Array.prototype.uniq = function () {
+  return [...new Set(this)];
+};
+console.log(arr.uniq());
+
+console.dir(x => x + 1);
+
+///////////////////////////////////////
+/*
+
 const Person = function (firstName, birthYear) {
   console.log(this); // {}
 
@@ -53,3 +93,4 @@ console.log(gulsah.species);
 
 console.log(gulsah.hasOwnProperty('firstName'));
 console.log(gulsah.hasOwnProperty('species'));
+*/
