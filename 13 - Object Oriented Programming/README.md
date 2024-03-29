@@ -25,5 +25,6 @@
 > - _Classes are not hoisted and they are first-class citizens( we can pass them into functions and return them from functions). Classes are executed in strict mode. ,_
 > - _We call getter and setter properties assessor properties while the normal properties are called data properties. ,_
 > - _setters and getters in Javascript ,_
+> - _**What is static methods in Javascript?** Array.from() method or Number.parseInt() methods are static methods. from() or parseInt() method is attached to the constructors. We could not use the from method on an array. from() method is attached to constructor not to the prototype of the constructor so instances can not access this method. We also say from method is in the Array name space ,_
 >
 > #

@@ -1,8 +1,38 @@
 'use strict';
 
 ///////////////////////////////////////
-// Setters and Getters
+// Static Methods
+/* */
 
+class Person {
+  constructor() {}
+
+  static hey() {
+    console.log(this);
+    console.log('Hey, keep going');
+  }
+}
+
+const Car = function (brand) {
+  this.brand = brand;
+};
+
+Car.hey = function () {
+  console.log(this);
+  console.log('Hey, move on');
+};
+
+const mercedesg63 = new Car();
+Car.hey();
+mercedesg63.hey(); // not a function
+
+const gulsah = new Person();
+Person.hey();
+console.log(gulsah.hey()); // not a function
+
+///////////////////////////////////////
+// Setters and Getters
+/*
 class PersonCl {
   constructor(firstName, birthYear) {
     this.firstName = firstName;
@@ -23,6 +53,8 @@ const gulsah = new PersonCl('Gülşah Düzgün', 2000);
 console.log(gulsah.firstName);
 console.log(gulsah._firstName);
 console.log(gulsah);
+
+*/
 
 ///////////////////////////////////////
 // ES6 Classes
