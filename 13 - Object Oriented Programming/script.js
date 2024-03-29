@@ -1,7 +1,61 @@
 'use strict';
 
 ///////////////////////////////////////
+// Setters and Getters
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  set firstName(name) {
+    if (name.includes(' ')) this._firstName = name;
+    else alert(`${name} does not include space`);
+  }
+
+  get firstName() {
+    return this._firstName;
+  }
+}
+
+const gulsah = new PersonCl('Gülşah Düzgün', 2000);
+console.log(gulsah.firstName);
+console.log(gulsah._firstName);
+console.log(gulsah);
+
+///////////////////////////////////////
 // ES6 Classes
+/*
+
+const account = {
+  owner: 'Gülşah Düzgün',
+  movements: [200, 350, 300, 600],
+
+  lastElement() {
+    return this.movements.pop();
+  },
+
+  get lastElement2() {
+    return this.movements.pop();
+  },
+
+  set lastElement2(el) {
+    this.movements.push(el);
+  },
+};
+
+console.log(account.lastElement());
+console.log(account.lastElement2);
+console.log(account);
+
+account.lastElement2 = 270;
+console.log(account);
+*/
+
+///////////////////////////////////////
+// ES6 Classes
+/*
 
 //class expression
 //const Car = class {}
@@ -27,6 +81,7 @@ PersonCl.prototype.calcAge = function () {
 console.log(gulsah);
 console.log(PersonCl.prototype);
 console.log(PersonCl.prototype === gulsah.__proto__); //true
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #1

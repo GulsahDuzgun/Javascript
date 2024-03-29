@@ -23,5 +23,7 @@
 >
 > - _**How does the prototype chain work?** When we try to access a property or method in object if it doesn't be found in objects then search is done in its Prototype.If it again doesn't be found in its Prototype object the searching is being continued to its prototype object. Constructor's prototypes is an object so it has its own Object.prototype object that is Object() constructor functions prototype property. And its \_\_proto\_\_property is set to null. That searching is called "Prototype Chain" ,_
 > - _Classes are not hoisted and they are first-class citizens( we can pass them into functions and return them from functions). Classes are executed in strict mode. ,_
+> - _We call getter and setter properties assessor properties while the normal properties are called data properties. ,_
+> - _setters and getters in Javascript ,_
 >
 > #
