@@ -1,8 +1,58 @@
 'use strict';
 
 ///////////////////////////////////////
-//Encapsulation: Private Class Field and Methods
+//Chaining Methods
 /**/
+
+class Account {
+  locale = navigator.language;
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.#movements.push(-val);
+    return this;
+  }
+
+  #approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this.#approveLoan(val)) {
+      this.deposit(val);
+      console.log('Loan approved');
+    }
+    return this;
+  }
+
+  getMovements() {
+    console.log(this.#movements);
+  }
+
+  static hey() {
+    console.log('Hey Bro');
+  }
+}
+const acc1 = new Account('Gülşah', 'EUR', 111111);
+Account.hey();
+
+acc1.deposit(200).withdraw(300).deposit(422).requestLoan(344).getMovements();
+
+///////////////////////////////////////
+//Encapsulation: Private Class Field and Methods
+/*
 
 class Account {
   locale = navigator.language;
@@ -42,7 +92,7 @@ acc1.withdraw(300);
 // console.log(acc1.#approveLoan());
 acc1.requestLoan(200);
 console.log(acc1);
-
+*/
 ///////////////////////////////////////
 //Inheritance Between "Classes": Object.create()
 /* 
