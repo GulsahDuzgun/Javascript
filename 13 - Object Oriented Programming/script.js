@@ -1,8 +1,33 @@
 'use strict';
 
 ///////////////////////////////////////
-//Inheritance Between "Classes": ES6
+//Inheritance Between "Classes": Object.create()
+/* */
 
+const Person = {
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+  calcAge() {
+    return 2025 - this.birthYear;
+  },
+};
+
+const Children = Object.create(Person);
+
+Children.greetings = function () {
+  console.log(`Hello ${this.firstName}. You are ${this.calcAge()} years old`);
+};
+const gulsah = Object.create(Children);
+
+gulsah.init('Gülşah', 2000);
+gulsah.greetings();
+console.log(gulsah);
+
+///////////////////////////////////////
+//Inheritance Between "Classes": ES6
+/* 
 class PersonCl {
   constructor(firstName, birthYear) {
     this.firstName = firstName;
@@ -30,6 +55,7 @@ class StudentCl extends PersonCl {
 const deniz = new StudentCl('Deniz', 2007, 'Medicine');
 console.log(deniz);
 deniz.greet();
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #3
