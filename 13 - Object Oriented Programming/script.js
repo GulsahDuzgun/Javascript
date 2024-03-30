@@ -1,32 +1,34 @@
 'use strict';
 
 ///////////////////////////////////////
-//
+//Encapsulation: Private Class Field and Methods
 /**/
 
 class Account {
+  locale = navigator.language;
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.locale = navigator.language;
-    this._pin = pin;
-    this._movements = [];
+    this.#pin = pin;
   }
 
   deposit(val) {
-    this._movements.push(val);
+    this.#movements.push(val);
   }
 
   withdraw(val) {
-    this._movements.push(-val);
+    this.#movements.push(-val);
   }
 
-  _approveLoan(val) {
+  #approveLoan(val) {
     return true;
   }
 
   requestLoan(val) {
-    if (this._approveLoan(val)) {
+    if (this.#approveLoan(val)) {
       this.deposit(val);
       console.log('Loan approved');
     }
@@ -36,7 +38,8 @@ class Account {
 const acc1 = new Account('Gülşah', 'EUR', 111111);
 acc1.deposit(400);
 acc1.withdraw(300);
-console.log(acc1._approveLoan());
+// acc1.#movements.push(50);
+// console.log(acc1.#approveLoan());
 acc1.requestLoan(200);
 console.log(acc1);
 
