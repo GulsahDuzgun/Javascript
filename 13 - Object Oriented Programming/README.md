@@ -26,5 +26,6 @@
 > - _We call getter and setter properties assessor properties while the normal properties are called data properties. ,_
 > - _setters and getters in Javascript ,_
 > - _**What is static methods in Javascript?** Array.from() method or Number.parseInt() methods are static methods. from() or parseInt() method is attached to the constructors. We could not use the from method on an array. from() method is attached to constructor not to the prototype of the constructor so instances can not access this method. We also say from method is in the Array name space ,_
+> - _Object.create() create a new object and the prototype of that object will be the object that we passed in,_
 >
 > #

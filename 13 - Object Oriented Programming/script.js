@@ -4,6 +4,33 @@
 // Static Methods
 /* */
 
+const Person = {
+  calcAge() {
+    console.log(2025 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const gulsah = Object.create(Person);
+gulsah.birthYear = 2000;
+gulsah.firstname = 'Gülşah';
+gulsah.calcAge();
+console.log(gulsah);
+
+const aden = Object.create(Person);
+console.log(aden);
+console.log(aden.__proto__ === Person); //true
+aden.init('aden', 2018);
+aden.calcAge();
+
+///////////////////////////////////////
+// Static Methods
+/*
+
 class Person {
   constructor() {}
 
@@ -30,6 +57,7 @@ const gulsah = new Person();
 Person.hey();
 console.log(gulsah.hey()); // not a function
 
+ */
 ///////////////////////////////////////
 // Setters and Getters
 /*
