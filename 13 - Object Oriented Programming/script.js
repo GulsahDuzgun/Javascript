@@ -1,6 +1,49 @@
 'use strict';
 
 ///////////////////////////////////////
+// Inheritance Between "Classes" : Constructor Functions
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2025 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+Student.prototype = Object.create(Person.prototype);
+
+const deniz = new Student('Deniz', 2007, 'Nursing');
+console.log(deniz);
+console.log(deniz.firstName);
+console.log(deniz.__proto__);
+console.log(deniz.__proto__.constructor);
+
+deniz.calcAge();
+
+const mike = new Student('Mike', 2008, 'Computer Science');
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+console.log(mike instanceof Object);
+
+mike.__proto__.constructor = Student;
+Student.prototype.constructor = Student;
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+console.log(mike instanceof Object);
+
+///////////////////////////////////////
 // Coding Challenge #2
 
 /* 
@@ -12,7 +55,7 @@
 DATA CAR 1: 'Ford' going at 120 km/h
 
 GOOD LUCK 😀
-*/
+
 
 class CarSpeed {
   constructor(brand, speed) {
@@ -33,6 +76,7 @@ const ford = new CarSpeed('Ford', 120);
 ford.speed = 160;
 console.log(ford.speed);
 console.log(ford.speedUS);
+*/
 
 ///////////////////////////////////////
 // Object.create()
