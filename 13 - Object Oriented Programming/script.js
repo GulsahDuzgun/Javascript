@@ -1,8 +1,59 @@
 'use strict';
 
 ///////////////////////////////////////
+// Coding Challenge #4
+
+/* 
+1. Re-create challenge #3, but this time using ES6 classes: create an 'EVCl' child class of the 'CarCl' class
+2. Make the 'charge' property private;
+3. Implement the ability to chain the 'accelerate' and 'chargeBattery' methods of this class, and also update the 'brake' method in the 'CarCl' class. They experiment with chining!
+
+DATA CAR 1: 'Rivian' going at 120 km/h, with a charge of 23%
+
+GOOD LUCK 😀
+*/
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  brake() {
+    this.speed -= 10;
+    return this;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  accelerate() {
+    this.speed += 20;
+    return this;
+  }
+
+  chargeBattery(val) {
+    this.#charge = val;
+    console.log(
+      `${this.make}' going at ${this.speed} km/h, with a charge of ${
+        this.#charge
+      }%`
+    );
+    return this;
+  }
+}
+
+const rivian = new EVCl('Rivian', 120, 23);
+rivian.accelerate().brake().chargeBattery(23);
+
+///////////////////////////////////////
 //Chaining Methods
-/**/
+/*
 
 class Account {
   locale = navigator.language;
@@ -49,6 +100,7 @@ const acc1 = new Account('Gülşah', 'EUR', 111111);
 Account.hey();
 
 acc1.deposit(200).withdraw(300).deposit(422).requestLoan(344).getMovements();
+*/
 
 ///////////////////////////////////////
 //Encapsulation: Private Class Field and Methods
