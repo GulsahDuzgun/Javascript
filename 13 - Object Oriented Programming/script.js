@@ -1,6 +1,37 @@
 'use strict';
 
 ///////////////////////////////////////
+//Inheritance Between "Classes": ES6
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  calcAge() {
+    return 2025 - this.birthYear;
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(firstName, birthYear, course) {
+    super(firstName, birthYear);
+    this.course = course;
+  }
+  greet() {
+    console.log(
+      `Hi! I am ${
+        this.firstName
+      } and I am ${this.calcAge()}. I have been studying on ${this.course}`
+    );
+  }
+}
+
+const deniz = new StudentCl('Deniz', 2007, 'Medicine');
+console.log(deniz);
+deniz.greet();
+
+///////////////////////////////////////
 // Coding Challenge #3
 
 /* 
@@ -12,7 +43,7 @@
 DATA CAR 1: 'Tesla' going at 120 km/h, with a charge of 23%
 
 GOOD LUCK 😀
-*/
+
 
 const Car = function (make, speed) {
   this.make = make;
@@ -56,6 +87,7 @@ tesla.chargeBattery(33);
 
 tesla.accelerate();
 console.log(tesla);
+*/
 
 ///////////////////////////////////////
 // Inheritance Between "Classes" : Constructor Functions
