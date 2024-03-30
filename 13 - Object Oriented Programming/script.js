@@ -1,9 +1,49 @@
 'use strict';
 
 ///////////////////////////////////////
-//Inheritance Between "Classes": Object.create()
-/* */
+//
+/**/
 
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  deposit(val) {
+    this.movements.push(val);
+  }
+
+  withdraw(val) {
+    this.movements.push(-val);
+  }
+
+  approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      this.deposit(val);
+      console.log('Loan approved');
+    }
+  }
+}
+
+const acc1 = new Account('Gülşah', 'EUR', 111111);
+acc1.deposit(400);
+acc1.withdraw(300);
+console.log(acc1.approveLoan());
+acc1.requestLoan(200);
+console.log(acc1);
+
+///////////////////////////////////////
+//Inheritance Between "Classes": Object.create()
+/* 
 const Person = {
   init(firstName, birthYear) {
     this.firstName = firstName;
@@ -24,6 +64,7 @@ const gulsah = Object.create(Children);
 gulsah.init('Gülşah', 2000);
 gulsah.greetings();
 console.log(gulsah);
+*/
 
 ///////////////////////////////////////
 //Inheritance Between "Classes": ES6
