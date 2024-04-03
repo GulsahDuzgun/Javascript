@@ -19,6 +19,7 @@ class App {
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField.bind(this));
     containerWorkouts.addEventListener('click', this._moveToMarker.bind(this));
+    this._getLocalStorage();
   }
 
   _getPosition() {
@@ -49,6 +50,7 @@ class App {
     this.#map.on('click', this._showForm.bind(this));
 
     L.marker(coords).addTo(this.#map).bindPopup('Hello').openPopup();
+    this.workouts.forEach(work => this._renderWorkoutMarker(work));
   }
 
   _newWorkout(e) {
@@ -91,12 +93,12 @@ class App {
     this._renderWorkoutMarker(workout);
     this._renderWorkout(workout);
     this._hideForm();
+    this._setLocalStorage();
   }
 
   _renderWorkout(workout) {
-    console.log(workout);
     let html = `
-    <li class="workout workout--${workout.type}" data-id="${workout._getId()}">
+    <li class="workout workout--${workout.type}" data-id="${workout.id}">
           <h2 class="workout__title">${workout.headerSummary}</h2>
           <div class="workout__details">
             <span class="workout__icon">${
@@ -170,7 +172,7 @@ class App {
 
     console.log(this.workouts);
     const workout = this.workouts.find(
-      work => work._getId() === clikedMovements.dataset.id
+      work => work.id === clikedMovements.dataset.id
     );
 
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
@@ -205,10 +207,25 @@ class App {
     inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
     inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
   }
+
+  _setLocalStorage() {
+    localStorage.setItem('workouts', JSON.stringify(this.workouts));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('workouts'));
+
+    if (!data) return;
+
+    this.workouts = data;
+    // this.workouts[0].clicks();
+
+    this.workouts.forEach(elm => this._renderWorkout(elm));
+  }
 }
 
 class Workout {
-  #id = (Date.now() + '').slice(-10);
+  id = (Date.now() + '').slice(-10);
   #date = new Date();
   click = 0;
 
@@ -227,9 +244,9 @@ class Workout {
     } on ${months[this.#date.getMonth()]}  ${this.#date.getDate()}`;
   }
 
-  _getId() {
-    return this.#id;
-  }
+  // _getId() {
+  //   return this.#id;
+  // }
 
   clicks() {
     this.click++;
