@@ -170,7 +170,6 @@ class App {
     const clikedMovements = e.target.closest('.workout');
     if (!clikedMovements) return; //guard
 
-    console.log(this.workouts);
     const workout = this.workouts.find(
       work => work.id === clikedMovements.dataset.id
     );
@@ -182,7 +181,7 @@ class App {
       },
     });
 
-    workout.clicks();
+    // workout.clicks();
   }
 
   _showForm(e) {
@@ -221,6 +220,11 @@ class App {
     // this.workouts[0].clicks();
 
     this.workouts.forEach(elm => this._renderWorkout(elm));
+  }
+
+  resetLocalStorage() {
+    localStorage.removeItem('workouts');
+    location.reload();
   }
 }
 
