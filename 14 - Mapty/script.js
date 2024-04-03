@@ -11,12 +11,14 @@ const inputElevation = document.querySelector('.form__input--elevation');
 class App {
   #map;
   #mapEvent;
+  #mapZoomLevel = 13;
   workouts = [];
 
   constructor() {
     this._getPosition();
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField.bind(this));
+    containerWorkouts.addEventListener('click', this._moveToMarker.bind(this));
   }
 
   _getPosition() {
@@ -36,7 +38,7 @@ class App {
     //   `https://www.google.com/maps/@${latitude},${longitude},12z?entry=ttu`
     // );
 
-    this.#map = L.map('map').setView(coords, 13);
+    this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -92,8 +94,9 @@ class App {
   }
 
   _renderWorkout(workout) {
+    console.log(workout);
     let html = `
-    <li class="workout workout--${workout.type}" data-id="1234567890">
+    <li class="workout workout--${workout.type}" data-id="${workout._getId()}">
           <h2 class="workout__title">${workout.headerSummary}</h2>
           <div class="workout__details">
             <span class="workout__icon">${
@@ -161,6 +164,25 @@ class App {
       .openPopup();
   }
 
+  _moveToMarker(e) {
+    const clikedMovements = e.target.closest('.workout');
+    if (!clikedMovements) return; //guard
+
+    console.log(this.workouts);
+    const workout = this.workouts.find(
+      work => work._getId() === clikedMovements.dataset.id
+    );
+
+    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+      animate: true,
+      pan: {
+        duration: 1,
+      },
+    });
+
+    workout.clicks();
+  }
+
   _showForm(e) {
     this.#mapEvent = e;
     form.classList.remove('hidden');
@@ -188,6 +210,7 @@ class App {
 class Workout {
   #id = (Date.now() + '').slice(-10);
   #date = new Date();
+  click = 0;
 
   constructor(coords, distance, duration) {
     this.coords = coords; //[lat, lng]
@@ -202,6 +225,14 @@ class Workout {
     this.headerSummary = `${
       this.type[0].toUpperCase() + this.type.slice(1)
     } on ${months[this.#date.getMonth()]}  ${this.#date.getDate()}`;
+  }
+
+  _getId() {
+    return this.#id;
+  }
+
+  clicks() {
+    this.click++;
   }
 }
 
@@ -236,3 +267,4 @@ class Cycling extends Workout {
 }
 
 const app = new App();
+console.log(app);
