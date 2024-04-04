@@ -89,12 +89,5 @@ function getCountryAndNeighbour(country) {
 
 getCountryAndNeighbour('finland');
 
-setTimeout(() => {
-  console.log('1 second passed');
-  setTimeout(() => {
-    console.log('3 second passed');
-    setTimeout(() => {
-      console.log('5 second passed');
-    }, 2000);
-  }, 2000);
-}, 1000);
+const req = fetch(`https://restcountries.com/v3.1/name/turkey`);
+console.log(req);
