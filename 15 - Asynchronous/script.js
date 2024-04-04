@@ -60,34 +60,46 @@ function renderHTML(data, neighbourClass = '') {
   countriesContainer.style.opacity = 1;
 }
 
-function getCountryAndNeighbour(country) {
-  const request = new XMLHttpRequest();
+// function getCountryAndNeighbour(country) {
+//   const request = new XMLHttpRequest();
 
-  request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+//   request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
 
-  request.send();
+//   request.send();
 
-  request.addEventListener('load', function () {
-    const [data] = JSON.parse(request.responseText);
-    renderHTML(data);
+//   request.addEventListener('load', function () {
+//     const [data] = JSON.parse(request.responseText);
+//     renderHTML(data);
 
-    const neighbours = data.borders;
-    neighbours.forEach(cntry => {
-      const request2 = new XMLHttpRequest();
-      request2.open('GET', `https://restcountries.com/v3.1/alpha/${cntry}`);
-      request2.send();
+//     const neighbours = data.borders;
+//     neighbours.forEach(cntry => {
+//       const request2 = new XMLHttpRequest();
+//       request2.open('GET', `https://restcountries.com/v3.1/alpha/${cntry}`);
+//       request2.send();
 
-      request2.addEventListener('load', function () {
-        const [data] = JSON.parse(request2.responseText);
-        renderHTML(data, 'neighbour');
-        console.log(data);
-      });
-    });
-    console.log(neighbours);
-  });
-}
+//       request2.addEventListener('load', function () {
+//         const [data] = JSON.parse(request2.responseText);
+//         renderHTML(data, 'neighbour');
+//         console.log(data);
+//       });
+//     });
+//     console.log(neighbours);
+//   });
+// }
 
-getCountryAndNeighbour('finland');
+// getCountryAndNeighbour('finland');
 
-const req = fetch(`https://restcountries.com/v3.1/name/turkey`);
-console.log(req);
+// fetch(`https://restcountries.com/v3.1/name/finland`)
+//   .then(function (response) {
+//     const data = response.json();
+//     console.log(data);
+//     return data;
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//     renderHTML(data[0]);
+//   });
+
+fetch(`https://restcountries.com/v3.1/name/finland`)
+  .then(res => res.json())
+  .then(data => renderHTML(data[0]));
