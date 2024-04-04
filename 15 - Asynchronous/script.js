@@ -57,7 +57,6 @@ function renderHTML(data, neighbourClass = '') {
   `;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
 }
 
 // function getCountryAndNeighbour(country) {
@@ -100,22 +99,32 @@ function renderHTML(data, neighbourClass = '') {
 //     renderHTML(data[0]);
 //   });
 
-fetch(`https://restcountries.com/v3.1/name/finland`)
-  .then(res => res.json())
-  .then(data => {
-    renderHTML(data[0]);
+btn.addEventListener('click', function () {
+  fetch(`https://restcountries.com/v3.1/name/finland`)
+    .then(
+      res => res.json(),
+      err => console.log(err)
+    )
+    .then(data => {
+      renderHTML(data[0]);
 
-    const neighbours = data[0].borders;
-    if (!neighbours) return;
+      const neighbours = data[0].borders;
+      if (!neighbours) return;
 
-    neighbours.forEach(countryCode => {
-      console.log(countryCode);
+      // neighbours.forEach(countryCode => {
+      //   console.log(countryCode);
+      // });
+
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbours[1]}`);
+    })
+    .then(res => {
+      return res.json(); //promise action object
+    })
+    .then(data => renderHTML(data[0], 'neighbour'))
+    .catch(err =>
+      countriesContainer.insertAdjacentText('beforeend', err.message)
+    )
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
     });
-
-    return fetch(`https://restcountries.com/v3.1/alpha/${neighbours[0]}`);
-  })
-  .then(res => {
-    console.log(res);
-    return res.json(); //promise action object
-  })
-  .then(data => renderHTML(data[0], 'neighbour'));
+});

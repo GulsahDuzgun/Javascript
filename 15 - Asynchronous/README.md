@@ -16,5 +16,6 @@
 > - _**What is the advantage of using Promises?** First by using promises we no longer need to rely on events and callback functions to handle asynchronous results. Sometimes events and callback functions can cause unpredictable results. Second we can chain promises for a sequence of asynchronous operations: escaping callback hell ,_
 > - _Promises are time sensitive, they change over time. So promises can be in different states. At the beginnig a promise is pending. This is before any value resulting from the asynchronous task is available. During this time asynchronous task is still running in the background then the task finally finishes the promise is settled and there are two different types of settled promises: fulfilled and rejected promises. Fulfilled promise is a promise that has successfully resulted in a value just as we expect it.Rejected promise means there has been an error during the asynchronous task.,_
 > - _ usage of then() in Promise,_
+> - _ usage of catch() and finally() in Promise,_
 >
 > #
