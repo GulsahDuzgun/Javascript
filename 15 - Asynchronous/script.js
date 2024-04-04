@@ -102,4 +102,20 @@ function renderHTML(data, neighbourClass = '') {
 
 fetch(`https://restcountries.com/v3.1/name/finland`)
   .then(res => res.json())
-  .then(data => renderHTML(data[0]));
+  .then(data => {
+    renderHTML(data[0]);
+
+    const neighbours = data[0].borders;
+    if (!neighbours) return;
+
+    neighbours.forEach(countryCode => {
+      console.log(countryCode);
+    });
+
+    return fetch(`https://restcountries.com/v3.1/alpha/${neighbours[0]}`);
+  })
+  .then(res => {
+    console.log(res);
+    return res.json(); //promise action object
+  })
+  .then(data => renderHTML(data[0], 'neighbour'));
