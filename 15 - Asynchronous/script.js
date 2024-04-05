@@ -198,9 +198,7 @@ TEST COORDINATES 2: -33.933, 18.474
 GOOD LUCK 😀*/
 
 function whereAmI(lat, lng) {
-  fetch(
-    `https://geocode.xyz/${lat},${lng}?geoit=json&auth=213831191454149425239x3191`
-  )
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json&auth=KEY`)
     .then(res => {
       if (res.status === 403) {
         throw new Error(`Are you in a hurry? Slow down!!`);
