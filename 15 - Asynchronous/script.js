@@ -235,6 +235,7 @@ Promise.resolve('function from Microtask Queue').then(text => {
 console.log('Test end');
 */
 
+/*
 const lotteryPromise = new Promise(function (resolve, reject) {
   if (Math.random(1) > 0.5) {
     return resolve('You win 💲');
@@ -267,3 +268,39 @@ Promise.resolve('returns fulfilled promise').then(mes => console.log(mes));
 Promise.reject(new Error('returns rejected promise')).catch(err =>
   console.log(err.message)
 );
+*/
+
+function getCurrentCord() {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+}
+
+function whereAmI() {
+  getCurrentCord()
+    .then(curr => {
+      const { latitude: lat, longitude: lng } = curr.coords;
+      console.log(curr);
+      return fetch(`https://geocode.xyz/${lat},${lng}?geoit=KEY`);
+    })
+    .then(res => {
+      if (res.status === 403) {
+        throw new Error(`Are you in a hurry? Slow down!!`);
+      }
+      return res.json();
+    })
+    .then(data => {
+      console.log(`You are in ${data.state}, ${data.country}`);
+      return fetch(`https://restcountries.com/v3.1/name/${data.country}`);
+    })
+    .then(res => res.json())
+    .then(res => renderHTML(res[0]))
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    })
+    .catch(e => {
+      console.log(`💣  ${e.message}`);
+    });
+}
+
+whereAmI();
