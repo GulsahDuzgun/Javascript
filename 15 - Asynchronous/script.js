@@ -99,32 +99,74 @@ function renderHTML(data, neighbourClass = '') {
 //     renderHTML(data[0]);
 //   });
 
-btn.addEventListener('click', function () {
-  fetch(`https://restcountries.com/v3.1/name/finland`)
-    .then(
-      res => res.json(),
-      err => console.log(err)
-    )
+// function renderCountry(name) {
+//   fetch(`https://restcountries.com/v3.1/name/${name}`)
+//     .then(res => {
+//       if (!res.ok) {
+//         throw new Error(`Country can\'t be found`);
+//       }
+//       return res => res.json();
+//     })
+//     .then(data => {
+//       renderHTML(data[0]);
+
+//       const neighbours = data[0]?.borders;
+//       if (!neighbours) return;
+
+//       // neighbours.forEach(countryCode => {
+//       //   console.log(countryCode);
+//       // });
+
+//       return fetch(`https://restcountries.com/v3.1/alpha/${neighbours[1]}`);
+//     })
+//     .then(res => {
+//       return res.json(); //promise action object
+//     })
+//     .then(data => renderHTML(data[0], 'neighbour'))
+//     .catch(err => {
+//       countriesContainer.innerHTML = '';
+//       countriesContainer.insertAdjacentText('beforeend', err.message);
+//     })
+//     .finally(() => {
+//       countriesContainer.style.opacity = 1;
+//     });
+// }
+
+function getJSON(url, errMess = 'Something went wrong') {
+  return fetch(`${url}`).then(res => {
+    if (!res.ok) {
+      throw new Error(`${errMess}`);
+    }
+    return res.json();
+  });
+}
+
+function renderCountry(name) {
+  getJSON(
+    `https://restcountries.com/v3.1/name/${name}`,
+    `Country can\'t be found`
+  )
     .then(data => {
+      console.log(data);
       renderHTML(data[0]);
-
       const neighbours = data[0].borders;
-      if (!neighbours) return;
 
-      // neighbours.forEach(countryCode => {
-      //   console.log(countryCode);
-      // });
+      if (!neighbours) throw new Error(`${name} has no neighbour`);
+      console.log(neighbours);
 
-      return fetch(`https://restcountries.com/v3.1/alpha/${neighbours[1]}`);
-    })
-    .then(res => {
-      return res.json(); //promise action object
+      return getJSON(
+        `https://restcountries.com/v3.1/alpha/${neighbours}`,
+        `${name} has no neighbour`
+      );
     })
     .then(data => renderHTML(data[0], 'neighbour'))
-    .catch(err =>
-      countriesContainer.insertAdjacentText('beforeend', err.message)
-    )
+    .catch(err => {
+      countriesContainer.innerHTML = '';
+      countriesContainer.insertAdjacentText('beforeend', err.message);
+    })
     .finally(() => {
       countriesContainer.style.opacity = 1;
     });
-});
+}
+
+btn.addEventListener('click', renderCountry.bind(null, 'australia'));
