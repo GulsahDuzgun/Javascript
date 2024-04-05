@@ -195,7 +195,7 @@ TEST COORDINATES 1: 52.508, 13.381 (Latitude, Longitude)
 TEST COORDINATES 2: 19.037, 72.873
 TEST COORDINATES 2: -33.933, 18.474
 
-GOOD LUCK 😀*/
+GOOD LUCK 😀
 
 function whereAmI(lat, lng) {
   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json&auth=KEY`)
@@ -222,3 +222,13 @@ function whereAmI(lat, lng) {
 whereAmI(52.508, 13.381);
 whereAmI(19.037, 72.873);
 whereAmI(-33.933, 18.474);
+
+*/
+
+console.log('Test start');
+setTimeout(() => console.log('function from Callback Queue'), 0);
+Promise.resolve('function from Microtask Queue').then(text => {
+  console.log(text);
+  for (let i = 0; i < 1000000000; i++) {}
+});
+console.log('Test end');
