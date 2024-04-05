@@ -225,6 +225,7 @@ whereAmI(-33.933, 18.474);
 
 */
 
+/*
 console.log('Test start');
 setTimeout(() => console.log('function from Callback Queue'), 0);
 Promise.resolve('function from Microtask Queue').then(text => {
@@ -232,3 +233,37 @@ Promise.resolve('function from Microtask Queue').then(text => {
   for (let i = 0; i < 1000000000; i++) {}
 });
 console.log('Test end');
+*/
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  if (Math.random(1) > 0.5) {
+    return resolve('You win 💲');
+  } else {
+    return reject(new Error('You lost 💩'));
+  }
+});
+
+console.log(lotteryPromise);
+
+lotteryPromise
+  .then(mess => console.log(mess))
+  .catch(err => console.log(err.message));
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(2)
+  .then(() => {
+    console.log('2 seconds have passed');
+    return wait(4);
+  })
+  .then(() => console.log('4 seconds have passed'));
+
+Promise.resolve('returns fulfilled promise').then(mes => console.log(mes));
+
+Promise.reject(new Error('returns rejected promise')).catch(err =>
+  console.log(err.message)
+);
