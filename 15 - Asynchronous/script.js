@@ -337,7 +337,7 @@ PART 2
 TEST DATA: Images in the img folder. Test the error handler by passing a wrong image path. Set the network speed to 'Fast 3G' in the dev tools Network tab, otherwise images load too fast.
 
 GOOD LUCK 😀
-*/
+
 const imgContainer = document.querySelector('.images');
 let currentImage;
 
@@ -378,3 +378,58 @@ createImage('./img/img-1.jpg')
       currentImage.style.display = 'none';
     });
   });
+*/
+
+///////////////////////////////////////
+// Consuming Promises with Async/Await
+
+function renderHTML(data, neighbourClass = '') {
+  const html = `
+  <article class="country ${neighbourClass}">
+    <img class="country__img" src="${data.flags.png}" />
+    <div class="country__data">
+      <h3 class="country__name">${data.name.common}</h3>
+      <h4 class="country__region">${data.region}</h4>
+      <p class="country__row"><span>👫</span>${(
+        +data.population / 1000000
+      ).toFixed(1)} people</p>
+      <p class="country__row"><span>🗣️</span>${
+        Object.values(data.languages)[0]
+      }</p>
+      <p class="country__row"><span>💰</span>${
+        Object.values(data.currencies)[0].name
+      }</p>
+    </div>
+  </article>
+  `;
+
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+}
+
+function getCurrentPosition() {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve), reject;
+  });
+}
+
+const whereAmI = async function () {
+  const currPosition = await getCurrentPosition();
+  const { latitude: lat, longitude: lng } = currPosition.coords;
+  countriesContainer.style.opacity = 1;
+
+  const fetchRes = await fetch(
+    `https://geocode.xyz/${lat},${lng}?geoit=json&auth=213831191454149425239x3191`
+  );
+  const res = await fetchRes.json();
+
+  const data = await fetch(
+    `https://restcountries.com/v3.1/name/${res.country}`
+  );
+  const JSONData = await data.json();
+  console.log(JSONData[0]);
+
+  renderHTML(JSONData[0]);
+};
+
+whereAmI();
+console.log('Test');
