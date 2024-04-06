@@ -649,10 +649,10 @@ const loadNPause = async function () {
   createdImg.style.display = 'none';
 };
 
-const createdImg = function () {
+const createdImg = function (url) {
   return new Promise(function (resolve, reject) {
     const img = document.createElement('img');
-    img.src = 'img/img-2.jpg';
+    img.src = `${url}`;
 
     img.addEventListener('load', function () {
       imgContainer.append(img);
@@ -665,4 +665,14 @@ const createdImg = function () {
   });
 };
 
-loadNPause();
+// loadNPause();
+
+const loadAll = async function (imgArr) {
+  const imgsPromises = imgArr.map(async arr => await createdImg(arr));
+  console.log(imgsPromises);
+  const imgs = await Promise.all(imgsPromises);
+  imgs.forEach(img => img.classList.add('parallel'));
+  console.log(imgs);
+};
+
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']);
