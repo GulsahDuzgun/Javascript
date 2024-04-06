@@ -22,5 +22,7 @@
 > - _error handling with try...catch in Javascript ,_
 > - _Promise.all() is called combinator function because it allows us to combine multiple promises. Promise.all() is a helper, static method. It takes in an array of promises and it will return a new promise. It receives an array and returns an array. If one of the promises reject and them the whole Promise.all() rejects. ,_
 > - _Promise.race() receives an array of promises and it returns a promise which is settled as soon as one of the input promises settles. It doesn't matter promise got rejected or fulfilled . The fist settled promise wins the race,_
+> - _Promise.allSettled() takes an array of promises and it returns an array of all the settled promises.No matter if the promises got rejected or not. It returns all the results of all the promises ,_
+> - _Promise.any() takes in an array of multiple promises and then it will return first fulfilled promise and it will ignore rejected promises. ,_
 >
 > #

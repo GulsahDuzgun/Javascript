@@ -548,3 +548,32 @@ Promise.race([
 ])
   .then(res => console.log(res))
   .catch(err => console.log(err.message));
+
+Promise.any([
+  //first positive
+  Promise.reject('Error 1'),
+  Promise.resolve('Success'),
+  Promise.reject('Error 2'),
+]).then(res => console.log(res));
+
+Promise.race([
+  Promise.reject('Error 1'),
+  Promise.resolve('Success'),
+  Promise.reject('Error 2'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+
+Promise.all([
+  Promise.reject('Error 1'),
+  Promise.resolve('Success'),
+  Promise.reject('Error 2'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+
+Promise.allSettled([
+  Promise.reject('Error 1'),
+  Promise.resolve('Success'),
+  Promise.reject('Error 2'),
+]).then(res => console.log(res));
