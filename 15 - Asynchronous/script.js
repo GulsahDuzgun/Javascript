@@ -428,7 +428,7 @@ const whereAmI = async function () {
     const res = await fetchRes.json();
 
     const data = await fetch(
-      `https://restcountries.com/v3.1/name/${res.country}`
+      `https://restcountries.com/v3.1/name/${res.country}s`
     );
 
     if (!data.ok) {
@@ -437,14 +437,43 @@ const whereAmI = async function () {
       );
     }
     const JSONData = await data.json();
-
-    console.log(JSONData[0]);
-
     renderHTML(JSONData[0]);
+    return `You are in ${JSONData[0].name.common}`;
   } catch (err) {
     console.error(err.message);
+    throw err;
   }
 };
 
-whereAmI();
-console.log('Test');
+///////////////////////////////////////
+// Returning Values from Async Functions
+
+// console.log('first');
+// console.log(whereAmI());
+
+// whereAmI()
+//   .then(data => console.log(data))
+//   .catch(err => console.log(err.message));
+
+// console.log('third');
+
+(async function () {
+  console.log('first');
+  try {
+    await whereAmI().then(data => console.log(data));
+  } catch (err) {
+    console.log(err.message);
+  }
+  console.log('third');
+})();
+
+const order = async function () {
+  console.log('first **');
+
+  await whereAmI()
+    .then(data => console.log(data))
+    .catch(err => console.log(err.message));
+
+  console.log('third**');
+};
+order();
