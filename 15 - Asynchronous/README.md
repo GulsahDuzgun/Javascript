@@ -19,5 +19,6 @@
 > - _ usage of catch() and finally() in Promise,_
 > - _Callbacks of promises have a special queue for themselves, which is the so called microtasks queue. Microtasks queue has a priority over the callback queue. Microtasks queue is named after promis's microtasks. ,_
 > - _async-await in Javascript_
+> - _error handling with try...catch in Javascript ,_
 >
 > #

@@ -413,22 +413,37 @@ function getCurrentPosition() {
 }
 
 const whereAmI = async function () {
-  const currPosition = await getCurrentPosition();
-  const { latitude: lat, longitude: lng } = currPosition.coords;
-  countriesContainer.style.opacity = 1;
+  try {
+    const currPosition = await getCurrentPosition();
+    const { latitude: lat, longitude: lng } = currPosition.coords;
+    countriesContainer.style.opacity = 1;
 
-  const fetchRes = await fetch(
-    `https://geocode.xyz/${lat},${lng}?geoit=json&auth=213831191454149425239x3191`
-  );
-  const res = await fetchRes.json();
+    const fetchRes = await fetch(
+      `https://geocode.xyz/${lat},${lng}?geoit=json&auth=213831191454149425239x3191`
+    );
 
-  const data = await fetch(
-    `https://restcountries.com/v3.1/name/${res.country}`
-  );
-  const JSONData = await data.json();
-  console.log(JSONData[0]);
+    if (!fetchRes.ok) {
+      throw new Error("Error happened while getting user's country");
+    }
+    const res = await fetchRes.json();
 
-  renderHTML(JSONData[0]);
+    const data = await fetch(
+      `https://restcountries.com/v3.1/name/${res.country}`
+    );
+
+    if (!data.ok) {
+      throw new Error(
+        'Error is created while getting the country data from API'
+      );
+    }
+    const JSONData = await data.json();
+
+    console.log(JSONData[0]);
+
+    renderHTML(JSONData[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
 };
 
 whereAmI();
