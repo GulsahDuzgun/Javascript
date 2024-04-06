@@ -20,5 +20,6 @@
 > - _Callbacks of promises have a special queue for themselves, which is the so called microtasks queue. Microtasks queue has a priority over the callback queue. Microtasks queue is named after promis's microtasks. ,_
 > - _async-await in Javascript_
 > - _error handling with try...catch in Javascript ,_
+> - _Promise.all() is called combinator function because it allows us to combine multiple promises. Promise.all() is a helper, static method. It takes in an array of promises and it will return a new promise. It receives an array and returns an array. If one of the promises reject and them the whole Promise.all() rejects. ,_
 >
 > #

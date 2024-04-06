@@ -447,6 +447,7 @@ const whereAmI = async function () {
 
 ///////////////////////////////////////
 // Returning Values from Async Functions
+/*
 
 // console.log('first');
 // console.log(whereAmI());
@@ -477,3 +478,46 @@ const order = async function () {
   console.log('third**');
 };
 order();
+*/
+
+///////////////////////////////////////
+// Running Promises in Parallel
+/* */
+
+function getJSON(url, errMess = 'Something went wrong') {
+  return fetch(url).then(res => {
+    if (!res.ok) {
+      throw new Error(errMess);
+    }
+    return res.json();
+  });
+}
+
+const getCapital = async function (c1, c2, c3) {
+  //   const countryData1 = await getJSON(
+  //     `https://restcountries.com/v3.1/name/${c1}`
+  //   );
+  //   const countryData2 = await getJSON(
+  //     `https://restcountries.com/v3.1/name/${c2}`
+  //   );
+
+  //   const countryData3 = await getJSON(
+  //     `https://restcountries.com/v3.1/name/${c3}`
+  //   );
+
+  try {
+    const allData = await Promise.all([
+      getJSON(`https://restcountries.com/v3.1/name/${c1}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c2}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c3}`),
+    ]);
+
+    const capitalCities = allData.map(data => data[0].capital[0]);
+
+    console.log(capitalCities);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getCapital('finland', 'turkey', 'italy');
