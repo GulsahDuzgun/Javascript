@@ -482,7 +482,7 @@ order();
 
 ///////////////////////////////////////
 // Running Promises in Parallel
-/* */
+/* 
 
 function getJSON(url, errMess = 'Something went wrong') {
   return fetch(url).then(res => {
@@ -521,3 +521,30 @@ const getCapital = async function (c1, c2, c3) {
 };
 
 getCapital('finland', 'turkey', 'italy');
+*/
+
+const timeOut = async function (sec) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      reject(new Error('Request took too long'));
+    }, sec * 1000);
+  });
+};
+
+const getJSON = async function (url) {
+  return fetch(url)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("Data can't fetch from API");
+      }
+      return res.json();
+    })
+    .catch(err => console.log(err.message));
+};
+
+Promise.race([
+  getJSON(`https://restcountries.com/v3.1/name/finland`),
+  timeOut(0.02),
+])
+  .then(res => console.log(res))
+  .catch(err => console.log(err.message));
