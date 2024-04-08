@@ -1,12 +1,13 @@
 ///////////////////////////////////////
 //
 /**/
-import cloneObj from './node_modules/lodash-es/cloneDeep.js';
+import cloneObj from 'lodash-es';
+import { age, addToCart, ct, shippingCost as sCost } from './shoppingCard.js';
 
 const state = {
   cart: [
     { product: 'pizza', quantity: 3 },
-    { product: 'bread', quantity: 7 },
+    { product: 'bread', quantity: 2 },
   ],
   user: { loggedIn: true },
 };
@@ -16,10 +17,22 @@ const newObj2 = cloneObj(state);
 
 state.user.loggedIn = false;
 newObj.cart[0].quantity = 3;
-newObj2.cart[1].quantity = 12;
+newObj2.cart[2].quantity = 3;
 console.log(newObj);
 console.log(newObj2);
+
 console.log(state);
+
+console.log('Import module');
+console.log(age);
+console.log(sCost);
+console.log(ct);
+
+addToCart('bread', 7);
+
+if (module.hot) {
+  module.hot.accept();
+}
 
 ///////////////////////////////////////
 //Common.js Modules
