@@ -1,8 +1,22 @@
 import add from './shoppingCard.js';
 
 ///////////////////////////////////////
-//The Module Pattern
+//Common.js Modules
 /* */
+
+//Export with CommonJS
+export.addToCart = function (product, quantity) {
+  cart.push({ product, quantity });
+  console.log(`${quantity} ${product} added to cart (${totalPrice})`);
+};
+
+//import with CommonJS
+const {addToCart} = require('./shoppingCard.js')
+
+
+///////////////////////////////////////
+//The Module Pattern
+/* 
 
 const shoppingCard2 = (function () {
   const cart = [];
@@ -33,6 +47,7 @@ shoppingCard2.addToCart('egg', 3);
 console.log(shoppingCard2.cart);
 console.log(shoppingCard2.totalPrice);
 console.log(shoppingCard2);
+*/
 
 ///////////////////////////////////////
 //Top-Level await
