@@ -53,5 +53,7 @@
   > - _After parsing these modules asynchronously downloading from the server. When module arrives then it is parsed and the module exports are linked to the import value in html file. and this connection is a life connection. Exported values are not copied to imports. Instead, the import is basically just a reference to the exported value, like a pointer. When the value changes in the exporting module then the same value also changes in the importing module. And then the code in the imported modules is executed.,_
   > - _When we wnat to export one thing , we use default export otherwise we use Named export is used ,_
   > - _Top-Level await(ES2022) ,_
+  > - _Which benefits do Babel and Parcel provide us?_
+  > - _how to write clean code in Javascript,_
   >
   > #
