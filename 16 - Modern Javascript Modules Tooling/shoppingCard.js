@@ -1,5 +1,13 @@
 console.log('Export Module');
 
+export default function (product, quantity) {
+  cart.push({ product, quantity });
+  console.log(`${quantity} ${product} added to cart`);
+}
+
+///////////////////////////////////////
+//Top-Level await
+/* 
 console.log('Fetch Start');
 const data = await fetch(`https://jsonplaceholder.typicode.com/comments`);
 const jsonData = await data.json();
@@ -15,7 +23,4 @@ console.log(cart);
 
 export { shippingCost, cart as ct };
 
-export default function (product, quantity) {
-  cart.push({ product, quantity });
-  console.log(`${quantity} ${product} added to cart`);
-}
+*/
