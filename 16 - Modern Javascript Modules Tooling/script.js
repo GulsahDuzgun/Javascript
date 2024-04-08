@@ -1,8 +1,29 @@
-import add from './shoppingCard.js';
+///////////////////////////////////////
+//
+/**/
+import cloneObj from './node_modules/lodash-es/cloneDeep.js';
+
+const state = {
+  cart: [
+    { product: 'pizza', quantity: 3 },
+    { product: 'bread', quantity: 7 },
+  ],
+  user: { loggedIn: true },
+};
+
+const newObj = Object.assign({}, state);
+const newObj2 = cloneObj(state);
+
+state.user.loggedIn = false;
+newObj.cart[0].quantity = 3;
+newObj2.cart[1].quantity = 12;
+console.log(newObj);
+console.log(newObj2);
+console.log(state);
 
 ///////////////////////////////////////
 //Common.js Modules
-/* */
+/* 
 
 //Export with CommonJS
 export.addToCart = function (product, quantity) {
@@ -12,7 +33,7 @@ export.addToCart = function (product, quantity) {
 
 //import with CommonJS
 const {addToCart} = require('./shoppingCard.js')
-
+*/
 
 ///////////////////////////////////////
 //The Module Pattern
