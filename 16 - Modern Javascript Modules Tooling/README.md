@@ -51,6 +51,6 @@
 - _Imports gets needed to happen at top level. Imports are hoisted.,_
 - _Modules are hoisted and then imported synchronously while the module parsing. This makes easy to delete code not even necessary. So by knowing all dependencies between modules before execution bundlers like webpack and Parcel can then join multiple modules together and eliminate code that why we can only import and export outside of any code like function or an if block.,_
   > - _After parsing these modules asynchronously downloading from the server. When module arrives then it is parsed and the module exports are linked to the import value in html file. and this connection is a life connection. Exported values are not copied to imports. Instead, the import is basically just a reference to the exported value, like a pointer. When the value changes in the exporting module then the same value also changes in the importing module. And then the code in the imported modules is executed.,_
-  > - _Named export ,_
+  > - _When we wnat to export one thing , we use default export otherwise we use Named export is used ,_
   >
   > #
