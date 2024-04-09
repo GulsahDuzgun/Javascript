@@ -19,7 +19,7 @@ const spendingLimits = Object.freeze({
 spendingLimits.jay = 300;
 console.log(spendingLimits);
 
-const getLimit = user => spendingLimits?.[user] ?? 0;
+const getLimit = (user, limits) => limits?.[user] ?? 0;
 
 const addExpense = function (
   budget,
@@ -31,7 +31,7 @@ const addExpense = function (
   const copyUser = user.toLowerCase();
 
   // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
-  return value <= getLimit(copyUser)
+  return value <= getLimit(copyUser, spendingLimits)
     ? [...budget, { value: -value, description, user }]
     : budget;
 };
@@ -49,12 +49,22 @@ const newBudget2 = addExpense(
 const newBudget3 = addExpense(newBudget2, spendingLimits, 200, 'Stuff', 'Jay');
 console.log(newBudget3);
 
-const checkExpense = function () {
-  for (const entry of budget)
-    if (entry.value < -getLimit(entry.user)) entry.flag = 'limit';
+const checkExpense = function (data, limits) {
+  // return data.map(entry => {
+  //   return entry.value < -getLimit(entry.user, limits)
+  //     ? { ...entry, flag: 'limit' }
+  //     : entry;
+  // });
+
+  return data.map(entry =>
+    entry.value < -getLimit(entry.user, limits)
+      ? { ...entry, flag: 'limit' }
+      : entry
+  );
 };
 
-checkExpense();
+const finalArr = checkExpense(newBudget3, spendingLimits);
+console.log('www', finalArr);
 
 const logBigExpenses = function (bigLimit) {
   let output = '';
