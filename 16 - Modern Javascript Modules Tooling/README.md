@@ -55,5 +55,10 @@
   > - _Top-Level await(ES2022) ,_
   > - _Which benefits do Babel and Parcel provide us?_
   > - _how to write clean code in Javascript,_
+  > - _There are two different paradigms in Javascript. Imperative and declarative. Imperative paradigm explains "How to do things?". We explain the computer every single step it has to follow to achieve a result. Declarative paradigm tells what to do. We simply describe the way the computer should achieve the result. ,_
+  > - _**What is Functional Programming?** It is a declarative programming paradigm and it is based on the idea of writing software by combining multiple so called pure functions while avoiding side effects and mutating data. ,_
+  > - _Side effects: Modification(mutation) of any data outside of the function. ,_
+  > - _Pure function: Function without side effects. Does not depend on external variables. Given the same inputs always retuns the same outputs. ,_
+  > - _Immutability: State(data) is never modified. Instead, state is copied and the copy is mutated and returned. It makes it so much easier to keep track of how the data flows through our entire application. ,_
   >
   > #
