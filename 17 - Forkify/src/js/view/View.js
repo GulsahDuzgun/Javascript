@@ -2,15 +2,16 @@ import icons from '../../img/icons.svg';
 
 export default class View {
   renderMarkUp(data) {
-    this._data = data;
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderErrMessage();
 
-    this._clear();
+    this._data = data;
 
     const markup = this._generateHTML();
+    this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
+
   _clear() {
     this._parentElement.innerHTML = '';
   }

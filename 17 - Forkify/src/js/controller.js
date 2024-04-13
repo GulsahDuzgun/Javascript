@@ -32,16 +32,22 @@ const controlSearch = async function () {
     if (!query) return;
 
     await model.loadSearchResult(query);
-    resultViewObj.renderMarkUp(model.getSearchResultPage(1));
+    resultViewObj.renderMarkUp(model.getSearchResultPage());
     paginationViewObj.renderMarkUp(model.state.search);
   } catch (err) {
     resultViewObj.renderErrMessage();
   }
 };
 
+const controlPagination = function (goToPage) {
+  resultViewObj.renderMarkUp(model.getSearchResultPage(goToPage));
+  paginationViewObj.renderMarkUp(model.state.search);
+};
+
 const init = function () {
   renderViewObj.addHandlerRender(controlRecipes);
   searchViewObj.addHandlerSearch(controlSearch);
+  paginationViewObj.addHandlerClick(controlPagination);
 };
 
 init();
