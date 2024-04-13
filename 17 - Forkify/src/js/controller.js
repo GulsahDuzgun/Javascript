@@ -5,6 +5,10 @@ import renderViewObj from './view/recipeView';
 import searchViewObj from './view/searchView.js';
 import resultViewObj from './view/resultView.js';
 
+// if (module.hot) {
+//   module.hot.accept();
+// }
+
 const controlRecipes = async function () {
   try {
     renderViewObj.renderSpinner();
@@ -27,7 +31,8 @@ const controlSearch = async function () {
     if (!query) return;
 
     await model.loadSearchResult(query);
-    resultViewObj.renderMarkUp(model.state.search.searchResults);
+    console.log(model.getSearchResultPage(6));
+    resultViewObj.renderMarkUp(model.getSearchResultPage(6));
   } catch (err) {
     resultViewObj.renderErrMessage();
   }
