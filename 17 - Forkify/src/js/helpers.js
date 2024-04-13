@@ -1,4 +1,3 @@
-import { API_URL } from './config';
 import { TIMEOUT_SEC } from './config';
 
 const timeOut = function (s) {
@@ -11,13 +10,9 @@ const timeOut = function (s) {
   });
 };
 
-export const getJSON = async function (id) {
+export const getJSON = async function (url) {
   try {
-    const res = await Promise.race([
-      fetch(`${API_URL}/${id}`),
-      timeOut(TIMEOUT_SEC),
-    ]);
-    console.log(res);
+    const res = await Promise.race([fetch(`${url}`), timeOut(TIMEOUT_SEC)]);
     const data = await res.json();
 
     if (!res.ok) throw new Error(`${res.status}:  ${data.message}`);

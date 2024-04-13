@@ -2,6 +2,7 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import * as model from './model';
 import renderViewObj from './view/recipeView';
+import searchViewObj from './view/searchView.js';
 
 const controlRecipes = async function () {
   try {
@@ -18,8 +19,19 @@ const controlRecipes = async function () {
   }
 };
 
+const controlSearch = async function () {
+  try {
+    const query = searchViewObj.getQueryKey();
+    if (!query) return;
+
+    await model.loadSearchResult(query);
+    console.log(model.state);
+  } catch (err) {}
+};
+
 const init = function () {
   renderViewObj.addHandlerRender(controlRecipes);
+  searchViewObj.addHandlerSearch(controlSearch);
 };
 
 init();
