@@ -3,7 +3,7 @@ import 'regenerator-runtime/runtime';
 import * as model from './model';
 import renderViewObj from './view/recipeView';
 
-const renderRecipe = async function () {
+const controlRecipes = async function () {
   try {
     renderViewObj.renderSpinner();
     const id = window.location.hash.slice(1);
@@ -18,4 +18,8 @@ const renderRecipe = async function () {
   }
 };
 
-['hashchange', 'load'].forEach(ev => window.addEventListener(ev, renderRecipe));
+const init = function () {
+  renderViewObj.addHandlerRender(controlRecipes);
+};
+
+init();

@@ -590,7 +590,7 @@ var _runtime = require("regenerator-runtime/runtime");
 var _model = require("./model");
 var _recipeView = require("./view/recipeView");
 var _recipeViewDefault = parcelHelpers.interopDefault(_recipeView);
-const renderRecipe = async function() {
+const controlRecipes = async function() {
     try {
         (0, _recipeViewDefault.default).renderSpinner();
         const id = window.location.hash.slice(1);
@@ -602,10 +602,10 @@ const renderRecipe = async function() {
         alert(err.message);
     }
 };
-[
-    "hashchange",
-    "load"
-].forEach((ev)=>window.addEventListener(ev, renderRecipe));
+const init = function() {
+    (0, _recipeViewDefault.default).addHandlerRender(controlRecipes);
+};
+init();
 
 },{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./model":"Y4A21","./view/recipeView":"7Olh7"}],"49tUX":[function(require,module,exports) {
 "use strict";
@@ -2549,6 +2549,13 @@ class RecipeView {
   </div>`;
         this.#parentElement.innerHTML = "";
         this.#parentElement.insertAdjacentHTML("afterbegin", spinner);
+    }
+    addHandlerRender(handler) {
+        //publisher
+        [
+            "hashchange",
+            "load"
+        ].forEach((ev)=>window.addEventListener(ev, handler));
     }
     #clear() {
         this.#parentElement.innerHTML = "";
