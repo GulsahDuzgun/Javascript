@@ -599,7 +599,7 @@ const controlRecipes = async function() {
         const { recipe } = _model.state;
         (0, _recipeViewDefault.default).renderMarkUp(recipe);
     } catch (err) {
-        alert(err.message);
+        (0, _recipeViewDefault.default).renderErrMessage();
     }
 };
 const init = function() {
@@ -2483,8 +2483,7 @@ const loadRecipe = async function(id) {
         };
         console.log(recipe);
     } catch (err) {
-        alert(err.message);
-        console.log(err);
+        throw err;
     }
 };
 
@@ -2509,10 +2508,8 @@ const getJSON = async function(id) {
         console.log(res);
         const data = await res.json();
         if (!res.ok) throw new Error(`${res.status}:  ${data.message}`);
-        console.log(data);
         return data;
     } catch (err) {
-        console.log(err);
         throw err;
     }
 };
@@ -2534,6 +2531,8 @@ var _index = require("../../../node_modules/fractional/index");
 class RecipeView {
     #parentElement = document.querySelector(".recipe");
     #data;
+    #errMessage = " We couldn't find that recipe. Please try another one!";
+    #succMessage = "";
     renderMarkUp(data) {
         this.#data = data;
         this.#clear();
@@ -2549,6 +2548,32 @@ class RecipeView {
   </div>`;
         this.#parentElement.innerHTML = "";
         this.#parentElement.insertAdjacentHTML("afterbegin", spinner);
+    }
+    renderErrMessage(message = this.#errMessage) {
+        const errMarkUp = `
+    <div class="error">
+      <div>
+        <svg>
+          <use href="src/img/${(0, _iconsSvgDefault.default)}#icon-alert-triangle"></use>
+        </svg>
+      </div>
+      <p>${message}</p>
+    </div>`;
+        this.#clear();
+        this.#parentElement.insertAdjacentHTML("afterbegin", errMarkUp);
+    }
+    renderSuccMessage(message = this.#succMessage) {
+        const errMarkUp = `
+    <div class="message">
+      <div>
+        <svg>
+          <use href="src/img/${(0, _iconsSvgDefault.default)}#icon-smile"></use>
+        </svg>
+      </div>
+      <p>${message}</p>
+    </div>`;
+        this.#clear();
+        this.#parentElement.insertAdjacentHTML("afterbegin", errMarkUp);
     }
     addHandlerRender(handler) {
         //publisher

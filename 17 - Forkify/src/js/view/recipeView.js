@@ -4,6 +4,8 @@ import { _, Fraction } from '../../../node_modules/fractional/index';
 class RecipeView {
   #parentElement = document.querySelector('.recipe');
   #data;
+  #errMessage = " We couldn't find that recipe. Please try another one!";
+  #succMessage = '';
 
   renderMarkUp(data) {
     this.#data = data;
@@ -22,6 +24,36 @@ class RecipeView {
   </div>`;
     this.#parentElement.innerHTML = '';
     this.#parentElement.insertAdjacentHTML('afterbegin', spinner);
+  }
+
+  renderErrMessage(message = this.#errMessage) {
+    const errMarkUp = `
+    <div class="error">
+      <div>
+        <svg>
+          <use href="src/img/${icons}#icon-alert-triangle"></use>
+        </svg>
+      </div>
+      <p>${message}</p>
+    </div>`;
+
+    this.#clear();
+    this.#parentElement.insertAdjacentHTML('afterbegin', errMarkUp);
+  }
+
+  renderSuccMessage(message = this.#succMessage) {
+    const errMarkUp = `
+    <div class="message">
+      <div>
+        <svg>
+          <use href="src/img/${icons}#icon-smile"></use>
+        </svg>
+      </div>
+      <p>${message}</p>
+    </div>`;
+
+    this.#clear();
+    this.#parentElement.insertAdjacentHTML('afterbegin', errMarkUp);
   }
 
   addHandlerRender(handler) {
