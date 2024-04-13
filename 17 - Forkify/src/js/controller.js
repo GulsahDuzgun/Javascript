@@ -4,6 +4,7 @@ import * as model from './model';
 import renderViewObj from './view/recipeView';
 import searchViewObj from './view/searchView.js';
 import resultViewObj from './view/resultView.js';
+import paginationViewObj from './view/paginationView.js';
 
 // if (module.hot) {
 //   module.hot.accept();
@@ -31,8 +32,8 @@ const controlSearch = async function () {
     if (!query) return;
 
     await model.loadSearchResult(query);
-    console.log(model.getSearchResultPage(6));
-    resultViewObj.renderMarkUp(model.getSearchResultPage(6));
+    resultViewObj.renderMarkUp(model.getSearchResultPage(1));
+    paginationViewObj.renderMarkUp(model.state.search);
   } catch (err) {
     resultViewObj.renderErrMessage();
   }
