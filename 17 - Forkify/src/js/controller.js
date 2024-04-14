@@ -1,7 +1,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import * as model from './model';
-import renderViewObj from './view/recipeView';
+import recipeViewObj from './view/recipeView';
 import searchViewObj from './view/searchView.js';
 import resultViewObj from './view/resultView.js';
 import paginationViewObj from './view/paginationView.js';
@@ -12,16 +12,15 @@ import paginationViewObj from './view/paginationView.js';
 
 const controlRecipes = async function () {
   try {
-    renderViewObj.renderSpinner();
+    recipeViewObj.renderSpinner();
     const id = window.location.hash.slice(1);
 
     if (!id) return; //guard
     await model.loadRecipe(id);
-
     const { recipe } = model.state;
-    renderViewObj.renderMarkUp(recipe);
+    recipeViewObj.renderMarkUp(recipe);
   } catch (err) {
-    renderViewObj.renderErrMessage();
+    recipeViewObj.renderErrMessage();
   }
 };
 
@@ -44,10 +43,16 @@ const controlPagination = function (goToPage) {
   paginationViewObj.renderMarkUp(model.state.search);
 };
 
+const controlServings = function (newServings) {
+  model.updateServings(newServings);
+  recipeViewObj.renderMarkUp(model.state.recipe);
+};
+
 const init = function () {
-  renderViewObj.addHandlerRender(controlRecipes);
+  recipeViewObj.addHandlerRender(controlRecipes);
   searchViewObj.addHandlerSearch(controlSearch);
   paginationViewObj.addHandlerClick(controlPagination);
+  recipeViewObj.addHandlerUpdateServings(controlServings);
 };
 
 init();
