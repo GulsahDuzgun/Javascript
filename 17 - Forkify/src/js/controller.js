@@ -19,6 +19,7 @@ const controlRecipes = async function () {
     await model.loadRecipe(id);
     const { recipe } = model.state;
     recipeViewObj.renderMarkUp(recipe);
+    resultViewObj.update(model.getSearchResultPage());
   } catch (err) {
     recipeViewObj.renderErrMessage();
   }

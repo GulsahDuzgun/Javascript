@@ -8,11 +8,14 @@ class ResultView extends View {
   }
 
   _generateResultHTML() {
+    const activeID = window.location.hash.slice(1);
     return this._data
       .map(entry => {
         return `
       <li class="preview">
-      <a class="preview__link" href="#${entry.id}">
+      <a class="preview__link ${
+        activeID === entry.id ? 'preview__link--active' : ''
+      } " href="#${entry.id}">
         <figure class="preview__fig">
           <img src="${entry.img}" alt="Test" />
         </figure>
