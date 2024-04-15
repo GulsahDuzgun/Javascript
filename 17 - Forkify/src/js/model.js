@@ -80,6 +80,7 @@ export const addBookmark = function (recipe) {
     state.bookMarks.push(recipe);
     state.recipe.bookmarked = true;
   }
+  persistBookmarks();
 };
 
 export const deleteBookmark = function (id) {
@@ -87,4 +88,26 @@ export const deleteBookmark = function (id) {
   state.bookMarks.splice(index, 1);
 
   if (state.recipe.id === id) state.recipe.bookmarked = false;
+  persistBookmarks();
 };
+
+const persistBookmarks = function () {
+  localStorage.setItem('bookmarks', JSON.stringify(state.bookMarks));
+  console.log('add local');
+};
+
+const init = function () {
+  const storage = localStorage.getItem('bookmarks');
+  if (!storage) return;
+
+  state.bookMarks = JSON.parse(storage);
+  console.log(state.bookMarks);
+};
+
+init();
+
+const clearStorageBookmarks = function () {
+  localStorage.clear('bookmarks');
+};
+
+// clearStorageBookmarks();

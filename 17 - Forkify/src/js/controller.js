@@ -6,6 +6,7 @@ import searchViewObj from './view/searchView.js';
 import resultViewObj from './view/resultView.js';
 import paginationViewObj from './view/paginationView.js';
 import bookmarkViewObj from './view/bookmarksView.js';
+import bookmarksView from './view/bookmarksView.js';
 
 // if (module.hot) {
 //   module.hot.accept();
@@ -63,12 +64,17 @@ const controlAddBookmark = function () {
   bookmarkViewObj.renderMarkUp(model.state.bookMarks);
 };
 
+const controlUpdateBookmarks = function () {
+  bookmarkViewObj.renderMarkUp(model.state.bookMarks);
+};
+
 const init = function () {
   recipeViewObj.addHandlerRender(controlRecipes);
   searchViewObj.addHandlerSearch(controlSearch);
   paginationViewObj.addHandlerClick(controlPagination);
   recipeViewObj.addHandlerUpdateServings(controlServings);
   recipeViewObj.addHandlerAddBookmark(controlAddBookmark);
+  bookmarkViewObj.addHandlerUpdateBookmarks(controlUpdateBookmarks);
 };
 
 init();
