@@ -5,6 +5,7 @@ import recipeViewObj from './view/recipeView';
 import searchViewObj from './view/searchView.js';
 import resultViewObj from './view/resultView.js';
 import paginationViewObj from './view/paginationView.js';
+import bookmarkViewObj from './view/bookmarksView.js';
 
 // if (module.hot) {
 //   module.hot.accept();
@@ -18,8 +19,10 @@ const controlRecipes = async function () {
     if (!id) return; //guard
     await model.loadRecipe(id);
     const { recipe } = model.state;
+
     recipeViewObj.renderMarkUp(recipe);
     resultViewObj.update(model.getSearchResultPage());
+    bookmarkViewObj.update(model.state.bookMarks);
   } catch (err) {
     recipeViewObj.renderErrMessage();
   }
@@ -57,6 +60,7 @@ const controlAddBookmark = function () {
     model.addBookmark(model.state.recipe);
   }
   recipeViewObj.update(model.state.recipe);
+  bookmarkViewObj.renderMarkUp(model.state.bookMarks);
 };
 
 const init = function () {
