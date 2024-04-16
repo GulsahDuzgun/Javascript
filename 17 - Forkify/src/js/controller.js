@@ -84,6 +84,8 @@ const controlAddRecipe = async function (data) {
     }, MODAL_CLOSE_SEC * 1000);
 
     recipeViewObj.renderMarkUp(model.state.recipe);
+
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
   } catch (err) {
     addRecipeView.renderErrMessage(err.message);
   }

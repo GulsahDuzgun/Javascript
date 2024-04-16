@@ -2,6 +2,7 @@ import icons from '../../img/icons.svg';
 
 import { _, Fraction } from '../../../node_modules/fractional/index';
 import View from './View';
+import { API_KEY } from '../config';
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
@@ -77,10 +78,13 @@ class RecipeView extends View {
             </div>
           </div>
 
-          <div class="recipe__user-generated">
-            <svg>
-            </svg>
-          </div>
+          <div class="recipe__user-generated ${
+            API_KEY !== this._data.key ? 'hidden' : ''
+          }">
+          <svg>
+            <use href="${icons}#icon-user"></use>
+          </svg>
+        </div>
           <button class="btn--round  btn--bookmark ">
             <svg class="">
               <use href="${icons}#icon-bookmark${
