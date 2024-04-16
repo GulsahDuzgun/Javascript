@@ -15,7 +15,6 @@ import { MODAL_CLOSE_SEC } from './config.js';
 
 const controlRecipes = async function () {
   try {
-    recipeViewObj.renderSpinner();
     const id = window.location.hash.slice(1);
 
     if (!id) return; //guard
