@@ -7,6 +7,7 @@ import resultViewObj from './view/resultView.js';
 import paginationViewObj from './view/paginationView.js';
 import bookmarkViewObj from './view/bookmarksView.js';
 import addRecipeView from './view/addRecipeView.js';
+import { MODAL_CLOSE_SEC } from './config.js';
 
 // if (module.hot) {
 //   module.hot.accept();
@@ -70,7 +71,19 @@ const controlUpdateBookmarks = function () {
 
 const controlAddRecipe = async function (data) {
   try {
+    addRecipeView.renderSpinner();
+
     await model.uploadRecipe(data);
+
+    bookmarkViewObj.renderMarkUp(model.state.bookMarks);
+
+    addRecipeView.renderSuccMessage();
+
+    setTimeout(function () {
+      addRecipeView.toggleWindow();
+    }, MODAL_CLOSE_SEC * 1000);
+
+    recipeViewObj.renderMarkUp(model.state.recipe);
   } catch (err) {
     addRecipeView.renderErrMessage(err.message);
   }

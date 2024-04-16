@@ -1,6 +1,6 @@
 import { async } from 'regenerator-runtime';
-import { getJSON } from './helpers';
-import { API_URL, RES_PER_PAGE } from './config';
+import { getJSON, sendJSON } from './helpers';
+import { API_URL, RES_PER_PAGE, API_KEY } from './config';
 
 export const state = {
   recipe: {},
@@ -13,21 +13,25 @@ export const state = {
   bookMarks: [],
 };
 
+const createRecipeObject = function (data) {
+  let { recipe } = data.data;
+
+  return {
+    id: recipe.id,
+    servings: recipe.servings,
+    title: recipe.title,
+    publisher: recipe.publisher,
+    ingredients: recipe.ingredients,
+    sourceUrl: recipe.source_url,
+    img: recipe.image_url,
+    cookingTime: recipe.cooking_time,
+  };
+};
+
 export const loadRecipe = async function (id) {
   try {
     const data = await getJSON(`${API_URL}${id}`);
-    let { recipe } = data.data;
-
-    state.recipe = {
-      id: recipe.id,
-      servings: recipe.servings,
-      title: recipe.title,
-      publisher: recipe.publisher,
-      ingredients: recipe.ingredients,
-      sourceUrl: recipe.source_url,
-      img: recipe.image_url,
-      cookingTime: recipe.cooking_time,
-    };
+    state.recipe = createRecipeObject(data);
 
     if (state.bookMarks.some(bookmark => bookmark.id === id)) {
       state.recipe.bookmarked = true;
@@ -93,7 +97,6 @@ export const deleteBookmark = function (id) {
 
 const persistBookmarks = function () {
   localStorage.setItem('bookmarks', JSON.stringify(state.bookMarks));
-  console.log('add local');
 };
 
 const init = function () {
@@ -111,9 +114,9 @@ const clearStorageBookmarks = function () {
 
 // clearStorageBookmarks();
 
-export const uploadRecipe = async function (data) {
+export const uploadRecipe = async function (newRecipe) {
   try {
-    const ingredients = Object.entries(data)
+    const ingredients = Object.entries(newRecipe)
       .filter(el => el[0].includes('ingredient-') && el[1] !== '')
       .map(ing => {
         const ingArr = ing[1].replaceAll(' ', '').split(',');
@@ -123,15 +126,22 @@ export const uploadRecipe = async function (data) {
           );
 
         const [quantity, unit, description] = ingArr;
-
-        console.log({
-          quantity: quantity ? +quantity : null,
-          unit,
-          description,
-        });
         return { quantity: quantity ? +quantity : null, unit, description };
       });
-    console.log(ingredients);
+
+    const recipe = {
+      title: newRecipe.title,
+      source_url: newRecipe.sourceUrl,
+      image_url: newRecipe.image,
+      publisher: newRecipe.publisher,
+      cooking_time: +newRecipe.cookingTime,
+      servings: +newRecipe.servings,
+      ingredients,
+    };
+
+    const data = await sendJSON(`${API_URL}?key=${API_KEY}`, recipe);
+    state.recipe = createRecipeObject(data);
+    addBookmark(state.recipe);
   } catch (err) {
     throw err;
   }
