@@ -110,3 +110,29 @@ const clearStorageBookmarks = function () {
 };
 
 // clearStorageBookmarks();
+
+export const uploadRecipe = async function (data) {
+  try {
+    const ingredients = Object.entries(data)
+      .filter(el => el[0].includes('ingredient-') && el[1] !== '')
+      .map(ing => {
+        const ingArr = ing[1].replaceAll(' ', '').split(',');
+        if (ingArr.length !== 3)
+          throw new Error(
+            'Wrong ingredient format! Please use the correct format'
+          );
+
+        const [quantity, unit, description] = ingArr;
+
+        console.log({
+          quantity: quantity ? +quantity : null,
+          unit,
+          description,
+        });
+        return { quantity: quantity ? +quantity : null, unit, description };
+      });
+    console.log(ingredients);
+  } catch (err) {
+    throw err;
+  }
+};
