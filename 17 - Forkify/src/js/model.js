@@ -101,7 +101,6 @@ const init = function () {
   if (!storage) return;
 
   state.bookMarks = JSON.parse(storage);
-  console.log(state.bookMarks);
 };
 
 init();
