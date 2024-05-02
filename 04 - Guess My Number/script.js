@@ -22,7 +22,7 @@ const displayMessage = function (message) {
 btnCheck.addEventListener('click', function () {
   const checkVal = Number(checkBox.value);
 
-  if (!checkVal) {
+  if (!checkVal || checkVal > 20 || checkVal < 0) {
     displayMessage('No number 🤡');
   } else if (checkVal === secretNum) {
     displayMessage('Congratulations 🎉');
