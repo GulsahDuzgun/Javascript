@@ -282,8 +282,6 @@ Netlify for hosting the web application.
 
 ## [12 - Advanced-DOM-Bankist]
 
-### What did I learn while coding this project ?
-
 > #
 >
 > - _**What is the DOM?** DOM is basically the interface between all Javascript code and the browser. DOM is HTML documents are rendered in and by browser.,_
@@ -324,7 +322,7 @@ Netlify for hosting the web application.
 > - _When we define the script tag with defer attribute, scripts are fetched asynchronously and executed after the HTML is completely parsed. DOMContentLoaded event fires after defer script is executed. Scripts are executed in order. This is the best solution when order matters! ,_
 >
 > <br>
->   <img src="./ReadME__img/12 - Advanced-DOM-Bankist/defer-async.png
+>   <img src="./ReadME__img/12 - Advanced-DOM-Bankist/defer-async.png"/>
 > <br>
 >
 > #
