@@ -278,6 +278,31 @@ Netlify for hosting the web application.
 >
 > #
 
+## What is Bank Statement project?
+
+Bank Statement is a website hosted on Netlify. While I was coding the Bank Statement project, I practice usage of the features which is mentioned 10 - Arrays and 11 - Numbers-Dates-Timers. You can send money, request loan or close your own account. You can login with js-1111 or jd-2222 as user-pin pair. Watch out the timer below the page😉. You can try by clicking <strong>[ Bank Statement ](https://bank-statement-gldn.netlify.app//)</strong>.
+
+#### Technologies Used:
+
+- HTML, CSS, JavaScript for front-end development.
+- Netlify for hosting the web application.
+
+ <br/> 
+   <img src="./ReadME__img/10-11 -  Bank Statement/bankStatement--1.png" alt="Bank Statement">
+<br/>
+ <br/> 
+   <img src="./ReadME__img/10-11 -  Bank Statement/bankStatement--2.png" alt="Bank Statement">
+<br/>
+ <br/> 
+   <img src="./ReadME__img/10-11 -  Bank Statement/bankStatement--3.png" alt="Bank Statement">
+<br/>
+ <br/> 
+   <img src="./ReadME__img/10-11 -  Bank Statement/bankStatement--4.png" alt="Bank Statement">
+<br/>
+ <br/> 
+   <img src="./ReadME__img/10-11 -  Bank Statement/bankStatement--5.png" alt="Bank Statement">
+<br/>
+
  <br>
 
 ## [12 - Advanced-DOM-Bankist]
@@ -393,6 +418,24 @@ lazy loading while fetching images, DOMContentLoaded event and above features. Y
 > #
 
 <br/>
+
+## [14 - Mapty]
+
+Mapty is a website hosted on Netlify. You can keep your sport activity registered and also you can describe its type as running or cycling. When you allow the browser and it loads the map, you can click the map. If you click the map, the form will be opened and Mapty will calculate the speed or the pace value acording to your sport type. If you cliked an activity in your list, the map will display that location. You can try by clicking <strong>[ Mapty ](https://mapty-gldn.netlify.app/)</strong>.
+
+#### Technologies Used:
+
+- HTML, CSS, JavaScript, Leaflet library for front-end development.
+- Netlify for hosting the web application.
+
+ <br/> 
+   <img src="./ReadME__img//14 -Mapty/mapty--1.png" alt="Mapty">
+<br/>
+ <br/> 
+   <img src="./ReadME__img//14 -Mapty/mapty--2.png" alt="Mapty">
+<br/>
+
+ <br>
 
 ## [15 - Asynchronous]
 
