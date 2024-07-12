@@ -1,3 +1,34 @@
+## Bankist
+
+Bankist is a website hosted on Netlify. While I was coding the Bankist project, I practice usage of Observer API,
+lazy loading while fetching images, DOMContentLoaded event and above features. You can try by clicking <strong>[Bankist ](https://bankist-gldn.netlify.app/)</strong>
+
+#### Technologies Used:
+
+- HTML, CSS, JavaScript for front-end development.
+- Netlify for hosting the web application.
+
+ <br/> 
+   <img src="../ReadME__img/12 - Advanced-DOM-Bankist/bankist--1.png" alt="Bankist">
+<br/>
+ <br/> 
+   <img src="../ReadME__img/12 - Advanced-DOM-Bankist/bankist--2.png" alt="Bankist">
+<br/>
+ <br/> 
+   <img src="../ReadME__img/12 - Advanced-DOM-Bankist/bankist--3.png" alt="Bankist">
+<br/>
+ <br/> 
+   <img src="../ReadME__img/12 - Advanced-DOM-Bankist/bankist--4.png" alt="Bankist">
+<br/>
+ <br/> 
+   <img src="../ReadME__img/12 - Advanced-DOM-Bankist/bankist--5.png" alt="Bankist">
+<br/>
+ <br/> 
+   <img src="../ReadME__img/12 - Advanced-DOM-Bankist/bankist--6.png" alt="Bankist">
+<br/>
+
+<br/>
+
 ### What did I learn while coding this project ?
 
 > #
