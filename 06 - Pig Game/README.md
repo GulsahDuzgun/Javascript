@@ -1,4 +1,4 @@
-## [06 - Pig Game]
+## Pig Game
 
 Pig Game is a web-based implementation of the classic dice game hosted on Netlify. The game will end if someone holds their score untill '20'. Also the active player come across with '1' or want to keep their score then active player will change. If new game button is clicked then the game start over. <strong> [Pig Game](https://pig-game-gldn.netlify.app/)</strong>
 
